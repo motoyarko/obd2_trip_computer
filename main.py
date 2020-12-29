@@ -44,7 +44,7 @@ GET_LONG_L = 0.0
 GET_TIMING = "00.0"
 GET_KNOCK = "00.0"
 GET_TEMP = 0
-GET_FUEL_STATUS = " "
+GET_FUEL_STATUS = ""
 GET_FUEL_LEVEL = "0"
 GET_AFR = "0"
 GET_ACCEL = 0.0
@@ -176,7 +176,7 @@ def get_values():
         cmd = obd.commands.FUEL_STATUS  # select an OBD command (sensor)
         response = connection.query(cmd)  # send the command, and parse the response
         if response.value is not None:
-            GET_FUEL_STATUS = response.value
+            GET_FUEL_STATUS = response.value[0]
 
         cmd = obd.commands.CONTROL_MODULE_VOLTAGE
         response = connection.query(cmd)
@@ -364,9 +364,9 @@ def print_screen(screen_number):
         print_text_topright(140, 250, "{:+.1f}".format(GET_LONG_L), 40, fill=(2, 135, 178))
         print_text_topleft(150, 250, "% LTFT", 40, fill=(2, 135, 178))
 
-        # Print L/h
-        print_text_topright(140, 290, lp100_to_print, 40, fill=(2, 135, 178))
-        print_text_topleft(150, 290, "L/h", 40, fill=(2, 135, 178))
+        # Print MAF
+        print_text_topright(140, 290, "{:+.2f}".format(GET_MAF), 40, fill=(2, 135, 178))
+        print_text_topleft(150, 290, "g/cm^3", 40, fill=(2, 135, 178))
 
         # Print trip L/100
         print_text_topright(140, 330, "{:.1f}".format(LP100), 40, fill=(2, 135, 178))
@@ -390,9 +390,9 @@ def print_screen(screen_number):
         print_text_topleft(500, 330, "C", 40, fill=(2, 135, 178))
         print_text_topright(490, 330, "{:.0f}".format(GET_TEMP), 40, fill=(2, 135, 178))
 
-        # print trip fuel litters
-        print_text_topleft(500, 370, "L", 40, fill=(2, 135, 178))
-        print_text_topright(490, 370, "{:.1f}".format(benz_potracheno), 40, fill=(2, 135, 178))
+        # print fuel status
+        print_text_topleft(500, 370, "fuel status", 40, fill=(2, 135, 178))
+        print_text_topright(490, 370, str(fuel_status), 40, fill=(2, 135, 178))
 
 
 def quit():
@@ -426,10 +426,15 @@ while not done:
 
     #MAF = maf_var;
 
-    if GET_FUEL_STATUS == 2:  # { // если замкнутая обратная связь  - Closed Loop
-        ls_term_val = 100.0 + (long_term_val + short_term_val) / 100.0 # // коэффициент корректировки расхода по ShortTerm и LongTerm
+    if GET_FUEL_STATUS == 'Closed loop, using oxygen sensor feedback to determine fuel mix':
+        fuel_status = 2
+    else:
+        fuel_status = 4
 
-    else :
+    if fuel_status == 2:  # { // если замкнутая обратная связь  - Closed Loop
+        ls_term_val = (100.0 + long_term_val + short_term_val) / 100.0 # // коэффициент корректировки расхода по ShortTerm и LongTerm
+
+    else:
         ls_term_val = (100.0 + long_term_val) / 100.0 # // коэффициент корректировки расхода по LongTerm
 
 
@@ -450,8 +455,8 @@ while not done:
     time_new = time.time()   #// время со старта программы в мс
     time1 = time_new - time_old  # * tcorrect  #// прошло время с последнего расчета скорости, расхода  - в сек
 
-    if time1 > 10:
-        time1 = 0
+    #if time1 > 10:
+    #    time1 = 0
 
     time_old = time_new  #// записать новое время для сравнения в следующем цикле
 
