@@ -455,8 +455,8 @@ while not done:
     time_new = time.time()   #// время со старта программы в мс
     time1 = time_new - time_old  # * tcorrect  #// прошло время с последнего расчета скорости, расхода  - в сек
 
-    #if time1 > 10:
-    #    time1 = 0
+    if time1 > 10:
+        time1 = 0
 
     time_old = time_new  #// записать новое время для сравнения в следующем цикле
 
