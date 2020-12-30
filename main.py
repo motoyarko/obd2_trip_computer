@@ -2,7 +2,7 @@
 
 
 from __future__ import division
-#import time
+# import time
 import threading
 import time
 import sys
@@ -50,27 +50,27 @@ def print_text_topleft(x, y, text, size, fill):
     # font = pygame.font.Font('font/ubuntu/UbuntuMono-B.ttf', size)
     font = pygame.font.Font('font/ds_digital/DS-DIGIB.TTF', size)
     puttext = font.render(text, True, fill)
-    textRect = puttext.get_rect()
-    textRect.topleft = (x, y)
-    screen.blit(puttext, textRect)
+    text_rect = puttext.get_rect()
+    text_rect.topleft = (x, y)
+    screen.blit(puttext, text_rect)
 
 
 def print_text_topright(x, y, text, size, fill):
     # font = pygame.font.Font('font/ubuntu/UbuntuMono-B.ttf', size)
     font = pygame.font.Font('font/ds_digital/DS-DIGIB.TTF', size)
     puttext = font.render(text, True, fill)
-    textRect = puttext.get_rect()
-    textRect.topright = (x, y)
-    screen.blit(puttext, textRect)
+    text_rect = puttext.get_rect()
+    text_rect.topright = (x, y)
+    screen.blit(puttext, text_rect)
 
 
 def print_text_midtop(x, y, text, size, fill):
     # font = pygame.font.Font('font/ubuntu/UbuntuMono-B.ttf', size)
     font = pygame.font.Font('font/ds_digital/DS-DIGIB.TTF', size)
     puttext = font.render(text, True, fill)
-    textRect = puttext.get_rect()
-    textRect.midtop = (x, y)
-    screen.blit(puttext, textRect)
+    text_rect = puttext.get_rect()
+    text_rect.midtop = (x, y)
+    screen.blit(puttext, text_rect)
 
 
 def get_values():
@@ -83,7 +83,7 @@ def get_values():
         if response.value is not None:
             GET_RPM = response.value.magnitude
 
-        cmd = obd.commands.MAF # select an OBD command (sensor)
+        cmd = obd.commands.MAF  # select an OBD command (sensor)
         response = connection.query(cmd)  # send the command, and parse the response
         if response.value is not None:
             GET_MAF = response.value.magnitude
@@ -107,11 +107,6 @@ def get_values():
         response = connection.query(cmd)  # send the command, and parse the response
         if response.value is not None:
             GET_LOAD = response.value.magnitude
-
-        cmd = obd.commands.ABSOLUTE_LOAD  # select an OBD command (sensor)
-        response = connection.query(cmd)  # send the command, and parse the response
-        if response.value is not None:
-            GET_LOAD_ABS = response.value.magnitude
 
         cmd = obd.commands.COOLANT_TEMP  # select an OBD command (sensor)
         response = connection.query(cmd)  # send the command, and parse the response
@@ -169,7 +164,7 @@ def print_screen(screen_number):
         print_text_topright(140, 195, "{:.2f}".format(benz_potracheno), 40, fill=(2, 135, 178))
         print_text_topleft(150, 195, "l", 40, fill=(2, 135, 178))
 
-        ### right side ###
+        # right side first row
 
         # print RPM
         print_text_topleft(500, 30, "rpm", 40, fill=(2, 135, 178))
@@ -191,7 +186,7 @@ def print_screen(screen_number):
         print_text_topleft(500, 195, "L", 40, fill=(2, 135, 178))
         print_text_topright(490, 195, "{:.2f}".format(benz_potracheno), 40, fill=(2, 135, 178))
 
-        ### sensors data ###
+        # sensors data - second row
 
         # Print screen title
         print_text_midtop(400, 235, "SENSORS", 30, fill=(42, 157, 1))
@@ -212,7 +207,7 @@ def print_screen(screen_number):
         print_text_topright(140, 385, "{:.0f}".format(GET_SPEED), 40, fill=(2, 135, 178))
         print_text_topleft(150, 385, "km/h", 40, fill=(2, 135, 178))
 
-        ### right side ###
+        # right side second row
 
         # print RPM
         print_text_topleft(500, 265, "% STFT", 40, fill=(2, 135, 178))
@@ -231,7 +226,7 @@ def print_screen(screen_number):
         print_text_topright(490, 385, "{:.0f}".format(GET_RPM), 40, fill=(2, 135, 178))
 
 
-def quit():
+def quit_app():
     global STOP_GET, STOP_PRINT, STOP_ACCEL
     STOP_GET = 0
     STOP_PRINT = 0
@@ -247,8 +242,7 @@ done = False
 pygame.mouse.set_visible(False)
 
 # connection = obd.OBD("/dev/ttyUSB0")  # auto-connects to USB or RF port
-connection = obd.OBD("COM10") # config for Windows OS
-
+connection = obd.OBD("COM10")  # config for Windows OS
 
 Thread_getValues = threading.Thread(target=get_values)
 Thread_getValues.daemon = False
@@ -265,13 +259,13 @@ while not done:
             else:
                 fuel_status = 4
 
-            if fuel_status == 2:  # { // если замкнутая обратная связь  - Closed Loop
-                ls_term_val = (100.0 + GET_LONG_L + GET_SHORT_L) / 100.0 # коэффициент корректировки расхода по ShortTerm и LongTerm
-            else:
-                ls_term_val = (100.0 + GET_LONG_L) / 100.0 # коэффициент корректировки расхода по LongTerm
+            if fuel_status == 2:  # if Closed Loop
+                ls_term_val = (100.0 + GET_LONG_L + GET_SHORT_L) / 100.0  # fuel correction by ShortTerm and LongTerm
+            else:  # if open loop
+                ls_term_val = (100.0 + GET_LONG_L) / 100.0  # fuel correction trim by LongTerm
 
             FuelFlowGramsPerSecond = (GET_MAF / AirFuelRatio) * ls_term_val  # calculate gram of petrol per second
-            # соотношении 14,7 воздуха/к 1 литра бензина, корректировка ls_term_val
+            # 14,7 air to 1 litter of gas, ls_term_val
             FuelFlowLitersPerSecond = FuelFlowGramsPerSecond / FuelDensityGramsPerLiter  # grams of petrol to litters
             LPH = FuelFlowLitersPerSecond * 3600.0  # Litter per second to litter per hour
 
@@ -292,8 +286,6 @@ while not done:
 
         time_old = time_new  # записать новое время для сравнения в следующем цикле
 
-
-
         benz_add = FuelFlowLitersPerSecond * time1
         benz_potracheno = benz_potracheno + benz_add  # общий расход в литрах
 
@@ -305,7 +297,7 @@ while not done:
 
         if odometer > 0 and time_trip > 0:
             average_speed_trip = odometer / (time_trip / 3600.0)
-            #LP100_inst = (benz_add / odometer_add) * 100.0  # instant fuel consumption
+
     else:
         if GET_SPEED == 0:
             time_start = 0
@@ -320,10 +312,10 @@ while not done:
     for event in pygame.event.get():
         if event.type == pygame.MOUSEBUTTONUP:
             done = True
-            quit()
+            quit_app()
         if event.type == pygame.QUIT:
             done = True
-            quit()
+            quit_app()
 
     screen.fill((0, 20, 0))
     # uncomment for using background image
