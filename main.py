@@ -8,6 +8,7 @@ import time
 import sys
 import obd
 import pygame
+import csv
 
 # uncomment for using background image
 # background_image = pygame.image.load("toyota_logo4.jpg")
@@ -18,19 +19,32 @@ time_start = 0
 time1 = 0
 time_new = 0
 time_old = 0
-time_old_gurnal = 0
-benz_potracheno = 0
-LP100 = 0.0
+#time_old_gurnal = 0
+benz_potracheno_trip = 0
+LP100_trip = 0.0
 LP100_inst = 0.0
-odometer = 0.0
+odometer_trip = 0.0
 odometer_add = 0.0
 AirFuelRatio = 14.70
 FuelDensityGramsPerLiter = 750.0
 average_speed_trip = 0.0
 time_trip = 0
 LPH = 0.0
+LP100_full = 0.0
+odometer_full = 0.0
+benz_potracheno_full = 0.0
+volts_alert = 12.6
+temp_alert = 100.0
+# font = 'font/ds_digital/DS-DIGIB.TTF'
+font_file = 'font/ubuntu/UbuntuMono-B.ttf'
+log_file = 'log.csv'
+time_old_gurnal = 0
+odometer_add_gurnal = 0.0
+benz_add_gurnal = 0.0
+time_add_gurnal = 0.0
 
-CONTROL_MODULE_VOLTAGE = 0.0
+
+#CONTROL_MODULE_VOLTAGE = 0.0
 GET_MAF = 0.0
 GET_RPM = 0
 GET_SPEED = 0.0
@@ -39,6 +53,7 @@ GET_SHORT_L = 0.0
 GET_LONG_L = 0.0
 GET_TEMP = 0
 GET_FUEL_STATUS = ""
+ELM_VOLTAGE = 0.0
 
 # variables for stopping application
 STOP_ACCEL = 1
@@ -47,8 +62,7 @@ STOP_GET = 1
 
 
 def print_text_topleft(x, y, text, size, fill):
-    # font = pygame.font.Font('font/ubuntu/UbuntuMono-B.ttf', size)
-    font = pygame.font.Font('font/ds_digital/DS-DIGIB.TTF', size)
+    font = pygame.font.Font(font_file, size)
     puttext = font.render(text, True, fill)
     text_rect = puttext.get_rect()
     text_rect.topleft = (x, y)
@@ -57,7 +71,7 @@ def print_text_topleft(x, y, text, size, fill):
 
 def print_text_topright(x, y, text, size, fill):
     # font = pygame.font.Font('font/ubuntu/UbuntuMono-B.ttf', size)
-    font = pygame.font.Font('font/ds_digital/DS-DIGIB.TTF', size)
+    font = pygame.font.Font(font_file, size)
     puttext = font.render(text, True, fill)
     text_rect = puttext.get_rect()
     text_rect.topright = (x, y)
@@ -66,7 +80,7 @@ def print_text_topright(x, y, text, size, fill):
 
 def print_text_midtop(x, y, text, size, fill):
     # font = pygame.font.Font('font/ubuntu/UbuntuMono-B.ttf', size)
-    font = pygame.font.Font('font/ds_digital/DS-DIGIB.TTF', size)
+    font = pygame.font.Font(font_file, size)
     puttext = font.render(text, True, fill)
     text_rect = puttext.get_rect()
     text_rect.midtop = (x, y)
@@ -75,7 +89,7 @@ def print_text_midtop(x, y, text, size, fill):
 
 def get_values():
     global GET_FUEL_STATUS, GET_TEMP, GET_RPM, GET_SPEED, GET_LOAD, GET_SHORT_L, GET_LONG_L, GET_MAF, \
-        CONTROL_MODULE_VOLTAGE
+        CONTROL_MODULE_VOLTAGE, ELM_VOLTAGE
 
     while STOP_GET:
         cmd = obd.commands.RPM  # select an OBD command (sensor)
@@ -118,10 +132,10 @@ def get_values():
         if response.value is not None:
             GET_FUEL_STATUS = response.value[0]
 
-        cmd = obd.commands.CONTROL_MODULE_VOLTAGE
+        cmd = obd.commands.ELM_VOLTAGE
         response = connection.query(cmd)
         if response.value is not None:
-            CONTROL_MODULE_VOLTAGE = response.value.magnitude
+            ELM_VOLTAGE = response.value.magnitude
 
 
 def print_fuel_status_string():
@@ -133,35 +147,35 @@ def print_screen(screen_number):
     if screen_number is 0:
 
         # Print screen title
-        print_text_topleft(150, 0, "trip odometer", 30, fill=(42, 157, 1))
-        print_text_topleft(500, 0, "odometer", 30, fill=(42, 157, 1))
-
-        # Print av speed
-        print_text_topright(140, 30, "{:.1f}".format(average_speed_trip), 40, fill=(2, 135, 178))
-        print_text_topleft(150, 30, "km/h av", 40, fill=(2, 135, 178))
+        print_text_midtop(150, 0, "trip odometer", 30, fill=(42, 157, 1))
+        print_text_midtop(500, 0, "odometer", 30, fill=(42, 157, 1))
 
         # Print L/h or instant L/100km in motion
         if GET_SPEED > 0:
-            print_text_topright(140, 75, "{:.1f}".format(LP100_inst), 40, fill=(2, 135, 178))
-            print_text_topleft(150, 75, "L/100", 40, fill=(2, 135, 178))
+            print_text_topright(140, 30, "{:.1f}".format(LP100_inst), 40, fill=(2, 135, 178))
+            print_text_topleft(150, 30, "L/100", 40, fill=(2, 135, 178))
         else:
-            print_text_topright(140, 75, "{:.1f}".format(LPH), 40, fill=(2, 135, 178))
-            print_text_topleft(150, 75, "L/h", 40, fill=(2, 135, 178))
+            print_text_topright(140, 30, "{:.1f}".format(LPH), 40, fill=(2, 135, 178))
+            print_text_topleft(150, 30, "L/h", 40, fill=(2, 135, 178))
+
+        # Print av speed
+        print_text_topright(140, 75, "{:.1f}".format(average_speed_trip), 40, fill=(2, 135, 178))
+        print_text_topleft(150, 75, "km/h av", 40, fill=(2, 135, 178))
 
         # Print trip L/100
-        if odometer > 0.1:
-            lp100_to_print = "{:.1f}".format(LP100)  # display Lp100km value after 0.1 km trip
+        if odometer_trip > 0.1:
+            lp100_to_print = "{:.1f}".format(LP100_trip)  # display Lp100km value after 0.1 km trip
         else:
             lp100_to_print = "-.-"
         print_text_topright(140, 115, lp100_to_print, 40, fill=(2, 135, 178))
         print_text_topleft(150, 115, "l/100", 40, fill=(2, 135, 178))
 
         # Print trip km
-        print_text_topright(140, 155, "{:.1f}".format(odometer), 40, fill=(2, 135, 178))
+        print_text_topright(140, 155, "{:.1f}".format(odometer_trip), 40, fill=(2, 135, 178))
         print_text_topleft(150, 155, "km", 40, fill=(2, 135, 178))
 
         # Print trip L
-        print_text_topright(140, 195, "{:.2f}".format(benz_potracheno), 40, fill=(2, 135, 178))
+        print_text_topright(140, 195, "{:.2f}".format(benz_potracheno_trip), 40, fill=(2, 135, 178))
         print_text_topleft(150, 195, "l", 40, fill=(2, 135, 178))
 
         # right side first row
@@ -171,25 +185,25 @@ def print_screen(screen_number):
         print_text_topright(490, 30, "{:.0f}".format(GET_RPM), 40, fill=(2, 135, 178))
 
         # print volts
-        print_text_topleft(500, 75, "km/h av speed", 40, fill=(2, 135, 178))
+        print_text_topleft(500, 75, "km/h av", 40, fill=(2, 135, 178))
         print_text_topright(490, 75, "{:.1f}".format(average_speed_trip), 40, fill=(2, 135, 178))
 
         # print coolant temp
-        print_text_topleft(500, 115, "value", 40, fill=(2, 135, 178))
-        print_text_topright(490, 115, "{:.0f}".format(GET_TEMP), 40, fill=(2, 135, 178))
+        print_text_topleft(500, 115, "l/100", 40, fill=(2, 135, 178))
+        print_text_topright(490, 115, "{:.0f}".format(LP100_full), 40, fill=(2, 135, 178))
 
         # print trip fuel litters
-        print_text_topleft(500, 155, "L", 40, fill=(2, 135, 178))
-        print_text_topright(490, 155, "{:.2f}".format(benz_potracheno), 40, fill=(2, 135, 178))
+        print_text_topleft(500, 155, "km", 40, fill=(2, 135, 178))
+        print_text_topright(490, 155, "{:.2f}".format(odometer_full), 40, fill=(2, 135, 178))
 
         # print trip fuel litters
         print_text_topleft(500, 195, "L", 40, fill=(2, 135, 178))
-        print_text_topright(490, 195, "{:.2f}".format(benz_potracheno), 40, fill=(2, 135, 178))
+        print_text_topright(490, 195, "{:.2f}".format(benz_potracheno_full), 40, fill=(2, 135, 178))
 
         # sensors data - second row
 
         # Print screen title
-        print_text_midtop(400, 235, "SENSORS", 30, fill=(42, 157, 1))
+        print_text_midtop(343, 235, "SENSORS", 30, fill=(42, 157, 1))
 
         # Print long term fuel trim
         print_text_topright(140, 265, "{:+.1f}".format(GET_LONG_L), 40, fill=(2, 135, 178))
@@ -214,16 +228,46 @@ def print_screen(screen_number):
         print_text_topright(490, 265, "{:+.1f}".format(GET_SHORT_L), 40, fill=(2, 135, 178))
 
         # print volts
-        print_text_topleft(500, 305, "V", 40, fill=(2, 135, 178))
-        print_text_topright(490, 305, "{:.1f}".format(CONTROL_MODULE_VOLTAGE), 40, fill=(2, 135, 178))
+        if ELM_VOLTAGE < volts_alert:
+            print_text_topleft(500, 305, "V", 40, fill=(235, 7, 49))
+            print_text_topright(490, 305, "{:.1f}".format(ELM_VOLTAGE), 40, fill=(235, 7, 49))
+        else:
+            print_text_topleft(500, 305, "V", 40, fill=(2, 135, 178))
+            print_text_topright(490, 305, "{:.1f}".format(ELM_VOLTAGE), 40, fill=(2, 135, 178))
 
         # print coolant temp
-        print_text_topleft(500, 345, "C", 40, fill=(2, 135, 178))
-        print_text_topright(490, 345, "{:.0f}".format(GET_TEMP), 40, fill=(2, 135, 178))
+        degree_sign = u"\N{DEGREE SIGN}"
+        if GET_TEMP > temp_alert:
+            print_text_topleft(500, 345, degree_sign + "C", 40, fill=(235, 7, 49))
+            print_text_topright(490, 345, "{:.0f}".format(GET_TEMP), 40, fill=(235, 7, 49))
+        else:
+            print_text_topleft(500, 345, '\u00b0' + "C", 40, fill=(2, 135, 178))
+            print_text_topright(490, 345, "{:.0f}".format(GET_TEMP), 40, fill=(2, 135, 178))
 
         # print rpm
         print_text_topleft(500, 385, "RPM", 40, fill=(2, 135, 178))
         print_text_topright(490, 385, "{:.0f}".format(GET_RPM), 40, fill=(2, 135, 178))
+
+
+def csv_read(type, value):
+    # 0 - odometer
+    # 1 - fuel
+    # 2 - time
+    with open(log_file, 'r', newline='') as f:
+        reader = csv.reader(f)
+        for row in reader:
+            print(row)
+
+
+def csv_write(type, value):
+    # 0 - odometer
+    # 1 - fuel
+    # 2 - time
+    with open(log_file, 'w', newline='') as f:
+        writer = csv.writer(f)
+        writer.writerows(someiterable)
+
+
 
 
 def quit_app():
@@ -236,7 +280,7 @@ def quit_app():
 pygame.init()
 clock = pygame.time.Clock()
 # screen = pygame.display.set_mode((800, 480))
-screen = pygame.display.set_mode((800, 540))
+screen = pygame.display.set_mode((685, 455))
 # pygame.display.toggle_fullscreen()
 done = False
 pygame.mouse.set_visible(False)
@@ -269,7 +313,7 @@ while not done:
             FuelFlowLitersPerSecond = FuelFlowGramsPerSecond / FuelDensityGramsPerLiter  # grams of petrol to litters
             LPH = FuelFlowLitersPerSecond * 3600.0  # Litter per second to litter per hour
 
-        # speed and odometr calculations
+        # speed and odometer calculations
         if time_start == 0:
             time_start = time.time()
 
@@ -287,26 +331,50 @@ while not done:
         time_old = time_new  # записать новое время для сравнения в следующем цикле
 
         benz_add = FuelFlowLitersPerSecond * time1
-        benz_potracheno = benz_potracheno + benz_add  # общий расход в литрах
+        benz_potracheno_trip = benz_potracheno_trip + benz_add  # общий расход в литрах
 
         if GET_SPEED > 0:
             odometer_add = (((GET_SPEED * 1000.0) / 3600.0) * time1) / 1000.0  # ???
-            odometer = odometer + odometer_add  # обший пробег в км
+            odometer_trip = odometer_trip + odometer_add  # обший пробег в км
             if odometer_add > 0:
                 LP100_inst = (benz_add / odometer_add) * 100.0  # instant fuel consumption
 
-        if odometer > 0 and time_trip > 0:
-            average_speed_trip = odometer / (time_trip / 3600.0)
+        if odometer_trip > 0 and time_trip > 0:
+            average_speed_trip = odometer_trip / (time_trip / 3600.0)
+### DO REFACTOR
+        if (((GET_SPEED > 1) and (GET_SPEED < 10) and ((time_new - time_old_gurnal) > 30000)) or ((GET_SPEED == 0) and ((time_new - time_old_gurnal) > 10000))):
+            odometer_eeprom = csv_read('odometer') + odometer_add_gurnal + odometer_add
+            benz_eeprom = csv_read('benz') + benz_add_gurnal + benz_add
+            time_eeprom = csv_read("time") + time_add_gurnal + time1
+
+            csv_write('odometer', odometer_eeprom) # // записываем в энергонезависимую память журнала расстояние каждые 5 секунд...в памяти занимаются ячейкм 111, 112, 113, 114
+            csv_write('benz', benz_eeprom) # // записываем бензин
+            csv_write('time', time_eeprom)
+
+            odometer_add_gurnal = 0
+            benz_add_gurnal = 0
+            time_old_gurnal = time_new
+
+        else:
+            odometer_add_gurnal = odometer_add_gurnal + odometer_add
+            benz_add_gurnal = benz_add_gurnal + benz_add
+            time_add_gurnal += time1
+
 
     else:
         if GET_SPEED == 0:
             time_start = 0
             time_trip = 0
-            odometer = 0
-            benz_potracheno = 0
+            odometer_trip = 0
+            benz_potracheno_trip = 0
 
-    if odometer > 0:
-        LP100 = (benz_potracheno / odometer) * 100.0  # расход бензина на 100 км (в литрах) за поездку
+    if odometer_trip > 0:
+        LP100_trip = (benz_potracheno_trip / odometer_trip) * 100.0  # расход бензина на 100 км (в литрах) за поездку
+
+
+
+
+
 
     # manage events to quit the application
     for event in pygame.event.get():
