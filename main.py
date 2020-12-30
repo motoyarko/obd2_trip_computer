@@ -3,6 +3,7 @@
 
 from __future__ import division
 # import time
+import os
 import threading
 import time
 import sys
@@ -249,25 +250,20 @@ def print_screen(screen_number):
         print_text_topright(490, 385, "{:.0f}".format(GET_RPM), 40, fill=(2, 135, 178))
 
 
-def csv_read(type, value):
+def csv_read():
     # 0 - odometer
     # 1 - fuel
     # 2 - time
     with open(log_file, 'r', newline='') as f:
-        reader = csv.reader(f)
-        for row in reader:
-            print(row)
+        data = csv.reader(f, delimiter=',')
+        data_return = list(data)
+        return data_return[0]
 
 
-def csv_write(type, value):
-    # 0 - odometer
-    # 1 - fuel
-    # 2 - time
+def csv_write(odometer_eeprom, benz_eeprom, time_eeprom):
     with open(log_file, 'w', newline='') as f:
         writer = csv.writer(f)
-        writer.writerows(someiterable)
-
-
+        writer.writerow([odometer_eeprom, benz_eeprom, time_eeprom])
 
 
 def quit_app():
@@ -291,6 +287,11 @@ connection = obd.OBD("COM10")  # config for Windows OS
 Thread_getValues = threading.Thread(target=get_values)
 Thread_getValues.daemon = False
 Thread_getValues.start()
+
+# checking is log file available or not. creating new one if not
+if not os.path.isfile(log_file):
+    file = open(log_file, "w+")
+    file.close()
 
 while not done:
 
@@ -341,15 +342,23 @@ while not done:
 
         if odometer_trip > 0 and time_trip > 0:
             average_speed_trip = odometer_trip / (time_trip / 3600.0)
-### DO REFACTOR
-        if (((GET_SPEED > 1) and (GET_SPEED < 10) and ((time_new - time_old_gurnal) > 30000)) or ((GET_SPEED == 0) and ((time_new - time_old_gurnal) > 10000))):
-            odometer_eeprom = csv_read('odometer') + odometer_add_gurnal + odometer_add
-            benz_eeprom = csv_read('benz') + benz_add_gurnal + benz_add
-            time_eeprom = csv_read("time") + time_add_gurnal + time1
 
-            csv_write('odometer', odometer_eeprom) # // записываем в энергонезависимую память журнала расстояние каждые 5 секунд...в памяти занимаются ячейкм 111, 112, 113, 114
-            csv_write('benz', benz_eeprom) # // записываем бензин
-            csv_write('time', time_eeprom)
+
+### DO REFACTOR
+        #if ((GET_SPEED > 1) and (GET_SPEED < 10) and ((time_new - time_old_gurnal) > 30000)) or ((GET_SPEED == 0) and ((time_new - time_old_gurnal) > 10000)):
+        if True:
+            log_data = csv_read()
+            odometer_eeprom = float(log_data[0]) + odometer_add_gurnal + odometer_add
+            benz_eeprom = float(log_data[1]) + benz_add_gurnal + benz_add
+            time_eeprom = float(log_data[2]) + time_add_gurnal + time1
+
+            #odometer_eeprom = odometer_add_gurnal + odometer_add
+            #benz_eeprom = benz_add_gurnal + benz_add
+            #time_eeprom = time_add_gurnal + time1
+
+            csv_write(odometer_eeprom, benz_eeprom, time_eeprom)
+            #csv_write('benz', benz_eeprom)
+            #csv_write('time', time_eeprom)
 
             odometer_add_gurnal = 0
             benz_add_gurnal = 0
