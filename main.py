@@ -364,7 +364,7 @@ while not done:
 
         # Writing data to log file on drive
         if ((GET_SPEED > 1) and (GET_SPEED < 10) and ((time_new - time_old_gurnal) > 30)) or \
-                ((GET_SPEED == 0) and ((time_new - time_old_gurnal) > 10)) or \
+                ((GET_SPEED <= 1) and ((time_new - time_old_gurnal) > 10)) or \
                 ((time_new - time_old_gurnal) > 300):
             # if True:
             # read data from log file
