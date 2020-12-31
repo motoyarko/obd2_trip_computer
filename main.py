@@ -374,7 +374,7 @@ while not done:
             time_eeprom = float(log_data[2]) + time_add_gurnal + time1
             # Vrite new data in log file
             csv_write(odometer_eeprom, benz_eeprom, time_eeprom)
-
+            print("time_eeprom = " + str(time_eeprom))
             # Write temp counter of writes to storage
             i += 1
 
@@ -382,11 +382,14 @@ while not done:
             odometer_full = odometer_eeprom
             benz_potracheno_full = benz_eeprom
             time_full = time_eeprom
-            LP100_full = (benz_potracheno_full / odometer_full) * 100.0
-            average_speed_full = odometer_full / (time_full / 3600.0)
+            if odometer_full > 0:
+                LP100_full = (benz_potracheno_full / odometer_full) * 100.0
+            if time_full >0:
+                average_speed_full = odometer_full / (time_full / 3600.0)
 
             odometer_add_gurnal = 0
             benz_add_gurnal = 0
+            time_add_gurnal = 0
             time_old_gurnal = time_new
 
         else:
@@ -397,8 +400,10 @@ while not done:
             odometer_full = odometer_eeprom + odometer_add_gurnal
             benz_potracheno_full = benz_eeprom + benz_add_gurnal
             time_full = time_eeprom + time_add_gurnal
-            LP100_full = (benz_potracheno_full / odometer_full) * 100.0
-            average_speed_full = odometer_full / (time_full / 3600.0)
+            if odometer_full > 0:
+                LP100_full = (benz_potracheno_full / odometer_full) * 100.0
+            if time_full > 0:
+                average_speed_full = odometer_full / (time_full / 3600.0)
 
     else:
         if GET_SPEED == 0:
