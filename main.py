@@ -10,6 +10,7 @@ import sys
 import obd
 import pygame
 import csv
+import platform
 
 # uncomment for using background image
 # background_image = pygame.image.load("toyota_logo4.jpg")
@@ -287,12 +288,18 @@ pygame.init()
 clock = pygame.time.Clock()
 # screen = pygame.display.set_mode((800, 480))
 screen = pygame.display.set_mode((685, 455))
-# pygame.display.toggle_fullscreen()
+
+if not platform.system().startswith("Windows"):
+    pygame.display.toggle_fullscreen()
+
 done = False
 pygame.mouse.set_visible(False)
 
-# connection = obd.OBD("/dev/ttyUSB0")  # auto-connects to USB or RF port
-connection = obd.OBD("COM10")  # config for Windows OS
+if platform.system().startswith("Windows"):
+    connection = obd.OBD("COM10")  # config for Windows OS
+else:
+    connection = obd.OBD()
+    # connection = obd.OBD("/dev/ttyUSB0")  # auto-connects to USB or RF port
 
 Thread_getValues = threading.Thread(target=get_values)
 Thread_getValues.daemon = False
