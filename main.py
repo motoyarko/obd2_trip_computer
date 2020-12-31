@@ -43,6 +43,13 @@ time_old_gurnal = 0
 odometer_add_gurnal = 0.0
 benz_add_gurnal = 0.0
 time_add_gurnal = 0.0
+time_full = 0.0
+average_speed_full = 0.0
+odometer_eeprom = 0.0
+benz_eeprom = 0.0
+time_eeprom = 0.0
+
+i = 0
 
 
 #CONTROL_MODULE_VOLTAGE = 0.0
@@ -159,7 +166,7 @@ def print_screen(screen_number):
             print_text_topright(140, 30, "{:.1f}".format(LPH), 40, fill=(2, 135, 178))
             print_text_topleft(150, 30, "L/h", 40, fill=(2, 135, 178))
 
-        # Print av speed
+        # Print av speed trip
         print_text_topright(140, 75, "{:.1f}".format(average_speed_trip), 40, fill=(2, 135, 178))
         print_text_topleft(150, 75, "km/h av", 40, fill=(2, 135, 178))
 
@@ -185,19 +192,19 @@ def print_screen(screen_number):
         print_text_topleft(500, 30, "rpm", 40, fill=(2, 135, 178))
         print_text_topright(490, 30, "{:.0f}".format(GET_RPM), 40, fill=(2, 135, 178))
 
-        # print volts
+        # print av speed full
         print_text_topleft(500, 75, "km/h av", 40, fill=(2, 135, 178))
-        print_text_topright(490, 75, "{:.1f}".format(average_speed_trip), 40, fill=(2, 135, 178))
+        print_text_topright(490, 75, "{:.1f}".format(average_speed_full), 40, fill=(2, 135, 178))
 
-        # print coolant temp
-        print_text_topleft(500, 115, "l/100", 40, fill=(2, 135, 178))
-        print_text_topright(490, 115, "{:.0f}".format(LP100_full), 40, fill=(2, 135, 178))
+        # print av L/100 full
+        print_text_topleft(500, 115, "l/100 av", 40, fill=(2, 135, 178))
+        print_text_topright(490, 115, "{:.1f}".format(LP100_full), 40, fill=(2, 135, 178))
 
-        # print trip fuel litters
+        # print odometer full
         print_text_topleft(500, 155, "km", 40, fill=(2, 135, 178))
         print_text_topright(490, 155, "{:.2f}".format(odometer_full), 40, fill=(2, 135, 178))
 
-        # print trip fuel litters
+        # print fuel litters full
         print_text_topleft(500, 195, "L", 40, fill=(2, 135, 178))
         print_text_topright(490, 195, "{:.2f}".format(benz_potracheno_full), 40, fill=(2, 135, 178))
 
@@ -246,8 +253,11 @@ def print_screen(screen_number):
             print_text_topright(490, 345, "{:.0f}".format(GET_TEMP), 40, fill=(2, 135, 178))
 
         # print rpm
-        print_text_topleft(500, 385, "RPM", 40, fill=(2, 135, 178))
-        print_text_topright(490, 385, "{:.0f}".format(GET_RPM), 40, fill=(2, 135, 178))
+        # disabled for debug. DND
+        #print_text_topleft(500, 385, "RPM", 40, fill=(2, 135, 178))
+        #print_text_topright(490, 385, "{:.0f}".format(GET_RPM), 40, fill=(2, 135, 178))
+        print_text_topleft(500, 385, "Write", 40, fill=(2, 135, 178))
+        print_text_topright(490, 385, "{:.0f}".format(i), 40, fill=(2, 135, 178))
 
 
 def csv_read():
@@ -291,6 +301,8 @@ Thread_getValues.start()
 # checking is log file available or not. creating new one if not
 if not os.path.isfile(log_file):
     file = open(log_file, "w+")
+    writer = csv.writer(file)
+    writer.writerow(["0.0", "0.0", "0.0"])
     file.close()
 
 while not done:
@@ -321,44 +333,50 @@ while not done:
         time_trip = time.time() - time_start
 
         if time_old == 0:
-            time_old = time.time()  # выполнится один раз при появлении оборотов
+            time_old = time.time()  # do once after starting the app
 
-        time_new = time.time()   # время со старта программы в мс
-        time1 = time_new - time_old  # * tcorrect  #// прошло время с последнего расчета скорости, расхода  - в сек
+        time_new = time.time()   # time from starting the app
+        time1 = time_new - time_old  # * tcorrect  # time after the last speed calculating
 
         if time1 > 10:
             time1 = 0
 
-        time_old = time_new  # записать новое время для сравнения в следующем цикле
+        time_old = time_new  # write new time for comparing in new cycle
 
         benz_add = FuelFlowLitersPerSecond * time1
-        benz_potracheno_trip = benz_potracheno_trip + benz_add  # общий расход в литрах
+        benz_potracheno_trip = benz_potracheno_trip + benz_add  # fuel consumption for trip
 
         if GET_SPEED > 0:
-            odometer_add = (((GET_SPEED * 1000.0) / 3600.0) * time1) / 1000.0  # ???
-            odometer_trip = odometer_trip + odometer_add  # обший пробег в км
+            odometer_add = (((GET_SPEED * 1000.0) / 3600.0) * time1) / 1000.0  # calculate distance der time1
+            odometer_trip = odometer_trip + odometer_add  # odometer value per trip
             if odometer_add > 0:
                 LP100_inst = (benz_add / odometer_add) * 100.0  # instant fuel consumption
 
         if odometer_trip > 0 and time_trip > 0:
             average_speed_trip = odometer_trip / (time_trip / 3600.0)
 
-
-### DO REFACTOR
-        #if ((GET_SPEED > 1) and (GET_SPEED < 10) and ((time_new - time_old_gurnal) > 30000)) or ((GET_SPEED == 0) and ((time_new - time_old_gurnal) > 10000)):
-        if True:
+        # Writing data to log file on drive
+        if ((GET_SPEED > 1) and (GET_SPEED < 10) and ((time_new - time_old_gurnal) > 30)) or \
+                ((GET_SPEED == 0) and ((time_new - time_old_gurnal) > 10)) or \
+                ((time_new - time_old_gurnal) > 300):
+            # if True:
+            # read data from log file
             log_data = csv_read()
             odometer_eeprom = float(log_data[0]) + odometer_add_gurnal + odometer_add
             benz_eeprom = float(log_data[1]) + benz_add_gurnal + benz_add
             time_eeprom = float(log_data[2]) + time_add_gurnal + time1
-
-            #odometer_eeprom = odometer_add_gurnal + odometer_add
-            #benz_eeprom = benz_add_gurnal + benz_add
-            #time_eeprom = time_add_gurnal + time1
-
+            # Vrite new data in log file
             csv_write(odometer_eeprom, benz_eeprom, time_eeprom)
-            #csv_write('benz', benz_eeprom)
-            #csv_write('time', time_eeprom)
+
+            # Write temp counter of writes to storage
+            i += 1
+
+            #calculations for avarage values
+            odometer_full = odometer_eeprom
+            benz_potracheno_full = benz_eeprom
+            time_full = time_eeprom
+            LP100_full = (benz_potracheno_full / odometer_full) * 100.0
+            average_speed_full = odometer_full / (time_full / 3600.0)
 
             odometer_add_gurnal = 0
             benz_add_gurnal = 0
@@ -369,6 +387,11 @@ while not done:
             benz_add_gurnal = benz_add_gurnal + benz_add
             time_add_gurnal += time1
 
+            odometer_full = odometer_eeprom + odometer_add_gurnal
+            benz_potracheno_full = benz_eeprom + benz_add_gurnal
+            time_full = time_eeprom + time_add_gurnal
+            LP100_full = (benz_potracheno_full / odometer_full) * 100.0
+            average_speed_full = odometer_full / (time_full / 3600.0)
 
     else:
         if GET_SPEED == 0:
@@ -378,11 +401,7 @@ while not done:
             benz_potracheno_trip = 0
 
     if odometer_trip > 0:
-        LP100_trip = (benz_potracheno_trip / odometer_trip) * 100.0  # расход бензина на 100 км (в литрах) за поездку
-
-
-
-
+        LP100_trip = (benz_potracheno_trip / odometer_trip) * 100.0  # Fuel consumption L/100km
 
 
     # manage events to quit the application
