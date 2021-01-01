@@ -1,8 +1,6 @@
 #!/usr/bin/python
 
-
 from __future__ import division
-# import time
 import os
 import threading
 import time
@@ -12,10 +10,7 @@ import pygame
 import csv
 import platform
 
-# uncomment for using background image
-# background_image = pygame.image.load("toyota_logo4.jpg")
-
-fuel_status = 4
+fuel_status = False
 engine_on_rpm = 400
 time_start = 0
 time1 = 0
@@ -53,11 +48,8 @@ default_text_color = (2, 135, 178)
 alert_text_color = (235, 7, 49)
 title_text_color = (42, 157, 1)
 
-#connection = obd
+write_flash_counter = 0
 
-i = 0
-
-# CONTROL_MODULE_VOLTAGE = 0.0
 GET_MAF = 0.0
 GET_RPM = 0
 GET_SPEED = 0.0
@@ -157,7 +149,6 @@ def print_fuel_status_string():
 
 def print_screen(screen_number):
     if screen_number is 0:
-
         # Print screen title
         print_text_midtop(150, 0, "trip odometer", 30, fill=title_text_color)
         print_text_midtop(500, 0, "odometer", 30, fill=title_text_color)
@@ -256,12 +247,8 @@ def print_screen(screen_number):
             print_text_topleft(500, 345, '\u00b0' + "C", 40, fill=default_text_color)
             print_text_topright(490, 345, "{:.0f}".format(GET_TEMP), 40, fill=default_text_color)
 
-        # print rpm
-        # disabled for debug. DND
-        # print_text_topleft(500, 385, "RPM", 40, fill=default_text_color)
-        # print_text_topright(490, 385, "{:.0f}".format(GET_RPM), 40, fill=default_text_color)
         print_text_topleft(500, 385, "Write", 40, fill=default_text_color)
-        print_text_topright(490, 385, "{:.0f}".format(i), 40, fill=default_text_color)
+        print_text_topright(490, 385, "{:.0f}".format(write_flash_counter), 40, fill=default_text_color)
 
     if screen_number is 10:
         print_text_midtop(343, 235, "OBDII adapter disconnected", 50, fill=alert_text_color)
@@ -280,10 +267,10 @@ def csv_read():
         return data_return[0]
 
 
-def csv_write(odometer_eeprom, benz_eeprom, time_eeprom):
+def csv_write(odometer, benz, time_all):
     with open(log_file, 'w', newline='') as f:
-        writer = csv.writer(f)
-        writer.writerow([odometer_eeprom, benz_eeprom, time_eeprom])
+        write = csv.writer(f)
+        write.writerow([odometer, benz, time_all])
 
 
 def quit_app():
@@ -294,7 +281,6 @@ def quit_app():
 
 
 def connect():
-
     if platform.system().startswith("Windows"):
         connection_obj = obd.OBD("COM10")  # config for Windows OS
         return connection_obj
@@ -331,30 +317,34 @@ if not os.path.isfile(log_file):
 
 # main loop
 while not done:
+    # don't need to calculate values if no connection with adapter
     if connection.status() != "Car Connected":
         screen.fill((0, 20, 0))  # fill out the screen with color
         print_screen(10)  # print message
         connection = connect()  # try to reconnect
     else:
+        # if connection with elm327 adapter is available
         # main loop
         if GET_RPM > engine_on_rpm:
             FuelFlowLitersPerSecond = 0.0
             odometer_add = 0.0
             if GET_LOAD > 3:
+                # convert fuel system status to int
                 if GET_FUEL_STATUS == 'Closed loop, using oxygen sensor feedback to determine fuel mix':
-                    fuel_status = 2
+                    fuel_status = True
                 else:
-                    fuel_status = 4
+                    fuel_status = False
 
-                if fuel_status == 2:  # if Closed Loop
-                    ls_term_val = (
-                                              100.0 + GET_LONG_L + GET_SHORT_L) / 100.0  # fuel correction by ShortTerm and LongTerm
+                if fuel_status:  # if Closed Loop
+                    # fuel correction by ShortTerm and LongTerm
+                    ls_term_val = (100.0 + GET_LONG_L + GET_SHORT_L) / 100.0
                 else:  # if open loop
-                    ls_term_val = (100.0 + GET_LONG_L) / 100.0  # fuel correction trim by LongTerm
+                    # fuel correction trim by LongTerm
+                    ls_term_val = (100.0 + GET_LONG_L) / 100.0
 
                 FuelFlowGramsPerSecond = (GET_MAF / AirFuelRatio) * ls_term_val  # calculate gram of petrol per second
                 # 14,7 air to 1 litter of gas, ls_term_val
-                FuelFlowLitersPerSecond = FuelFlowGramsPerSecond / FuelDensityGramsPerLiter  # grams of petrol to litters
+                FuelFlowLitersPerSecond = FuelFlowGramsPerSecond / FuelDensityGramsPerLiter  # grams of petrol to L
                 LPH = FuelFlowLitersPerSecond * 3600.0  # Litter per second to litter per hour
 
             # speed and odometer calculations
@@ -387,10 +377,12 @@ while not done:
                 average_speed_trip = odometer_trip / (time_trip / 3600.0)
 
             # Writing data to log file on drive
+            # every 30 seconds on speeds 1...10km/h
+            # every 10 seconds on speeds <= 1km/h
+            # every 5 minutes on speeds > 10km/h
             if ((GET_SPEED > 1) and (GET_SPEED < 10) and ((time_new - time_old_gurnal) > 30)) or \
                     ((GET_SPEED <= 1) and ((time_new - time_old_gurnal) > 10)) or \
                     ((time_new - time_old_gurnal) > 300):
-                # if True:
                 # read data from log file
                 log_data = csv_read()
                 odometer_eeprom = float(log_data[0]) + odometer_add_gurnal + odometer_add
@@ -398,9 +390,9 @@ while not done:
                 time_eeprom = float(log_data[2]) + time_add_gurnal + time1
                 # Vrite new data in log file
                 csv_write(odometer_eeprom, benz_eeprom, time_eeprom)
-                # print("time_eeprom = " + str(time_eeprom))
-                # Write temp counter of writes to storage
-                i += 1
+
+                # debug code for investigate with count of writing operations
+                write_flash_counter += 1
 
                 # calculations for avarage values
                 odometer_full = odometer_eeprom
