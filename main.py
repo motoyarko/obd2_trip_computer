@@ -74,7 +74,6 @@ def print_text_topleft(x, y, text, size, fill):
 
 
 def print_text_topright(x, y, text, size, fill):
-    # font = pygame.font.Font('font/ubuntu/UbuntuMono-B.ttf', size)
     font = pygame.font.Font(font_file, size)
     puttext = font.render(text, True, fill)
     text_rect = puttext.get_rect()
@@ -83,7 +82,6 @@ def print_text_topright(x, y, text, size, fill):
 
 
 def print_text_midtop(x, y, text, size, fill):
-    # font = pygame.font.Font('font/ubuntu/UbuntuMono-B.ttf', size)
     font = pygame.font.Font(font_file, size)
     puttext = font.render(text, True, fill)
     text_rect = puttext.get_rect()
@@ -293,7 +291,7 @@ def csv_write(odometer, benz, time_all):
 
 
 def create_log_file():
-    # if not os.path.isfile(log_file):
+    # creating log file
     try:
         file = open(log_file, "w+")
         writer = csv.writer(file)
@@ -327,7 +325,7 @@ def connect():
 
 pygame.init()
 clock = pygame.time.Clock()
-screen = pygame.display.set_mode((690, 460))  # set the resolution of app window or full screen mode
+screen = pygame.display.set_mode((690, 463))  # set the resolution of app window or full screen mode
 
 if not platform.system().startswith("Windows"):
     pygame.display.toggle_fullscreen()  # start the app in full screen mode on any os except Windows
