@@ -45,6 +45,7 @@ time_eeprom = 0.0
 default_text_color = (2, 135, 178)
 alert_text_color = (235, 7, 49)
 title_text_color = (42, 157, 1)
+background_color = (0, 20, 0)
 
 write_flash_counter = 0
 
@@ -259,16 +260,52 @@ def csv_read():
     # 0 - odometer
     # 1 - fuel
     # 2 - time
-    with open(log_file, 'r', newline='') as f:
-        data = csv.reader(f, delimiter=',')
-        data_return = list(data)
-        return data_return[0]
+    try:
+        with open(log_file, 'r', newline='') as f:
+            data = csv.reader(f, delimiter=',')
+            data_return = list(data)
+            return data_return[0]
+    except Exception as e:
+        # if file doesn't exist - display message and create file
+        # return ["0.0", "0.0", "0.0"]
+        print(e)
+        screen.fill(background_color)
+        print_text_midtop(343, 235, "Can't read from log file", 50, fill=alert_text_color)
+        print_text_midtop(343, 290, "No such file or directory", 50, fill=alert_text_color)
+        pygame.display.flip()
+        create_log_file()
+        pygame.time.wait(10000)
+        return ["0.0", "0.0", "0.0"]
 
 
 def csv_write(odometer, benz, time_all):
-    with open(log_file, 'w', newline='') as f:
-        write = csv.writer(f)
-        write.writerow([odometer, benz, time_all])
+    try:
+        with open(log_file, 'w', newline='') as f:
+            write = csv.writer(f)
+            write.writerow([odometer, benz, time_all])
+    except Exception as e:
+        # If can't write in log file - display message, and print it in terminal
+        print(e)
+        screen.fill(background_color)
+        print_text_midtop(343, 235, "Can't write in log file", 50, fill=alert_text_color)
+        pygame.display.flip()
+        pygame.time.wait(10000)
+
+
+def create_log_file():
+    # if not os.path.isfile(log_file):
+    try:
+        file = open(log_file, "w+")
+        writer = csv.writer(file)
+        writer.writerow(["0.0", "0.0", "0.0"])
+        file.close()
+    except Exception as e:
+        # If can't create log file - display message, and print it in terminal
+        print(e)
+        screen.fill(background_color)
+        print_text_midtop(343, 235, "Can't create the log file", 50, fill=alert_text_color)
+        pygame.display.flip()
+        pygame.time.wait(10000)
 
 
 def quit_app():
@@ -296,22 +333,18 @@ if not platform.system().startswith("Windows"):
     pygame.display.toggle_fullscreen()  # start the app in full screen mode on any os except Windows
 
 done = False  # set the while exit-value for main loop
-pygame.mouse.set_visible(False)
-
+pygame.mouse.set_visible(False)  # do not display mouse cursor
 print_screen(11)  # display the connection message
-
 connection = connect()  # initialize obd connection
 
+# initialize thread for reading data from ECU
 Thread_getValues = threading.Thread(target=get_values)
 Thread_getValues.daemon = False
 Thread_getValues.start()
 
 # checking is log file available or not. creating new one if not
 if not os.path.isfile(log_file):
-    file = open(log_file, "w+")
-    writer = csv.writer(file)
-    writer.writerow(["0.0", "0.0", "0.0"])
-    file.close()
+    create_log_file()
 
 # do once to display average speed, fuel consumption before the ignition is on
 # start
@@ -325,7 +358,7 @@ if odometer_full > 0:
 if time_full > 0:
     average_speed_full = odometer_full / (time_full / 3600.0)
 
-screen.fill((0, 20, 0))
+screen.fill(background_color)
 print_screen(0)  # display values on screen 0
 # end
 
@@ -333,7 +366,7 @@ print_screen(0)  # display values on screen 0
 while not done:
     # don't need to calculate values if no connection with adapter
     if connection.status() != "Car Connected":
-        screen.fill((0, 20, 0))  # fill out the screen with color
+        screen.fill(background_color)  # fill out the screen with color
         print_screen(10)  # print message
         connection = connect()  # try to reconnect
     else:
@@ -462,7 +495,7 @@ while not done:
         if odometer_trip > 0:
             LP100_trip = (benz_potracheno_trip / odometer_trip) * 100.0  # Fuel consumption L/100km
 
-        screen.fill((0, 20, 0))
+        screen.fill(background_color)
         print_screen(0)  # display values on screen 0
 
     # manage events to quit the application

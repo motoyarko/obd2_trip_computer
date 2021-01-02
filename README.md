@@ -1,7 +1,8 @@
 todo:
-- add try catch to read/write functions
-- create new file if error during reading file
-- average values are 0 if engine isn't started
+To check - add try catch to read/write functions
+To check - create new file if error during reading file
+To check - average values are 0 if engine isn't started
+- update screen settings from raspberry code
 
 App requirements:
 * Python 3.7
