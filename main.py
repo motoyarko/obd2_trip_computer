@@ -16,7 +16,6 @@ time_start = 0
 time1 = 0
 time_new = 0
 time_old = 0
-# time_old_gurnal = 0
 benz_potracheno_trip = 0
 LP100_trip = 0.0
 LP100_inst = 0.0
@@ -32,7 +31,6 @@ odometer_full = 0.0
 benz_potracheno_full = 0.0
 volts_alert = 12.6
 temp_alert = 100.0
-# font = 'font/ds_digital/DS-DIGIB.TTF'
 font_file = 'font/ubuntu/UbuntuMono-B.ttf'
 log_file = 'log.csv'
 time_old_gurnal = 0
@@ -155,26 +153,26 @@ def print_screen(screen_number):
 
         # Print L/h or instant L/100km in motion
         if GET_SPEED > 0:
-            print_text_topright(140, 30, "{:.1f}".format(LP100_inst), 40, fill=default_text_color)
+            print_text_topright(140, 30, "{:.2f}".format(LP100_inst), 40, fill=default_text_color)
             print_text_topleft(150, 30, "L/100", 40, fill=default_text_color)
         else:
             print_text_topright(140, 30, "{:.1f}".format(LPH), 40, fill=default_text_color)
             print_text_topleft(150, 30, "L/h", 40, fill=default_text_color)
 
         # Print av speed trip
-        print_text_topright(140, 75, "{:.1f}".format(average_speed_trip), 40, fill=default_text_color)
+        print_text_topright(140, 75, "{:.2f}".format(average_speed_trip), 40, fill=default_text_color)
         print_text_topleft(150, 75, "km/h av", 40, fill=default_text_color)
 
         # Print trip L/100
         if odometer_trip > 0.1:
-            lp100_to_print = "{:.1f}".format(LP100_trip)  # display Lp100km value after 0.1 km trip
+            lp100_to_print = "{:.2f}".format(LP100_trip)  # display Lp100km value after 0.1 km trip
         else:
             lp100_to_print = "-.-"
         print_text_topright(140, 115, lp100_to_print, 40, fill=default_text_color)
         print_text_topleft(150, 115, "l/100", 40, fill=default_text_color)
 
         # Print trip km
-        print_text_topright(140, 155, "{:.1f}".format(odometer_trip), 40, fill=default_text_color)
+        print_text_topright(140, 155, "{:.2f}".format(odometer_trip), 40, fill=default_text_color)
         print_text_topleft(150, 155, "km", 40, fill=default_text_color)
 
         # Print trip L
@@ -315,6 +313,22 @@ if not os.path.isfile(log_file):
     writer.writerow(["0.0", "0.0", "0.0"])
     file.close()
 
+# do once to display average speed, fuel consumption before the ignition is on
+# start
+log_data = csv_read()
+odometer_full = float(log_data[0])
+benz_potracheno_full = float(log_data[1])
+time_full = float(log_data[2])
+
+if odometer_full > 0:
+    LP100_full = (benz_potracheno_full / odometer_full) * 100.0
+if time_full > 0:
+    average_speed_full = odometer_full / (time_full / 3600.0)
+
+screen.fill((0, 20, 0))
+print_screen(0)  # display values on screen 0
+# end
+
 # main loop
 while not done:
     # don't need to calculate values if no connection with adapter
@@ -328,6 +342,12 @@ while not done:
         if GET_RPM > engine_on_rpm:
             FuelFlowLitersPerSecond = 0.0
             odometer_add = 0.0
+
+            if time_start == 0:
+                time_start = time.time()
+            if time_old == 0:
+                time_old = time.time()  # do once after starting the app
+
             if GET_LOAD > 3:
                 # convert fuel system status to int
                 if GET_FUEL_STATUS == 'Closed loop, using oxygen sensor feedback to determine fuel mix':
@@ -348,19 +368,12 @@ while not done:
                 LPH = FuelFlowLitersPerSecond * 3600.0  # Litter per second to litter per hour
 
             # speed and odometer calculations
-            if time_start == 0:
-                time_start = time.time()
-
             time_trip = time.time() - time_start
-
-            if time_old == 0:
-                time_old = time.time()  # do once after starting the app
-
             time_new = time.time()  # time from starting the app
             time1 = time_new - time_old  # * tcorrect  # time after the last speed calculating
 
-            if time1 > 10:
-                time1 = 0
+            #if time1 > 10:
+            #   time1 = 0
 
             time_old = time_new  # write new time for comparing in new cycle
 
@@ -388,7 +401,7 @@ while not done:
                 odometer_eeprom = float(log_data[0]) + odometer_add_gurnal + odometer_add
                 benz_eeprom = float(log_data[1]) + benz_add_gurnal + benz_add
                 time_eeprom = float(log_data[2]) + time_add_gurnal + time1
-                # Vrite new data in log file
+                # Write new data in log file
                 csv_write(odometer_eeprom, benz_eeprom, time_eeprom)
 
                 # debug code for investigate with count of writing operations
@@ -422,6 +435,24 @@ while not done:
                     average_speed_full = odometer_full / (time_full / 3600.0)
 
         else:
+            """
+            # test
+            log_data = csv_read()
+            odometer_eeprom = float(log_data[0]) + odometer_add_gurnal + odometer_add
+            benz_eeprom = float(log_data[1]) + benz_add_gurnal + benz_add
+            time_eeprom = float(log_data[2]) + time_add_gurnal + time1
+
+            odometer_full = odometer_eeprom
+            benz_potracheno_full = benz_eeprom
+            time_full = time_eeprom
+            
+            if odometer_full > 0:
+                LP100_full = (benz_potracheno_full / odometer_full) * 100.0
+            if time_full > 0:
+                average_speed_full = odometer_full / (time_full / 3600.0)
+            # end test
+            """
+
             if GET_SPEED == 0:
                 time_start = 0
                 time_trip = 0

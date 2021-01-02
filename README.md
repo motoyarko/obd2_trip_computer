@@ -1,6 +1,7 @@
 todo:
 - add try catch to read/write functions
 - create new file if error during reading file
+- average values are 0 if engine isn't started
 
 App requirements:
 * Python 3.7
