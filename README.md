@@ -7,6 +7,8 @@
 - switching between screens by pressing on button on IO port
 - rpm can be != 0 after shutting down the engine ???
 - Add settings from config.txt in raspberry
+- check if the query request is supported by ECU
+
 
 
 
