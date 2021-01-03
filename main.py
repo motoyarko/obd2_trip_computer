@@ -1,5 +1,10 @@
 #!/usr/bin/python
 
+# Thanks to:
+# https://sohabr.net/habr/post/252207/
+# https://www.drive2.ru/l/481530293824520264/
+
+
 from __future__ import division
 import os
 import threading
@@ -11,7 +16,7 @@ import csv
 import platform
 
 fuel_status = False
-engine_on_rpm = 400
+engine_on_rpm = 200
 time_start = 0
 time1 = 0
 time_new = 0
@@ -403,8 +408,8 @@ while not done:
             time_new = time.time()  # time from starting the app
             time1 = time_new - time_old  # * tcorrect  # time after the last speed calculating
 
-            #if time1 > 10:
-            #   time1 = 0
+            # if time1 > 10:
+            #    time1 = 0
 
             time_old = time_new  # write new time for comparing in new cycle
 
@@ -466,24 +471,6 @@ while not done:
                     average_speed_full = odometer_full / (time_full / 3600.0)
 
         else:
-            """
-            # test
-            log_data = csv_read()
-            odometer_eeprom = float(log_data[0]) + odometer_add_gurnal + odometer_add
-            benz_eeprom = float(log_data[1]) + benz_add_gurnal + benz_add
-            time_eeprom = float(log_data[2]) + time_add_gurnal + time1
-
-            odometer_full = odometer_eeprom
-            benz_potracheno_full = benz_eeprom
-            time_full = time_eeprom
-            
-            if odometer_full > 0:
-                LP100_full = (benz_potracheno_full / odometer_full) * 100.0
-            if time_full > 0:
-                average_speed_full = odometer_full / (time_full / 3600.0)
-            # end test
-            """
-
             if GET_SPEED == 0:
                 time_start = 0
                 time_trip = 0

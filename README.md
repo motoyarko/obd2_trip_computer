@@ -9,6 +9,7 @@
 - Add settings from config.txt in raspberry
 
 
+
 **App requirements:**
 - Python 3.7
 - pygame v2.0.1 https://www.pygame.org/news
