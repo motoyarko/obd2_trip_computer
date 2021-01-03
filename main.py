@@ -47,10 +47,13 @@ average_speed_full = 0.0
 odometer_eeprom = 0.0
 benz_eeprom = 0.0
 time_eeprom = 0.0
-default_text_color = (2, 135, 178)
+# default_text_color = (2, 135, 178)
+default_text_color = (230, 230, 230)
 alert_text_color = (235, 7, 49)
-title_text_color = (42, 157, 1)
-background_color = (0, 20, 0)
+# title_text_color = (42, 157, 1)
+title_text_color = (10, 10, 10)
+# background_color = (0, 20, 0)
+background_color = (42, 120, 10)
 
 write_flash_counter = 0
 
