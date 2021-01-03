@@ -96,37 +96,48 @@ def print_text_midtop(x, y, text, size, fill):
 
 def get_values():
     global GET_FUEL_STATUS, GET_TEMP, GET_RPM, GET_SPEED, GET_LOAD, GET_SHORT_L, GET_LONG_L, GET_MAF, ELM_VOLTAGE
-
     while STOP_GET:
         cmd = obd.commands.RPM  # select an OBD command (sensor)
         response = connection.query(cmd)  # send the command, and parse the response
         if response.value is not None:
             GET_RPM = response.value.magnitude
+        else:
+            GET_RPM = 0.0
 
         cmd = obd.commands.MAF  # select an OBD command (sensor)
         response = connection.query(cmd)  # send the command, and parse the response
         if response.value is not None:
             GET_MAF = response.value.magnitude
+        else:
+            GET_MAF = 0.0
 
         cmd = obd.commands.SPEED  # select an OBD command (sensor)
         response = connection.query(cmd)  # send the command, and parse the response
         if response.value is not None:
             GET_SPEED = response.value.magnitude
+        else:
+            GET_SPEED = 0.0
 
         cmd = obd.commands.SHORT_FUEL_TRIM_1  # select an OBD command (sensor)
         response = connection.query(cmd)  # send the command, and parse the response
         if response.value is not None:
             GET_SHORT_L = response.value.magnitude
+        else:
+            GET_SHORT_L = 0.0
 
         cmd = obd.commands.LONG_FUEL_TRIM_1  # select an OBD command (sensor)
         response = connection.query(cmd)  # send the command, and parse the response
         if response.value is not None:
             GET_LONG_L = response.value.magnitude
+        else:
+            GET_LONG_L = 0.0
 
         cmd = obd.commands.ENGINE_LOAD  # select an OBD command (sensor)
         response = connection.query(cmd)  # send the command, and parse the response
         if response.value is not None:
             GET_LOAD = response.value.magnitude
+        else:
+            GET_LOAD = 0.0
 
         cmd = obd.commands.COOLANT_TEMP  # select an OBD command (sensor)
         response = connection.query(cmd)  # send the command, and parse the response
@@ -356,7 +367,7 @@ odometer_full = float(log_data[0])
 benz_potracheno_full = float(log_data[1])
 time_full = float(log_data[2])
 
-if odometer_full > 0:
+if odometer_full > 0.1:  # 0.1 because too high values are displayed after reset log file
     LP100_full = (benz_potracheno_full / odometer_full) * 100.0
 if time_full > 0:
     average_speed_full = odometer_full / (time_full / 3600.0)

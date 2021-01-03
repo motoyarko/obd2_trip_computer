@@ -5,11 +5,12 @@
 - DONE - update screen settings from raspberry code
 - add multiple screens with sensors data
 - switching between screens by pressing on button on IO port
-- rpm can be != 0 after shutting down the engine ???
-- Add settings from config.txt in raspberry
+- reset log file data by press and hold on button on IO port
+- To check - rpm can be != 0 after shutting down the engine ???
+added check with set values to 0.0 if response is None
+- DONE- Add settings from config.txt in raspberry
 - check if the query request is supported by ECU
-
-
+- long delay before quit if connection with ECU not established ?
 
 
 **App requirements:**
