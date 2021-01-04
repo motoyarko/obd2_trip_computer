@@ -50,6 +50,8 @@ make it executable
 chmod ... blablabla **TBU**
 
 
+fonts https://fonts.google.com/specimen/Audiowide?preview.text=Almost%20before%20we%20knew%20it,%20we%20had%20left%20the%20ground.%20km%2Fh%20&preview.text_type=custom&selection.family=Montserrat#standard-styles
+
 
 
 

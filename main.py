@@ -36,8 +36,11 @@ odometer_full = 0.0
 benz_potracheno_full = 0.0
 volts_alert = 12.6
 temp_alert = 100.0
-font_file = 'UbuntuMono-B.ttf'
+#font_file = 'UbuntuMono-B.ttf'
+font_file = 'Audiowide-Regular.ttf'
+font_size_values = 35
 log_file = 'log.csv'
+background_image = pygame.image.load("logo5.jpg")
 time_old_gurnal = 0
 odometer_add_gurnal = 0.0
 benz_add_gurnal = 0.0
@@ -47,11 +50,12 @@ average_speed_full = 0.0
 odometer_eeprom = 0.0
 benz_eeprom = 0.0
 time_eeprom = 0.0
-# default_text_color = (2, 135, 178)
-default_text_color = (230, 230, 230)
+default_text_color = ('#666666')
+#default_text_color = (230, 230, 230)
+#default_text_color = (0, 0, 0)
 alert_text_color = (235, 7, 49)
-# title_text_color = (42, 157, 1)
-title_text_color = (10, 10, 10)
+title_text_color = ('#cccccc')
+#title_text_color = (10, 10, 10)
 # background_color = (0, 20, 0)
 background_color = (42, 120, 10)
 
@@ -171,105 +175,105 @@ def print_screen(screen_number):
 
         # Print L/h or instant L/100km in motion
         if GET_SPEED > 0:
-            print_text_topright(140, 30, "{:.2f}".format(LP100_inst), 40, fill=default_text_color)
-            print_text_topleft(150, 30, "L/100", 40, fill=default_text_color)
+            print_text_topright(140, 30, "{:.1f}".format(LP100_inst), font_size_values, fill=default_text_color)
+            print_text_topleft(150, 30, "L/100", font_size_values, fill=default_text_color)
         else:
-            print_text_topright(140, 30, "{:.1f}".format(LPH), 40, fill=default_text_color)
-            print_text_topleft(150, 30, "L/h", 40, fill=default_text_color)
+            print_text_topright(140, 30, "{:.1f}".format(LPH), font_size_values, fill=default_text_color)
+            print_text_topleft(150, 30, "L/h", font_size_values, fill=default_text_color)
 
         # Print av speed trip
-        print_text_topright(140, 75, "{:.2f}".format(average_speed_trip), 40, fill=default_text_color)
-        print_text_topleft(150, 75, "km/h av", 40, fill=default_text_color)
+        print_text_topright(140, 75, "{:.1f}".format(average_speed_trip), font_size_values, fill=default_text_color)
+        print_text_topleft(150, 75, "km/h av", font_size_values, fill=default_text_color)
 
         # Print trip L/100
         if odometer_trip > 0.1:
-            lp100_to_print = "{:.2f}".format(LP100_trip)  # display Lp100km value after 0.1 km trip
+            lp100_to_print = "{:.1f}".format(LP100_trip)  # display Lp100km value after 0.1 km trip
         else:
             lp100_to_print = "-.-"
-        print_text_topright(140, 115, lp100_to_print, 40, fill=default_text_color)
-        print_text_topleft(150, 115, "l/100", 40, fill=default_text_color)
+        print_text_topright(140, 115, lp100_to_print, font_size_values, fill=default_text_color)
+        print_text_topleft(150, 115, "l/100", font_size_values, fill=default_text_color)
 
         # Print trip km
-        print_text_topright(140, 155, "{:.2f}".format(odometer_trip), 40, fill=default_text_color)
-        print_text_topleft(150, 155, "km", 40, fill=default_text_color)
+        print_text_topright(140, 155, "{:.1f}".format(odometer_trip), font_size_values, fill=default_text_color)
+        print_text_topleft(150, 155, "km", font_size_values, fill=default_text_color)
 
         # Print trip L
-        print_text_topright(140, 195, "{:.2f}".format(benz_potracheno_trip), 40, fill=default_text_color)
-        print_text_topleft(150, 195, "l", 40, fill=default_text_color)
+        print_text_topright(140, 195, "{:.1f}".format(benz_potracheno_trip), font_size_values, fill=default_text_color)
+        print_text_topleft(150, 195, "l", font_size_values, fill=default_text_color)
 
         # right side first row
 
         # print RPM
-        print_text_topleft(500, 30, "rpm", 40, fill=default_text_color)
-        print_text_topright(490, 30, "{:.0f}".format(GET_RPM), 40, fill=default_text_color)
+        print_text_topleft(500, 30, "rpm", font_size_values, fill=default_text_color)
+        print_text_topright(490, 30, "{:.0f}".format(GET_RPM), font_size_values, fill=default_text_color)
 
         # print av speed full
-        print_text_topleft(500, 75, "km/h av", 40, fill=default_text_color)
-        print_text_topright(490, 75, "{:.1f}".format(average_speed_full), 40, fill=default_text_color)
+        print_text_topleft(500, 75, "km/h av", font_size_values, fill=default_text_color)
+        print_text_topright(490, 75, "{:.1f}".format(average_speed_full), font_size_values, fill=default_text_color)
 
         # print av L/100 full
-        print_text_topleft(500, 115, "l/100 av", 40, fill=default_text_color)
-        print_text_topright(490, 115, "{:.1f}".format(LP100_full), 40, fill=default_text_color)
+        print_text_topleft(500, 115, "l/100 av", font_size_values, fill=default_text_color)
+        print_text_topright(490, 115, "{:.1f}".format(LP100_full), font_size_values, fill=default_text_color)
 
         # print odometer full
-        print_text_topleft(500, 155, "km", 40, fill=default_text_color)
-        print_text_topright(490, 155, "{:.2f}".format(odometer_full), 40, fill=default_text_color)
+        print_text_topleft(500, 155, "km", font_size_values, fill=default_text_color)
+        print_text_topright(490, 155, "{:.1f}".format(odometer_full), font_size_values, fill=default_text_color)
 
         # print fuel litters full
-        print_text_topleft(500, 195, "L", 40, fill=default_text_color)
-        print_text_topright(490, 195, "{:.2f}".format(benz_potracheno_full), 40, fill=default_text_color)
+        print_text_topleft(500, 195, "L", font_size_values, fill=default_text_color)
+        print_text_topright(490, 195, "{:.1f}".format(benz_potracheno_full), font_size_values, fill=default_text_color)
 
         # sensors data - second row
 
         # Print screen title
-        print_text_midtop(343, 235, "SENSORS", 30, fill=title_text_color)
+        print_text_midtop(105, 235, "sensors", 30, fill=title_text_color)
 
         # Print long term fuel trim
-        print_text_topright(140, 265, "{:+.1f}".format(GET_LONG_L), 40, fill=default_text_color)
-        print_text_topleft(150, 265, "% LTFT", 40, fill=default_text_color)
+        print_text_topright(140, 265, "{:+.1f}".format(GET_LONG_L), font_size_values, fill=default_text_color)
+        print_text_topleft(150, 265, "% LTFT", font_size_values, fill=default_text_color)
 
         # Print MAF
-        print_text_topright(140, 305, "{:.2f}".format(GET_MAF), 40, fill=default_text_color)
-        print_text_topleft(150, 305, "g/cm^3 MAF", 40, fill=default_text_color)
+        print_text_topright(140, 305, "{:.1f}".format(GET_MAF), font_size_values, fill=default_text_color)
+        print_text_topleft(150, 305, "g/cm^3 MAF", font_size_values, fill=default_text_color)
 
         # Print trip L/100
-        print_text_topright(140, 345, "{:.1f}".format(GET_LOAD), 40, fill=default_text_color)
-        print_text_topleft(150, 345, "% ENG LOAD", 40, fill=default_text_color)
+        print_text_topright(140, 345, "{:.1f}".format(GET_LOAD), font_size_values, fill=default_text_color)
+        print_text_topleft(150, 345, "% ENG LOAD", font_size_values, fill=default_text_color)
 
         # Print speed
-        print_text_topright(140, 385, "{:.0f}".format(GET_SPEED), 40, fill=default_text_color)
-        print_text_topleft(150, 385, "km/h", 40, fill=default_text_color)
+        print_text_topright(140, 385, "{:.0f}".format(GET_SPEED), font_size_values, fill=default_text_color)
+        print_text_topleft(150, 385, "km/h", font_size_values, fill=default_text_color)
 
         # right side second row
 
         # print RPM
-        print_text_topleft(500, 265, "% STFT", 40, fill=default_text_color)
-        print_text_topright(490, 265, "{:+.1f}".format(GET_SHORT_L), 40, fill=default_text_color)
+        print_text_topleft(500, 265, "% STFT", font_size_values, fill=default_text_color)
+        print_text_topright(490, 265, "{:+.1f}".format(GET_SHORT_L), font_size_values, fill=default_text_color)
 
         # print volts
         if ELM_VOLTAGE < volts_alert:
-            print_text_topleft(500, 305, "V", 40, fill=alert_text_color)
-            print_text_topright(490, 305, "{:.1f}".format(ELM_VOLTAGE), 40, fill=alert_text_color)
+            print_text_topleft(500, 305, "V", font_size_values, fill=alert_text_color)
+            print_text_topright(490, 305, "{:.1f}".format(ELM_VOLTAGE), font_size_values, fill=alert_text_color)
         else:
-            print_text_topleft(500, 305, "V", 40, fill=default_text_color)
-            print_text_topright(490, 305, "{:.1f}".format(ELM_VOLTAGE), 40, fill=default_text_color)
+            print_text_topleft(500, 305, "V", font_size_values, fill=default_text_color)
+            print_text_topright(490, 305, "{:.1f}".format(ELM_VOLTAGE), font_size_values, fill=default_text_color)
 
         # print coolant temp
         degree_sign = u"\N{DEGREE SIGN}"
         if GET_TEMP > temp_alert:
-            print_text_topleft(500, 345, degree_sign + "C", 40, fill=alert_text_color)
-            print_text_topright(490, 345, "{:.0f}".format(GET_TEMP), 40, fill=alert_text_color)
+            print_text_topleft(500, 345, degree_sign + "C", font_size_values, fill=alert_text_color)
+            print_text_topright(490, 345, "{:.0f}".format(GET_TEMP), font_size_values, fill=alert_text_color)
         else:
-            print_text_topleft(500, 345, '\u00b0' + "C", 40, fill=default_text_color)
-            print_text_topright(490, 345, "{:.0f}".format(GET_TEMP), 40, fill=default_text_color)
+            print_text_topleft(500, 345, '\u00b0' + "C", font_size_values, fill=default_text_color)
+            print_text_topright(490, 345, "{:.0f}".format(GET_TEMP), font_size_values, fill=default_text_color)
 
-        print_text_topleft(500, 385, "Write", 40, fill=default_text_color)
-        print_text_topright(490, 385, "{:.0f}".format(write_flash_counter), 40, fill=default_text_color)
+        print_text_topleft(500, 385, "Write", font_size_values, fill=default_text_color)
+        print_text_topright(490, 385, "{:.0f}".format(write_flash_counter), font_size_values, fill=default_text_color)
 
     if screen_number is 10:
-        print_text_midtop(343, 235, "OBDII adapter disconnected", 50, fill=alert_text_color)
+        print_text_midtop(343, 100, "OBDII adapter disconnected", 40, fill=alert_text_color)
     if screen_number is 11:
-        print_text_midtop(343, 235, "CONNECTING...", 50, fill=default_text_color)
+        print_text_midtop(343, 100, "CONNECTING...", 50, fill=default_text_color)
         pygame.display.flip()
 
 
@@ -351,6 +355,7 @@ if not platform.system().startswith("Windows"):
 
 done = False  # set the while exit-value for main loop
 pygame.mouse.set_visible(False)  # do not display mouse cursor
+screen.blit(background_image, (0, 0))
 print_screen(11)  # display the connection message
 connection = connect()  # initialize obd connection
 
@@ -375,7 +380,8 @@ if odometer_full > 0.1:  # 0.1 because too high values are displayed after reset
 if time_full > 0:
     average_speed_full = odometer_full / (time_full / 3600.0)
 
-screen.fill(background_color)
+#screen.fill(background_color)
+screen.blit(background_image, (0, 0))
 print_screen(0)  # display values on screen 0
 # end
 
@@ -383,7 +389,8 @@ print_screen(0)  # display values on screen 0
 while not done:
     # don't need to calculate values if no connection with adapter
     if connection.status() != "Car Connected":
-        screen.fill(background_color)  # fill out the screen with color
+        screen.blit(background_image, (0, 0))
+        #screen.fill(background_color)  # fill out the screen with color
         print_screen(10)  # print message
         connection = connect()  # try to reconnect
     else:
@@ -494,7 +501,9 @@ while not done:
         if odometer_trip > 0:
             LP100_trip = (benz_potracheno_trip / odometer_trip) * 100.0  # Fuel consumption L/100km
 
-        screen.fill(background_color)
+        #screen.fill(background_color)
+        # uncomment for using background image
+        screen.blit(background_image, (0, 0))
         print_screen(0)  # display values on screen 0
 
     # manage events to quit the application
@@ -508,9 +517,6 @@ while not done:
         if event.type == pygame.QUIT:
             done = True
             quit_app()
-
-    # uncomment for using background image
-    # screen.blit(background_image, (0, 0))
 
     pygame.display.flip()  # Update the full display Surface to the screen
     clock.tick(60)  # set fps for the app
