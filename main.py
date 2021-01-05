@@ -447,12 +447,12 @@ while not done:
                 average_speed_trip = odometer_trip / (time_trip / 3600.0)
 
             # Writing data to log file on drive
-            # every 30 seconds on speeds 1...10km/h
-            # every 10 seconds on speeds <= 1km/h
-            # every 5 minutes on speeds > 10km/h
-            if ((GET_SPEED > 1) and (GET_SPEED < 10) and ((time_new - time_old_gurnal) > 30)) or \
-                    ((GET_SPEED <= 1) and ((time_new - time_old_gurnal) > 10)) or \
-                    ((time_new - time_old_gurnal) > 300):
+            # every 60 seconds on speeds 1...10km/h
+            # every 30 seconds on speeds <= 1km/h
+            # every 30 minutes on speeds > 10km/h
+            if ((GET_SPEED > 1) and (GET_SPEED < 10) and ((time_new - time_old_gurnal) > 60)) or \
+                    ((GET_SPEED <= 1) and ((time_new - time_old_gurnal) > 30)) or \
+                    ((time_new - time_old_gurnal) > 1800):
                 # read data from log file
                 log_data = csv_read()
                 odometer_eeprom = float(log_data[0]) + odometer_add_gurnal + odometer_add
