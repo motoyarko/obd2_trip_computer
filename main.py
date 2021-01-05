@@ -18,6 +18,7 @@ from gpiozero import Button
 
 button = Button(2)
 screen_counter = 0
+screen_last = 1
 fuel_status = False
 engine_on_rpm = 200
 time_start = 0
@@ -80,6 +81,22 @@ STOP_PRINT = 1
 STOP_GET = 1
 
 
+def button_process():
+    global screen_counter
+    #button_state_old = False
+    while STOP_GET:
+        #button_state_new = button.is_pressed
+        if button.is_pressed:
+            time.sleep(0.15)
+            while button.is_pressed:
+                pass
+            else:
+               if screen_counter < screen_last:
+                   screen_counter += 1
+               else:
+                   screen_counter = 0
+                
+
 def print_text_topleft(x, y, text, size, fill):
     font = pygame.font.Font(font_file, size)
     puttext = font.render(text, True, fill)
@@ -102,12 +119,6 @@ def print_text_midtop(x, y, text, size, fill):
     text_rect = puttext.get_rect()
     text_rect.midtop = (x, y)
     screen.blit(puttext, text_rect)
-
-
-def button_process():
-    global screen_counter
-    while STOP_GET:
-        print(button.when_pressed)
 
 
 def get_values():
@@ -278,6 +289,53 @@ def print_screen(screen_number):
 
         print_text_topleft(500, 385, "Write", font_size_values, fill=default_text_color)
         print_text_topright(490, 385, "{:.0f}".format(write_flash_counter), font_size_values, fill=default_text_color)
+        
+    if screen_number is 1:
+        screen.blit(background_image, (0, 0))  # ?
+        # Print screen title
+        print_text_midtop(250, 0, "Sensors", 30, fill=title_text_color)
+
+        # Print long term fuel trim
+        print_text_topright(140, 30, "{:+.1f}".format(GET_LONG_L), font_size_values, fill=default_text_color)
+        print_text_topleft(150, 30, "% LTFT", font_size_values, fill=default_text_color)
+        
+        # Print MAF
+        print_text_topright(140, 115, "{:.1f}".format(GET_MAF), font_size_values, fill=default_text_color)
+        print_text_topleft(150, 115, "g/cm^3 MAF", font_size_values, fill=default_text_color)
+        
+        # Print speed
+        print_text_topright(140, 155, "{:.0f}".format(GET_SPEED), font_size_values, fill=default_text_color)
+        print_text_topleft(150, 155, "km/h", font_size_values, fill=default_text_color)
+
+        # print RPM
+        print_text_topleft(500, 30, "rpm", font_size_values, fill=default_text_color)
+        print_text_topright(490, 30, "{:.0f}".format(GET_RPM), font_size_values, fill=default_text_color)
+
+ 
+        # print RPM
+        print_text_topleft(500, 265, "% STFT", font_size_values, fill=default_text_color)
+        print_text_topright(490, 265, "{:+.1f}".format(GET_SHORT_L), font_size_values, fill=default_text_color)
+
+        # print volts
+        if ELM_VOLTAGE < volts_alert:
+            print_text_topleft(500, 305, "V", font_size_values, fill=alert_text_color)
+            print_text_topright(490, 305, "{:.1f}".format(ELM_VOLTAGE), font_size_values, fill=alert_text_color)
+        else:
+            print_text_topleft(500, 305, "V", font_size_values, fill=default_text_color)
+            print_text_topright(490, 305, "{:.1f}".format(ELM_VOLTAGE), font_size_values, fill=default_text_color)
+
+        # print coolant temp
+        degree_sign = u"\N{DEGREE SIGN}"
+        if GET_TEMP > temp_alert:
+            print_text_topleft(500, 345, degree_sign + "C", font_size_values, fill=alert_text_color)
+            print_text_topright(490, 345, "{:.0f}".format(GET_TEMP), font_size_values, fill=alert_text_color)
+        else:
+            print_text_topleft(500, 345, '\u00b0' + "C", font_size_values, fill=default_text_color)
+            print_text_topright(490, 345, "{:.0f}".format(GET_TEMP), font_size_values, fill=default_text_color)
+
+        print_text_topleft(500, 385, "wr_count", font_size_values, fill=default_text_color)
+        print_text_topright(490, 385, "{:.0f}".format(write_flash_counter), font_size_values, fill=default_text_color)
+
 
     if screen_number is 10:
         print_text_midtop(343, 100, "OBDII adapter disconnected", 40, fill=alert_text_color)
@@ -299,7 +357,8 @@ def csv_read():
         # if file doesn't exist - display message and create file
         # return ["0.0", "0.0", "0.0"]
         print(e)
-        screen.fill(background_color)
+        #screen.fill(background_color)
+        screen.blit(background_image, (0, 0))
         print_text_midtop(343, 235, "Can't read from log file", 50, fill=alert_text_color)
         print_text_midtop(343, 290, "No such file or directory", 50, fill=alert_text_color)
         pygame.display.flip()
@@ -316,7 +375,8 @@ def csv_write(odometer, benz, time_all):
     except Exception as e:
         # If can't write in log file - display message, and print it in terminal
         print(e)
-        screen.fill(background_color)
+        #screen.fill(background_color)
+        screen.blit(background_image, (0, 0))
         print_text_midtop(343, 235, "Can't write in log file", 50, fill=alert_text_color)
         pygame.display.flip()
         pygame.time.wait(10000)
@@ -332,7 +392,8 @@ def create_log_file():
     except Exception as e:
         # If can't create log file - display message, and print it in terminal
         print(e)
-        screen.fill(background_color)
+        #screen.fill(background_color)
+        screen.blit(background_image, (0, 0))
         print_text_midtop(343, 235, "Can't create the log file", 50, fill=alert_text_color)
         pygame.display.flip()
         pygame.time.wait(10000)
@@ -359,8 +420,8 @@ pygame.init()
 clock = pygame.time.Clock()
 screen = pygame.display.set_mode((690, 463))  # set the resolution of app window or full screen mode
 
-if not platform.system().startswith("Windows"):
-    pygame.display.toggle_fullscreen()  # start the app in full screen mode on any os except Windows
+#if not platform.system().startswith("Windows"):
+#    pygame.display.toggle_fullscreen()  # start the app in full screen mode on any os except Windows
 
 done = False  # set the while exit-value for main loop
 pygame.mouse.set_visible(False)  # do not display mouse cursor
@@ -372,6 +433,11 @@ connection = connect()  # initialize obd connection
 Thread_getValues = threading.Thread(target=get_values)
 Thread_getValues.daemon = False
 Thread_getValues.start()
+
+Thread_getValues = threading.Thread(target=button_process)
+Thread_getValues.daemon = False
+Thread_getValues.start()
+
 
 # checking is log file available or not. creating new one if not
 if not os.path.isfile(log_file):
@@ -396,6 +462,7 @@ print_screen(0)  # display values on screen 0
 
 # main loop
 while not done:
+    #button_process()
     # don't need to calculate values if no connection with adapter
     if connection.status() != "Car Connected":
         screen.blit(background_image, (0, 0))
