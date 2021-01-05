@@ -17,6 +17,7 @@ added check with set values to 0.0 if response is None
 - Python 3.7
 - pygame v2.0.1 https://www.pygame.org/news
 - obd v0.7.1 https://github.com/brendan-w/python-OBD
+- gpiozero 1.5.1 https://github.com/gpiozero/gpiozero
 
 This app is checked on Toyota Corolla E120 2005 year.
 

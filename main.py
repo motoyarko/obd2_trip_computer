@@ -4,7 +4,6 @@
 # https://sohabr.net/habr/post/252207/
 # https://www.drive2.ru/l/481530293824520264/
 
-
 from __future__ import division
 import os
 import threading
@@ -14,7 +13,11 @@ import obd
 import pygame
 import csv
 import platform
+from gpiozero import Button
 
+
+button = Button(2)
+screen_counter = 0
 fuel_status = False
 engine_on_rpm = 200
 time_start = 0
@@ -99,6 +102,12 @@ def print_text_midtop(x, y, text, size, fill):
     text_rect = puttext.get_rect()
     text_rect.midtop = (x, y)
     screen.blit(puttext, text_rect)
+
+
+def button_process():
+    global screen_counter
+    while STOP_GET:
+        print(button.when_pressed)
 
 
 def get_values():
@@ -504,7 +513,7 @@ while not done:
         #screen.fill(background_color)
         # uncomment for using background image
         screen.blit(background_image, (0, 0))
-        print_screen(0)  # display values on screen 0
+        print_screen(screen_counter)  # display values on screen 0
 
     # manage events to quit the application
     for event in pygame.event.get():
