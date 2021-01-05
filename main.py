@@ -41,7 +41,7 @@ odometer_full = 0.0
 benz_potracheno_full = 0.0
 volts_alert = 12.6
 temp_alert = 100.0
-#font_file = 'UbuntuMono-B.ttf'
+# font_file = 'UbuntuMono-B.ttf'
 font_file = 'Audiowide-Regular.ttf'
 font_size_values = 35
 log_file = 'log.csv'
@@ -56,11 +56,11 @@ odometer_eeprom = 0.0
 benz_eeprom = 0.0
 time_eeprom = 0.0
 default_text_color = (102, 102, 102)
-#default_text_color = (230, 230, 230)
-#default_text_color = (0, 0, 0)
+# default_text_color = (230, 230, 230)
+# default_text_color = (0, 0, 0)
 alert_text_color = (235, 7, 49)
 title_text_color = (204, 204, 204)
-#title_text_color = (10, 10, 10)
+# title_text_color = (10, 10, 10)
 # background_color = (0, 20, 0)
 background_color = (42, 120, 10)
 
@@ -91,19 +91,22 @@ def button_process():
                 pass
             else:
                 if screen_counter < screen_last:
-                   screen_counter += 1
+                    screen_counter += 1
                 else:
-                   screen_counter = 0
+                    screen_counter = 0
 
-        if button1.is_pressed:
+        if button2.is_pressed:
             time.sleep(0.15)
-            while button1.is_pressed:
+            while button2.is_pressed:
                 pass
             else:
+                screen_counter = 11
+                """
                 if screen_counter < screen_last:
                    screen_counter += 11
                 else:
                    screen_counter = 11
+                """
 
 
 def print_text_topleft(x, y, text, size, fill):
@@ -299,7 +302,7 @@ def print_screen(screen_number):
         print_text_topleft(500, 385, "Write", font_size_values, fill=default_text_color)
         print_text_topright(490, 385, "{:.0f}".format(write_flash_counter), font_size_values, fill=default_text_color)
 
-# ############################### SCREEN 1 #########################################################
+    # ############################### SCREEN 1 #########################################################
     if screen_number is 1:
         screen.blit(background_image, (0, 0))  # ?
         # Print screen title
@@ -308,11 +311,11 @@ def print_screen(screen_number):
         # Print long term fuel trim
         print_text_topright(140, 30, "{:+.1f}".format(GET_LONG_L), font_size_values, fill=default_text_color)
         print_text_topleft(150, 30, "% LTFT", font_size_values, fill=default_text_color)
-        
+
         # Print MAF
         print_text_topright(140, 115, "{:.1f}".format(GET_MAF), font_size_values, fill=default_text_color)
         print_text_topleft(150, 115, "g/cm^3 MAF", font_size_values, fill=default_text_color)
-        
+
         # Print speed
         print_text_topright(140, 155, "{:.0f}".format(GET_SPEED), font_size_values, fill=default_text_color)
         print_text_topleft(150, 155, "km/h", font_size_values, fill=default_text_color)
@@ -321,7 +324,6 @@ def print_screen(screen_number):
         print_text_topleft(500, 30, "rpm", font_size_values, fill=default_text_color)
         print_text_topright(490, 30, "{:.0f}".format(GET_RPM), font_size_values, fill=default_text_color)
 
- 
         # print RPM
         print_text_topleft(500, 265, "% STFT", font_size_values, fill=default_text_color)
         print_text_topright(490, 265, "{:+.1f}".format(GET_SHORT_L), font_size_values, fill=default_text_color)
@@ -346,7 +348,6 @@ def print_screen(screen_number):
         print_text_topleft(500, 385, "wr_count", font_size_values, fill=default_text_color)
         print_text_topright(490, 385, "{:.0f}".format(write_flash_counter), font_size_values, fill=default_text_color)
 
-
     if screen_number is 10:
         print_text_midtop(343, 100, "OBDII adapter disconnected", 40, fill=alert_text_color)
     if screen_number is 11:
@@ -367,7 +368,7 @@ def csv_read():
         # if file doesn't exist - display message and create file
         # return ["0.0", "0.0", "0.0"]
         print(e)
-        #screen.fill(background_color)
+        # screen.fill(background_color)
         screen.blit(background_image, (0, 0))
         print_text_midtop(343, 235, "Can't read from log file", 50, fill=alert_text_color)
         print_text_midtop(343, 290, "No such file or directory", 50, fill=alert_text_color)
@@ -385,7 +386,7 @@ def csv_write(odometer, benz, time_all):
     except Exception as e:
         # If can't write in log file - display message, and print it in terminal
         print(e)
-        #screen.fill(background_color)
+        # screen.fill(background_color)
         screen.blit(background_image, (0, 0))
         print_text_midtop(343, 235, "Can't write in log file", 50, fill=alert_text_color)
         pygame.display.flip()
@@ -402,7 +403,7 @@ def create_log_file():
     except Exception as e:
         # If can't create log file - display message, and print it in terminal
         print(e)
-        #screen.fill(background_color)
+        # screen.fill(background_color)
         screen.blit(background_image, (0, 0))
         print_text_midtop(343, 235, "Can't create the log file", 50, fill=alert_text_color)
         pygame.display.flip()
@@ -449,7 +450,6 @@ if not platform.system().startswith("Windows"):
     Thread_getValues.daemon = False
     Thread_getValues.start()
 
-
 # checking is log file available or not. creating new one if not
 if not os.path.isfile(log_file):
     create_log_file()
@@ -466,18 +466,18 @@ if odometer_full > 0.1:  # 0.1 because too high values are displayed after reset
 if time_full > 0:
     average_speed_full = odometer_full / (time_full / 3600.0)
 
-#screen.fill(background_color)
+# screen.fill(background_color)
 screen.blit(background_image, (0, 0))
 print_screen(0)  # display values on screen 0
 # end
 
 # main loop
 while not done:
-    #button_process()
+    # button_process()
     # don't need to calculate values if no connection with adapter
     if connection.status() != "Car Connected":
         screen.blit(background_image, (0, 0))
-        #screen.fill(background_color)  # fill out the screen with color
+        # screen.fill(background_color)  # fill out the screen with color
         print_screen(10)  # print message
         connection = connect()  # try to reconnect
     else:
@@ -588,7 +588,7 @@ while not done:
         if odometer_trip > 0:
             LP100_trip = (benz_potracheno_trip / odometer_trip) * 100.0  # Fuel consumption L/100km
 
-        #screen.fill(background_color)
+        # screen.fill(background_color)
         # uncomment for using background image
         screen.blit(background_image, (0, 0))
         print_screen(screen_counter)  # display values on screen 0
