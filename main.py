@@ -15,8 +15,9 @@ import csv
 import platform
 from gpiozero import Button
 
-
-button = Button(2)
+if not platform.system().startswith("Windows"):
+    button1 = Button(2)
+    button2 = Button(3)
 screen_counter = 0
 screen_last = 1
 fuel_status = False
@@ -83,19 +84,27 @@ STOP_GET = 1
 
 def button_process():
     global screen_counter
-    #button_state_old = False
     while STOP_GET:
-        #button_state_new = button.is_pressed
-        if button.is_pressed:
+        if button1.is_pressed:
             time.sleep(0.15)
-            while button.is_pressed:
+            while button1.is_pressed:
                 pass
             else:
-               if screen_counter < screen_last:
+                if screen_counter < screen_last:
                    screen_counter += 1
-               else:
+                else:
                    screen_counter = 0
-                
+
+        if button1.is_pressed:
+            time.sleep(0.15)
+            while button1.is_pressed:
+                pass
+            else:
+                if screen_counter < screen_last:
+                   screen_counter += 11
+                else:
+                   screen_counter = 11
+
 
 def print_text_topleft(x, y, text, size, fill):
     font = pygame.font.Font(font_file, size)
@@ -289,7 +298,8 @@ def print_screen(screen_number):
 
         print_text_topleft(500, 385, "Write", font_size_values, fill=default_text_color)
         print_text_topright(490, 385, "{:.0f}".format(write_flash_counter), font_size_values, fill=default_text_color)
-        
+
+# ############################### SCREEN 1 #########################################################
     if screen_number is 1:
         screen.blit(background_image, (0, 0))  # ?
         # Print screen title
@@ -420,8 +430,8 @@ pygame.init()
 clock = pygame.time.Clock()
 screen = pygame.display.set_mode((690, 463))  # set the resolution of app window or full screen mode
 
-#if not platform.system().startswith("Windows"):
-#    pygame.display.toggle_fullscreen()  # start the app in full screen mode on any os except Windows
+if not platform.system().startswith("Windows"):
+    pygame.display.toggle_fullscreen()  # start the app in full screen mode on any os except Windows
 
 done = False  # set the while exit-value for main loop
 pygame.mouse.set_visible(False)  # do not display mouse cursor
@@ -434,9 +444,10 @@ Thread_getValues = threading.Thread(target=get_values)
 Thread_getValues.daemon = False
 Thread_getValues.start()
 
-Thread_getValues = threading.Thread(target=button_process)
-Thread_getValues.daemon = False
-Thread_getValues.start()
+if not platform.system().startswith("Windows"):
+    Thread_getValues = threading.Thread(target=button_process)
+    Thread_getValues.daemon = False
+    Thread_getValues.start()
 
 
 # checking is log file available or not. creating new one if not
@@ -587,12 +598,14 @@ while not done:
         if event.type == pygame.MOUSEBUTTONUP:
             done = True
             quit_app()
-        if event.type == pygame.KEYUP:
-            done = True
-            quit_app()
         if event.type == pygame.QUIT:
             done = True
             quit_app()
+        if event.type == pygame.KEYDOWN:  # changing screen
+            if screen_counter < screen_last:
+                screen_counter += 1
+            else:
+                screen_counter = 0
 
     pygame.display.flip()  # Update the full display Surface to the screen
     clock.tick(60)  # set fps for the app
