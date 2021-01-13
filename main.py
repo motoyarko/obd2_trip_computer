@@ -40,7 +40,8 @@ LP100_full = 0.0
 odometer_full = 0.0
 benz_potracheno_full = 0.0
 volts_alert = 12.6
-temp_alert = 100.0
+temp_alert_high = 100.0
+temp_alert_low = 50.0
 # font_file = 'UbuntuMono-B.ttf'
 font_file = 'Audiowide-Regular.ttf'
 font_size_values = 35
@@ -59,6 +60,7 @@ default_text_color = (102, 102, 102)
 # default_text_color = (230, 230, 230)
 # default_text_color = (0, 0, 0)
 alert_text_color = (235, 7, 49)
+cold_text_color = (54, 47, 191)
 title_text_color = (204, 204, 204)
 # title_text_color = (10, 10, 10)
 # background_color = (0, 20, 0)
@@ -201,6 +203,7 @@ def print_fuel_status_string():
 
 def print_screen(screen_number):
     if screen_number is 0:
+        # ############################### SCREEN 0 #########################################################
         # Print screen title
         print_text_midtop(150, 0, "trip odometer", 30, fill=title_text_color)
         print_text_midtop(500, 0, "odometer", 30, fill=title_text_color)
@@ -235,9 +238,9 @@ def print_screen(screen_number):
 
         # right side first row
 
-        # print RPM
-        print_text_topleft(500, 30, "rpm", font_size_values, fill=default_text_color)
-        print_text_topright(490, 30, "{:.0f}".format(GET_RPM), font_size_values, fill=default_text_color)
+        # print speed
+        print_text_topleft(500, 30, "km/h", font_size_values, fill=default_text_color)
+        print_text_topright(490, 30, "{:.0f}".format(GET_SPEED), font_size_values, fill=default_text_color)
 
         # print av speed full
         print_text_topleft(500, 75, "km/h av", font_size_values, fill=default_text_color)
@@ -252,14 +255,45 @@ def print_screen(screen_number):
         print_text_topright(490, 155, "{:.1f}".format(odometer_full), font_size_values, fill=default_text_color)
 
         # print fuel litters full
-        print_text_topleft(500, 195, "L", font_size_values, fill=default_text_color)
+        print_text_topleft(500, 195, "l", font_size_values, fill=default_text_color)
         print_text_topright(490, 195, "{:.1f}".format(benz_potracheno_full), font_size_values, fill=default_text_color)
 
-        # sensors data - second row
+        # #######sensors data - second row
 
         # Print screen title
-        print_text_midtop(105, 235, "sensors", 30, fill=title_text_color)
+        print_text_midtop(105, 270, "sensors", 30, fill=title_text_color)
 
+        # print volts
+        if ELM_VOLTAGE < volts_alert:
+            print_text_topright(140, 305, "{:.1f}".format(ELM_VOLTAGE), font_size_values, fill=alert_text_color)
+            print_text_topleft(150, 305, "V", font_size_values, fill=alert_text_color)
+        else:
+            print_text_topright(140, 305, "{:.1f}".format(ELM_VOLTAGE), font_size_values, fill=default_text_color)
+            print_text_topleft(150, 305, "V", font_size_values, fill=default_text_color)
+
+        # print coolant temp
+        degree_sign = u"\N{DEGREE SIGN}"
+        if GET_TEMP >= temp_alert_high:
+            print_text_topright(140, 345, "{:.0f}".format(GET_TEMP), font_size_values, fill=alert_text_color)
+            print_text_topleft(150, 345, degree_sign + "C", font_size_values, fill=alert_text_color)
+        else:
+            if GET_TEMP < temp_alert_low:
+                print_text_topright(140, 345, "{:.0f}".format(GET_TEMP), font_size_values, fill=cold_text_color)
+                print_text_topleft(150, 345, '\u00b0' + "C", font_size_values, fill=cold_text_color)
+            else:
+                print_text_topright(140, 345, "{:.0f}".format(GET_TEMP), font_size_values, fill=default_text_color)
+                print_text_topleft(150, 345, '\u00b0' + "C", font_size_values, fill=default_text_color)
+
+        print_text_topright(140, 385, "{:.0f}".format(write_flash_counter), font_size_values, fill=default_text_color)
+        print_text_topleft(150, 385, "Write", font_size_values, fill=default_text_color)
+
+
+    # ############################### SCREEN 1 #########################################################
+    if screen_number is 1:
+        screen.blit(background_image, (0, 0))  # ?
+        # Print screen title
+        print_text_midtop(250, 0, "Sensors", 30, fill=title_text_color)
+        """
         # Print long term fuel trim
         print_text_topright(140, 265, "{:+.1f}".format(GET_LONG_L), font_size_values, fill=default_text_color)
         print_text_topleft(150, 265, "% LTFT", font_size_values, fill=default_text_color)
@@ -268,7 +302,7 @@ def print_screen(screen_number):
         print_text_topright(140, 305, "{:.1f}".format(GET_MAF), font_size_values, fill=default_text_color)
         print_text_topleft(150, 305, "g/cm^3 MAF", font_size_values, fill=default_text_color)
 
-        # Print trip L/100
+        # Print get load
         print_text_topright(140, 345, "{:.1f}".format(GET_LOAD), font_size_values, fill=default_text_color)
         print_text_topleft(150, 345, "% ENG LOAD", font_size_values, fill=default_text_color)
 
@@ -281,32 +315,7 @@ def print_screen(screen_number):
         # print RPM
         print_text_topleft(500, 265, "% STFT", font_size_values, fill=default_text_color)
         print_text_topright(490, 265, "{:+.1f}".format(GET_SHORT_L), font_size_values, fill=default_text_color)
-
-        # print volts
-        if ELM_VOLTAGE < volts_alert:
-            print_text_topleft(500, 305, "V", font_size_values, fill=alert_text_color)
-            print_text_topright(490, 305, "{:.1f}".format(ELM_VOLTAGE), font_size_values, fill=alert_text_color)
-        else:
-            print_text_topleft(500, 305, "V", font_size_values, fill=default_text_color)
-            print_text_topright(490, 305, "{:.1f}".format(ELM_VOLTAGE), font_size_values, fill=default_text_color)
-
-        # print coolant temp
-        degree_sign = u"\N{DEGREE SIGN}"
-        if GET_TEMP > temp_alert:
-            print_text_topleft(500, 345, degree_sign + "C", font_size_values, fill=alert_text_color)
-            print_text_topright(490, 345, "{:.0f}".format(GET_TEMP), font_size_values, fill=alert_text_color)
-        else:
-            print_text_topleft(500, 345, '\u00b0' + "C", font_size_values, fill=default_text_color)
-            print_text_topright(490, 345, "{:.0f}".format(GET_TEMP), font_size_values, fill=default_text_color)
-
-        print_text_topleft(500, 385, "Write", font_size_values, fill=default_text_color)
-        print_text_topright(490, 385, "{:.0f}".format(write_flash_counter), font_size_values, fill=default_text_color)
-
-    # ############################### SCREEN 1 #########################################################
-    if screen_number is 1:
-        screen.blit(background_image, (0, 0))  # ?
-        # Print screen title
-        print_text_midtop(250, 0, "Sensors", 30, fill=title_text_color)
+        """
 
         # Print long term fuel trim
         print_text_topright(140, 30, "{:+.1f}".format(GET_LONG_L), font_size_values, fill=default_text_color)
@@ -338,7 +347,7 @@ def print_screen(screen_number):
 
         # print coolant temp
         degree_sign = u"\N{DEGREE SIGN}"
-        if GET_TEMP > temp_alert:
+        if GET_TEMP > temp_alert_high:
             print_text_topleft(500, 345, degree_sign + "C", font_size_values, fill=alert_text_color)
             print_text_topright(490, 345, "{:.0f}".format(GET_TEMP), font_size_values, fill=alert_text_color)
         else:
@@ -351,7 +360,7 @@ def print_screen(screen_number):
     if screen_number is 10:
         print_text_midtop(343, 100, "OBDII adapter disconnected", 40, fill=alert_text_color)
     if screen_number is 11:
-        print_text_midtop(343, 100, "CONNECTING...", 50, fill=default_text_color)
+        print_text_midtop(343, 100, "  CONNECTING...", 50, fill=default_text_color)
         pygame.display.flip()
 
 
@@ -419,7 +428,7 @@ def quit_app():
 
 def connect():
     if platform.system().startswith("Windows"):
-        connection_obj = obd.OBD("COM10")  # config for Windows OS
+        connection_obj = obd.OBD("COM7")  # config for Windows OS
         return connection_obj
     else:
         # connection_obj = obd.OBD("/dev/ttyUSB0")  # connect to specific port in linux
@@ -477,8 +486,7 @@ while not done:
     # don't need to calculate values if no connection with adapter
     if connection.status() != "Car Connected":
         screen.blit(background_image, (0, 0))
-        # screen.fill(background_color)  # fill out the screen with color
-        print_screen(10)  # print message
+        print_screen(10)  # display values on screen 0
         connection = connect()  # try to reconnect
     else:
         # if connection with elm327 adapter is available
@@ -584,6 +592,7 @@ while not done:
                 time_trip = 0
                 odometer_trip = 0
                 benz_potracheno_trip = 0
+                LPH = 0.0
 
         if odometer_trip > 0:
             LP100_trip = (benz_potracheno_trip / odometer_trip) * 100.0  # Fuel consumption L/100km

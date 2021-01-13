@@ -6,6 +6,7 @@
 - add multiple screens with sensors data
 - switching between screens by pressing on button on IO port
 - reset log file data by press and hold on button on IO port
+- recreate log file if error reading from it. save old file with .old extention
 - To check - rpm can be != 0 after shutting down the engine ???
 added check with set values to 0.0 if response is None
 - DONE- Add settings from config.txt in raspberry
