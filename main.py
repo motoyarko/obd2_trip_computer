@@ -18,19 +18,21 @@ from gpiozero import Button
 if not platform.system().startswith("Windows"):
     button1 = Button(2)
     button2 = Button(3)
+
+com_port = "COM2"
 screen_counter = 0
 screen_last = 1
 fuel_status = False
 engine_on_rpm = 200
 time_start = 0
-time1 = 0
+time_loop = 0
 time_new = 0
 time_old = 0
-benz_potracheno_trip = 0
+fuel_used_trip = 0
 LP100_trip = 0.0
 LP100_inst = 0.0
 odometer_trip = 0.0
-odometer_add = 0.0
+odometer_add_loop = 0.0
 AirFuelRatio = 14.70
 FuelDensityGramsPerLiter = 750.0
 average_speed_trip = 0.0
@@ -38,7 +40,8 @@ time_trip = 0
 LPH = 0.0
 LP100_full = 0.0
 odometer_full = 0.0
-benz_potracheno_full = 0.0
+fuel_used_full = 0.0
+# motor_time_full = 0
 volts_alert = 12.6
 temp_alert_high = 100.0
 temp_alert_low = 50.0
@@ -46,10 +49,10 @@ temp_alert_low = 50.0
 font_file = 'Audiowide-Regular.ttf'
 font_size_values = 35
 log_file = 'log.csv'
-background_image = pygame.image.load("logo5.jpg")
+background_image = pygame.image.load("background_image.jpg")
 time_old_gurnal = 0
 odometer_add_gurnal = 0.0
-benz_add_gurnal = 0.0
+fuel_add_gurnal = 0.0
 time_add_gurnal = 0.0
 time_full = 0.0
 average_speed_full = 0.0
@@ -77,6 +80,7 @@ GET_LONG_L = 0.0
 GET_TEMP = 0
 GET_FUEL_STATUS = ""
 ELM_VOLTAGE = 0.0
+CVT_TEMP = 0.0
 
 # variables for stopping application
 STOP_ACCEL = 1
@@ -233,7 +237,7 @@ def print_screen(screen_number):
         print_text_topleft(150, 155, "km", font_size_values, fill=default_text_color)
 
         # Print trip L
-        print_text_topright(140, 195, "{:.1f}".format(benz_potracheno_trip), font_size_values, fill=default_text_color)
+        print_text_topright(140, 195, "{:.1f}".format(fuel_used_trip), font_size_values, fill=default_text_color)
         print_text_topleft(150, 195, "l", font_size_values, fill=default_text_color)
 
         # right side first row
@@ -256,7 +260,7 @@ def print_screen(screen_number):
 
         # print fuel litters full
         print_text_topleft(500, 195, "l", font_size_values, fill=default_text_color)
-        print_text_topright(490, 195, "{:.1f}".format(benz_potracheno_full), font_size_values, fill=default_text_color)
+        print_text_topright(490, 195, "{:.1f}".format(fuel_used_full), font_size_values, fill=default_text_color)
 
         # #######sensors data - second row
 
@@ -311,11 +315,11 @@ def print_screen(screen_number):
         print_text_topleft(150, 385, "km/h", font_size_values, fill=default_text_color)
 
         # right side second row
-
-        # print RPM
-        print_text_topleft(500, 265, "% STFT", font_size_values, fill=default_text_color)
-        print_text_topright(490, 265, "{:+.1f}".format(GET_SHORT_L), font_size_values, fill=default_text_color)
         """
+        # print motor time
+        print_text_topright(140, 385, "h. time", font_size_values, fill=default_text_color)
+        print_text_topleft(150, 385, "{:.2f}".format(time_full / 3600.0), font_size_values, fill=default_text_color)
+
 
         # Print long term fuel trim
         print_text_topright(140, 30, "{:+.1f}".format(GET_LONG_L), font_size_values, fill=default_text_color)
@@ -333,7 +337,7 @@ def print_screen(screen_number):
         print_text_topleft(500, 30, "rpm", font_size_values, fill=default_text_color)
         print_text_topright(490, 30, "{:.0f}".format(GET_RPM), font_size_values, fill=default_text_color)
 
-        # print RPM
+        # print STFT
         print_text_topleft(500, 265, "% STFT", font_size_values, fill=default_text_color)
         print_text_topright(490, 265, "{:+.1f}".format(GET_SHORT_L), font_size_values, fill=default_text_color)
 
@@ -428,7 +432,7 @@ def quit_app():
 
 def connect():
     if platform.system().startswith("Windows"):
-        connection_obj = obd.OBD("COM7")  # config for Windows OS
+        connection_obj = obd.OBD(com_port)  # config for Windows OS
         return connection_obj
     else:
         # connection_obj = obd.OBD("/dev/ttyUSB0")  # connect to specific port in linux
@@ -467,11 +471,11 @@ if not os.path.isfile(log_file):
 # start
 log_data = csv_read()
 odometer_full = float(log_data[0])
-benz_potracheno_full = float(log_data[1])
+fuel_used_full = float(log_data[1])
 time_full = float(log_data[2])
 
 if odometer_full > 0.1:  # 0.1 because too high values are displayed after reset log file
-    LP100_full = (benz_potracheno_full / odometer_full) * 100.0
+    LP100_full = (fuel_used_full / odometer_full) * 100.0
 if time_full > 0:
     average_speed_full = odometer_full / (time_full / 3600.0)
 
@@ -493,7 +497,7 @@ while not done:
         # main loop
         if GET_RPM > engine_on_rpm:
             FuelFlowLitersPerSecond = 0.0
-            odometer_add = 0.0
+            odometer_add_loop = 0.0
 
             if time_start == 0:
                 time_start = time.time()
@@ -522,67 +526,68 @@ while not done:
             # speed and odometer calculations
             time_trip = time.time() - time_start
             time_new = time.time()  # time from starting the app
-            time1 = time_new - time_old  # * tcorrect  # time after the last speed calculating
+            time_loop = time_new - time_old  # * tcorrect  # time after the last speed calculating
 
             # if time1 > 10:
             #    time1 = 0
 
             time_old = time_new  # write new time for comparing in new cycle
 
-            benz_add = FuelFlowLitersPerSecond * time1
-            benz_potracheno_trip = benz_potracheno_trip + benz_add  # fuel consumption for trip
+            fuel_add_loop = FuelFlowLitersPerSecond * time_loop
+            fuel_used_trip = fuel_used_trip + fuel_add_loop  # fuel consumption for trip
 
             if GET_SPEED > 0:
-                odometer_add = (((GET_SPEED * 1000.0) / 3600.0) * time1) / 1000.0  # calculate distance der time1
-                odometer_trip = odometer_trip + odometer_add  # odometer value per trip
-                if odometer_add > 0:
-                    LP100_inst = (benz_add / odometer_add) * 100.0  # instant fuel consumption
+                odometer_add_loop = (((GET_SPEED * 1000.0) / 3600.0) * time_loop) / 1000.0  # calculate distance per time_loop
+                odometer_trip = odometer_trip + odometer_add_loop  # odometer value per trip
+                if odometer_add_loop > 0:
+                    LP100_inst = (fuel_add_loop / odometer_add_loop) * 100.0  # instant fuel consumption
 
             if odometer_trip > 0 and time_trip > 0:
                 average_speed_trip = odometer_trip / (time_trip / 3600.0)
 
             # Writing data to log file on drive
+            # every 30 minutes on speeds > 10km/h
             # every 60 seconds on speeds 1...10km/h
             # every 30 seconds on speeds <= 1km/h
-            # every 30 minutes on speeds > 10km/h
             if ((GET_SPEED > 1) and (GET_SPEED < 10) and ((time_new - time_old_gurnal) > 60)) or \
                     ((GET_SPEED <= 1) and ((time_new - time_old_gurnal) > 30)) or \
                     ((time_new - time_old_gurnal) > 1800):
                 # read data from log file
                 log_data = csv_read()
-                odometer_eeprom = float(log_data[0]) + odometer_add_gurnal + odometer_add
-                benz_eeprom = float(log_data[1]) + benz_add_gurnal + benz_add
-                time_eeprom = float(log_data[2]) + time_add_gurnal + time1
+                # calculate new values of data in log file
+                odometer_eeprom = float(log_data[0]) + odometer_add_gurnal + odometer_add_loop
+                benz_eeprom = float(log_data[1]) + fuel_add_gurnal + fuel_add_loop
+                time_eeprom = float(log_data[2]) + time_add_gurnal + time_loop
                 # Write new data in log file
                 csv_write(odometer_eeprom, benz_eeprom, time_eeprom)
 
                 # debug code for investigate with count of writing operations
                 write_flash_counter += 1
 
-                # calculations for avarage values
+                # calculations for the average values
                 odometer_full = odometer_eeprom
-                benz_potracheno_full = benz_eeprom
+                fuel_used_full = benz_eeprom
                 time_full = time_eeprom
                 if odometer_full > 0:
-                    LP100_full = (benz_potracheno_full / odometer_full) * 100.0
+                    LP100_full = (fuel_used_full / odometer_full) * 100.0
                 if time_full > 0:
                     average_speed_full = odometer_full / (time_full / 3600.0)
 
                 odometer_add_gurnal = 0
-                benz_add_gurnal = 0
+                fuel_add_gurnal = 0
                 time_add_gurnal = 0
                 time_old_gurnal = time_new
 
             else:
-                odometer_add_gurnal = odometer_add_gurnal + odometer_add
-                benz_add_gurnal = benz_add_gurnal + benz_add
-                time_add_gurnal += time1
+                odometer_add_gurnal = odometer_add_gurnal + odometer_add_loop
+                fuel_add_gurnal = fuel_add_gurnal + fuel_add_loop
+                time_add_gurnal += time_loop
 
                 odometer_full = odometer_eeprom + odometer_add_gurnal
-                benz_potracheno_full = benz_eeprom + benz_add_gurnal
+                fuel_used_full = benz_eeprom + fuel_add_gurnal
                 time_full = time_eeprom + time_add_gurnal
                 if odometer_full > 0:
-                    LP100_full = (benz_potracheno_full / odometer_full) * 100.0
+                    LP100_full = (fuel_used_full / odometer_full) * 100.0
                 if time_full > 0:
                     average_speed_full = odometer_full / (time_full / 3600.0)
 
@@ -591,18 +596,18 @@ while not done:
                 time_start = 0
                 time_trip = 0
                 odometer_trip = 0
-                benz_potracheno_trip = 0
+                fuel_used_trip = 0
                 LPH = 0.0
 
         if odometer_trip > 0:
-            LP100_trip = (benz_potracheno_trip / odometer_trip) * 100.0  # Fuel consumption L/100km
+            LP100_trip = (fuel_used_trip / odometer_trip) * 100.0  # Fuel consumption L/100km
 
         # screen.fill(background_color)
         # uncomment for using background image
         screen.blit(background_image, (0, 0))
         print_screen(screen_counter)  # display values on screen 0
 
-    # manage events to quit the application
+    # manage events to quit the application. works only with keyboard and mouse
     for event in pygame.event.get():
         if event.type == pygame.MOUSEBUTTONUP:
             done = True
@@ -618,5 +623,6 @@ while not done:
 
     pygame.display.flip()  # Update the full display Surface to the screen
     clock.tick(60)  # set fps for the app
+
 pygame.init()
 sys.exit(0)

@@ -44,15 +44,23 @@ create run_obd_pygame.sh file
 
 #!bin/sh
 cd /
-cd home/pi/obd_pygame
+cd home/pi/obd2_trip_computer
 sudo python3 main.py
 
 make it executable
 
-chmod ... blablabla **TBU**
+chmod +x run_obd_pygame.sh
 
 
 fonts https://fonts.google.com/specimen/Audiowide?preview.text=Almost%20before%20we%20knew%20it,%20we%20had%20left%20the%20ground.%20km%2Fh%20&preview.text_type=custom&selection.family=Montserrat#standard-styles
+
+
+run obd emulator:
+> C:\Users\motoy\PycharmProjects\ELM327-emulator\ELM327-emulator>python -m elm -p COM4
+
+> scenario
+
+> resume
 
 
 
