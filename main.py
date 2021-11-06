@@ -205,6 +205,17 @@ def print_fuel_status_string():
         print_text_topleft(0, 500, GET_FUEL_STATUS, 30, fill=(255, 255, 55))
 
 
+# function in develop. isn't finished yet
+def print_line(name, value, line, position, font_size):
+    # set the y position of text according to the line number
+    line_to_y = {0: 0, 1: 30, 2: 75, 3: 115, 4: 155, 5: 195}
+    y = line_to_y[line]
+
+    if position is "left":
+        print_text_topright(140, 75, "{:.1f}".format(average_speed_trip), font_size_values, fill=default_text_color)
+        print_text_topleft(150, 75, "km/h av", font_size_values, fill=default_text_color)
+
+
 def print_screen(screen_number):
     if screen_number is 0:
         # ############################### SCREEN 0 #########################################################
@@ -216,9 +227,14 @@ def print_screen(screen_number):
         if GET_SPEED > 0:
             print_text_topright(140, 30, "{:.1f}".format(LP100_inst), font_size_values, fill=default_text_color)
             print_text_topleft(150, 30, "L/100", font_size_values, fill=default_text_color)
-        else:
+        elif GET_RPM > engine_on_rpm:
             print_text_topright(140, 30, "{:.1f}".format(LPH), font_size_values, fill=default_text_color)
             print_text_topleft(150, 30, "L/h", font_size_values, fill=default_text_color)
+        else:
+            # do we need it or it setting to zero in calculating in main loop ???
+            print_text_topright(140, 30, "0.0", font_size_values, fill=default_text_color)
+            print_text_topleft(150, 30, "L/h", font_size_values, fill=default_text_color)
+
 
         # Print av speed trip
         print_text_topright(140, 75, "{:.1f}".format(average_speed_trip), font_size_values, fill=default_text_color)
@@ -597,6 +613,7 @@ while not done:
                 time_trip = 0
                 odometer_trip = 0
                 fuel_used_trip = 0
+                average_speed_trip = 0  # for displaying 0 if engine off
                 LPH = 0.0
 
         if odometer_trip > 0:
