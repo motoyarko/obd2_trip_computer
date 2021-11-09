@@ -15,8 +15,8 @@ main features:
 
 """
 TODO:
-normilize variables names
-move constants from functions to top of module
++/- DONE: normilize variables names
++/- DONE: move constants from functions to top of module
 move buttons logic to separate module for using it by obd and player modules 
 """
 debug_on = False
