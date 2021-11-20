@@ -4,6 +4,15 @@
 # https://sohabr.net/habr/post/252207/
 # https://www.drive2.ru/l/481530293824520264/
 
+
+"""
+Autostart:
+
+sudo nano /etc/xdg/lxsession/LXDE-pi/autostart 
+insert before last line
+/usr/bin/python3 /home/pi/obd2_trip_computer/main.py
+"""
+
 from __future__ import division
 import os
 import threading
@@ -13,15 +22,26 @@ import obd
 import pygame
 import csv
 import platform
+import time
 from gpiozero import Button
+from omxshuffle import get_playlist, play_info_read, play_info_write, playlist_write
+import random
+#import asyncio
+c = threading.Condition()
 
-if not platform.system().startswith("Windows"):
-    button1 = Button(2)
-    button2 = Button(3)
+playlist_normal, playlist_shuffled = get_playlist()
+#playlist_normal = get_playlist()[0]
+debug_on = True
+
+song_title = ""
+song_number = 0
+song_total = 0
+playlist_shuffle = True
 
 com_port = "COM2"
+global screen_counter
 screen_counter = 0
-screen_last = 1
+screen_last = 2
 fuel_status = False
 engine_on_rpm = 200
 time_start = 0
@@ -46,10 +66,10 @@ volts_alert = 12.6
 temp_alert_high = 100.0
 temp_alert_low = 50.0
 # font_file = 'UbuntuMono-B.ttf'
-font_file = 'Audiowide-Regular.ttf'
+font_file = "/home/pi/obd2_trip_computer/Audiowide-Regular.ttf"
 font_size_values = 35
-log_file = 'log.csv'
-background_image = pygame.image.load("background_image.jpg")
+log_file = '/home/pi/obd2_trip_computer/log.csv'
+background_image = pygame.image.load("/home/pi/obd2_trip_computer/background_image.bmp")
 time_old_gurnal = 0
 odometer_add_gurnal = 0.0
 fuel_add_gurnal = 0.0
@@ -86,34 +106,20 @@ CVT_TEMP = 0.0
 STOP_ACCEL = 1
 STOP_PRINT = 1
 STOP_GET = 1
+STOP_PLAYER = 1
 
+
+
+def stop_play():
+    pygame.mixer.music.fadeout(1000)
+    if debug_on: print("next song")
 
 def button_process():
     global screen_counter
-    while STOP_GET:
-        if button1.is_pressed:
-            time.sleep(0.15)
-            while button1.is_pressed:
-                pass
-            else:
-                if screen_counter < screen_last:
-                    screen_counter += 1
-                else:
-                    screen_counter = 0
-
-        if button2.is_pressed:
-            time.sleep(0.15)
-            while button2.is_pressed:
-                pass
-            else:
-                screen_counter = 11
-                """
-                if screen_counter < screen_last:
-                   screen_counter += 11
-                else:
-                   screen_counter = 11
-                """
-
+    if screen_counter < screen_last:
+        screen_counter += 1
+    else:
+        screen_counter = 0
 
 def print_text_topleft(x, y, text, size, fill):
     font = pygame.font.Font(font_file, size)
@@ -132,7 +138,8 @@ def print_text_topright(x, y, text, size, fill):
 
 
 def print_text_midtop(x, y, text, size, fill):
-    font = pygame.font.Font(font_file, size)
+    #font = pygame.font.Font(font_file, size)
+    font = pygame.font.Font(None, size)
     puttext = font.render(text, True, fill)
     text_rect = puttext.get_rect()
     text_rect.midtop = (x, y)
@@ -148,14 +155,20 @@ def get_values():
             GET_RPM = response.value.magnitude
         else:
             GET_RPM = 0.0
-
+        
+        if not STOP_GET:
+            break
+        
         cmd = obd.commands.MAF  # select an OBD command (sensor)
         response = connection.query(cmd)  # send the command, and parse the response
         if response.value is not None:
             GET_MAF = response.value.magnitude
         else:
             GET_MAF = 0.0
-
+        
+        if not STOP_GET:
+            break
+        
         cmd = obd.commands.SPEED  # select an OBD command (sensor)
         response = connection.query(cmd)  # send the command, and parse the response
         if response.value is not None:
@@ -163,6 +176,10 @@ def get_values():
         else:
             GET_SPEED = 0.0
 
+        
+        if not STOP_GET:
+            break
+        
         cmd = obd.commands.SHORT_FUEL_TRIM_1  # select an OBD command (sensor)
         response = connection.query(cmd)  # send the command, and parse the response
         if response.value is not None:
@@ -170,6 +187,10 @@ def get_values():
         else:
             GET_SHORT_L = 0.0
 
+        
+        if not STOP_GET:
+            break
+        
         cmd = obd.commands.LONG_FUEL_TRIM_1  # select an OBD command (sensor)
         response = connection.query(cmd)  # send the command, and parse the response
         if response.value is not None:
@@ -177,6 +198,10 @@ def get_values():
         else:
             GET_LONG_L = 0.0
 
+        
+        if not STOP_GET:
+            break
+        
         cmd = obd.commands.ENGINE_LOAD  # select an OBD command (sensor)
         response = connection.query(cmd)  # send the command, and parse the response
         if response.value is not None:
@@ -184,21 +209,116 @@ def get_values():
         else:
             GET_LOAD = 0.0
 
+        
+        if not STOP_GET:
+            break
+        
         cmd = obd.commands.COOLANT_TEMP  # select an OBD command (sensor)
         response = connection.query(cmd)  # send the command, and parse the response
         if response.value is not None:
             GET_TEMP = response.value.magnitude
 
+        
+        if not STOP_GET:
+            break
+        
         cmd = obd.commands.FUEL_STATUS  # select an OBD command (sensor)
         response = connection.query(cmd)  # send the command, and parse the response
         if response.value is not None:
             GET_FUEL_STATUS = response.value[0]
 
+        
+        if not STOP_GET:
+            break
+        
         cmd = obd.commands.ELM_VOLTAGE
         response = connection.query(cmd)
         if response.value is not None:
             ELM_VOLTAGE = response.value.magnitude
+            
+            
+def play_loop(playlist_normal, playlist_random, pygame):
+    global song_title, song_number, song_total, playlist_shuffle
+    debug_on = True
+    #playlist_shuffle = True
+    debug_on = True
+    #playlist_shuffle = False
+    playlist_file = '/home/pi/obd2_trip_computer/playlist.txt'
+    playlist_file_shuffled = '/home/pi/obd2_trip_computer/playlist_shuffled.txt'
+    play_info_file = '/home/pi/obd2_trip_computer/play_info.txt'
+    music_folder = "/home/pi/Music"
+    music_folder_win = 'C:/Users/motoy/Music'
+    """
+    main loop function.
+    playlist_normal, playlist_random - list
+    usage each of them depends of playlist_shuffle bool
+    :return: None
+    """
+    #os.system('killall omxplayer.bin')
+    # files_counter = 0
+    # print("total files in file system: " + str(len(playlist_normal)))
+    
+    if playlist_shuffle:
+        playlist = playlist_random
+    else:
+        playlist = playlist_normal
+    song_total = len(playlist)
+    if debug_on: print("total files in playlist: " + str(len(playlist)))
+    if debug_on: print("Random is on: " + str(playlist_shuffle))
+    file_to_start_index = play_info_read(play_info_file)
+    # check if data correct in play_info_file, if not - start from first file
+    if (file_to_start_index < 0) or (file_to_start_index > len(playlist) - 1):
+        file_to_start_index = 0
+    try:
+        while STOP_PLAYER:
+            for index, f in enumerate(playlist):
+                if index >= file_to_start_index:
+                    while pygame.mixer.music.get_busy() == 1:
+                        #print("-----STOP_PLAYER!: " + str(STOP_PLAYER))
+                        if STOP_PLAYER == 0:
+                            print("-----EXIT from Play loop 4")
+                            pygame.mixer.music.fadeout(1000)
+                            break             
+                    try:
+                        if STOP_PLAYER == 0:
+                            print("-----EXIT from Play loop 3")
+                            pygame.mixer.music.fadeout(1000)
+                            break
+                        if debug_on: print("file number is: " + str(index + 1))
+                        play_info_write(play_info_file, index)
+                        song_number = index +1
+                        song_title = f
+                        song_title = song_title.rsplit("/")[-1]
+                        if debug_on: print("file name: " + f)
+                        pygame.mixer.music.load(f)
+                        pygame.mixer.music.set_volume(1.0)
+                        pygame.mixer.music.play(loops=0, start=0.0, fade_ms=2000)
+                    except a:
+                        if debug_on: print(a)
+                        print("-----EXIT from Play loop 5")
+                        pygame.mixer.music.fadeout(1000)
+                        
+                        
+                else:
+                    if STOP_PLAYER == 0:
+                        print("-----EXIT from Play loop 2")
+                        pygame.mixer.music.fadeout(1000)
+                        break
+                    continue
+            # If shuffled playlist fully played, re-shuffle it, save new shuffled playlist to file
+            if STOP_PLAYER == 0:
+                print("-----EXIT from Play loop 1")
+                pygame.mixer.music.fadeout(1000)
+                break
+            play_info_write(play_info_file, 0)
+            file_to_start_index = 0
+            if playlist_shuffle:
+                random.shuffle(playlist_shuffled)
+                playlist_write(playlist_file_shuffled, playlist_shuffled)
 
+    finally:
+        pygame.mixer.music.fadeout(1000)
+        print("------EXIT from Play loop 0")
 
 def print_fuel_status_string():
     if GET_FUEL_STATUS is not None:
@@ -332,10 +452,10 @@ def print_screen(screen_number):
 
         # right side second row
         """
-        # print motor time
-        print_text_topright(140, 385, "h. time", font_size_values, fill=default_text_color)
-        print_text_topleft(150, 385, "{:.2f}".format(time_full / 3600.0), font_size_values, fill=default_text_color)
-
+        # print motor time   
+        print_text_topright(140, 385, "{:.0f}:{:.0f}".format(time_full // 3600.0, (time_full % 3600) / 60), font_size_values, fill=default_text_color)
+        # time_full in seconds. First print hours , then print minutes
+        print_text_topleft(150, 385, "motor hours", font_size_values, fill=default_text_color)
 
         # Print long term fuel trim
         print_text_topright(140, 30, "{:+.1f}".format(GET_LONG_L), font_size_values, fill=default_text_color)
@@ -376,9 +496,27 @@ def print_screen(screen_number):
 
         print_text_topleft(500, 385, "wr_count", font_size_values, fill=default_text_color)
         print_text_topright(490, 385, "{:.0f}".format(write_flash_counter), font_size_values, fill=default_text_color)
-
+    
+    # ############################### SCREEN 2 #########################################################
+    if screen_number is 2:  # Music player
+        #song_title = ""
+        #song_number = 0
+        #song_total = 0
+        #playlist_shuffle
+        print_text_midtop(343, 50, "Music Player", 40, fill=alert_text_color)
+        
+        print_text_topright(349, 90, str(song_number), font_size_values, fill=default_text_color)
+        print_text_topleft(353, 90, "/"+ str(song_total), font_size_values, fill=default_text_color)
+        
+        print_text_midtop(343, 140, song_title, 50, fill=default_text_color)
+        
+        print_text_topright(349, 200, "Shuffle ON:", font_size_values, fill=default_text_color)
+        print_text_topleft(353, 200, str(playlist_shuffle), font_size_values, fill=default_text_color)
+        
+    # ############################### SCREEN 10 #########################################################
     if screen_number is 10:
         print_text_midtop(343, 100, "OBDII adapter disconnected", 40, fill=alert_text_color)
+    # ############################### SCREEN 11 #########################################################
     if screen_number is 11:
         print_text_midtop(343, 100, "  CONNECTING...", 50, fill=default_text_color)
         pygame.display.flip()
@@ -440,10 +578,17 @@ def create_log_file():
 
 
 def quit_app():
-    global STOP_GET, STOP_PRINT, STOP_ACCEL
+    global STOP_GET, STOP_PRINT, STOP_ACCEL, STOP_PLAYER
+    c.acquire()
     STOP_GET = 0
     STOP_PRINT = 0
     STOP_ACCEL = 0
+    STOP_PLAYER = 0
+    c.notifyAll()
+    #music_player_thread.STOP_PLAYER = 0
+    c.release()
+    #time.sleep(10)
+    #await asyncio.sleep(10)
 
 
 def connect():
@@ -454,17 +599,19 @@ def connect():
         # connection_obj = obd.OBD("/dev/ttyUSB0")  # connect to specific port in linux
         connection_obj = obd.OBD()
         return connection_obj  # return connection object in main loop
-
-
+               
+pygame.quit()
 pygame.init()
 clock = pygame.time.Clock()
-screen = pygame.display.set_mode((690, 463))  # set the resolution of app window or full screen mode
-
-if not platform.system().startswith("Windows"):
-    pygame.display.toggle_fullscreen()  # start the app in full screen mode on any os except Windows
-
+#screen = pygame.display.set_mode((690, 463))
+screen = pygame.display.set_mode((940, 624))  # set the resolution of app window or full screen mode
+#screen = pygame.display.set_mode((640, 480))
+pygame.display.toggle_fullscreen()
+#if not platform.system().startswith("Windows"):
+#    pygame.display.toggle_fullscreen()  # start the app in full screen mode on any os except Windows
+    
 done = False  # set the while exit-value for main loop
-pygame.mouse.set_visible(False)  # do not display mouse cursor
+#pygame.mouse.set_visible(False)  # do not display mouse cursor
 screen.blit(background_image, (0, 0))
 print_screen(11)  # display the connection message
 connection = connect()  # initialize obd connection
@@ -473,11 +620,19 @@ connection = connect()  # initialize obd connection
 Thread_getValues = threading.Thread(target=get_values)
 Thread_getValues.daemon = False
 Thread_getValues.start()
+#Thread_getValues.join()
+
+music_player_thread = threading.Thread(target=play_loop, args=(playlist_normal, playlist_shuffled, pygame))
+music_player_thread.daemon = False
+music_player_thread.start()
+#music_player_thread.join()
 
 if not platform.system().startswith("Windows"):
-    Thread_getValues = threading.Thread(target=button_process)
-    Thread_getValues.daemon = False
-    Thread_getValues.start()
+    button1 = Button(pin=2, pull_up=True, bounce_time=0.05, hold_time=2, hold_repeat=False)
+    button2 = Button(pin=3, pull_up=True, bounce_time=0.05, hold_time=2, hold_repeat=False)
+    button1.when_released = stop_play
+    print("Screen counter: " + str(screen_counter))
+    button2.when_released = button_process
 
 # checking is log file available or not. creating new one if not
 if not os.path.isfile(log_file):
@@ -625,13 +780,16 @@ while not done:
         print_screen(screen_counter)  # display values on screen 0
 
     # manage events to quit the application. works only with keyboard and mouse
+    #print("MAIN-STOP_PLAYER!: " + str(STOP_PLAYER))
     for event in pygame.event.get():
         if event.type == pygame.MOUSEBUTTONUP:
             done = True
             quit_app()
+            
         if event.type == pygame.QUIT:
             done = True
             quit_app()
+            
         if event.type == pygame.KEYDOWN:  # changing screen
             if screen_counter < screen_last:
                 screen_counter += 1
@@ -639,7 +797,10 @@ while not done:
                 screen_counter = 0
 
     pygame.display.flip()  # Update the full display Surface to the screen
-    clock.tick(60)  # set fps for the app
+    clock.tick(25)  # set fps for the app
 
-pygame.init()
+pygame.display.quit()
+#music_player_thread.stop()
+print("EEEEEEEEEND")
+
 sys.exit(0)

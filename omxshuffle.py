@@ -2,47 +2,29 @@ import random
 import os
 from gpiozero import Button
 import platform
-"""
-main features:
-* two playlists are generated. shuffled and normally ordered
-* you can choose which to use by playlist_shuffle = True/False
-* playlist_shuffle = False : after all files are played, continue from first item
-* playlist_shuffle = True : after all files are played, shuffled playlist is re-generated and continue from first item
-* system checks is there new/deleted files in music directory during start. if yes - all playlists are regenerated
-* Continue playing from the last played song
-* next track by press the button on raspberry 
-"""
+#from buttons import buton_process
+#from main import STOP_PLAYER
+
+#STOP_PLAYER = 1
 
 """
 TODO:
-+/- DONE: normilize variables names
-+/- DONE: move constants from functions to top of module
+normilize variables names
+move constants from functions to top of module
 move buttons logic to separate module for using it by obd and player modules 
 """
-debug_on = False
-playlist_shuffle = True
-playlist_file = 'playlist.txt'
-playlist_file_shuffled = 'playlist_shuffled.txt'
-play_info_file = 'play_info.txt'
+screen_last = 1
+
+debug_on = True
+playlist_shuffle = False
+playlist_file = '/home/pi/obd2_trip_computer/playlist.txt'
+playlist_file_shuffled = '/home/pi/obd2_trip_computer/playlist_shuffled.txt'
+play_info_file = '/home/pi/obd2_trip_computer/play_info.txt'
 music_folder = "/home/pi/Music"
 music_folder_win = 'C:/Users/motoy/Music'
 
-
-def kill_omxplayer1():
-    """
-    it kills omxplayer process
-    After killing it, the next song from playlist starts playing in the play_loop()
-    :return:
-    """
-    os.system('killall omxplayer.bin')
-    if debug_on: print("next song")
-
-
-if not platform.system().startswith("Windows"):
-    button1 = Button(pin=2, pull_up=True, bounce_time=0.05, hold_time=2, hold_repeat=False)
-    button2 = Button(pin=3, pull_up=True, bounce_time=0.05, hold_time=2, hold_repeat=False)
-    button1.when_released = kill_omxplayer1
-
+files_result =[]
+playlist_shuffled = []
 
 def get_audio_files_list(directory):
     """
@@ -51,22 +33,22 @@ def get_audio_files_list(directory):
     list of music files with full path
     """
     files_list = []
-    #directory = "/home/pi/Music"
     for root, subdirectories, files in os.walk(directory):
         for file in files:
-            if file.endswith(".mp3") or file.endswith(".flac"):
+            if file.endswith(".mp3") or file.endswith(".wav"):
+            #if file.endswith(".mp3"):
                 files_list.append(os.path.join(root, file))
     return files_list
 
-
-def play_loop(playlist_normal, playlist_random):
+def play_loop(playlist_normal, playlist_random, pygame, STOP_PLAYER):
+    #global STOP_PLAYER
     """
     main loop function.
     playlist_normal, playlist_random - list
     usage each of them depends of playlist_shuffle bool
-    :return: Nne
+    :return: None
     """
-    os.system('killall omxplayer.bin')
+    #os.system('killall omxplayer.bin')
     # files_counter = 0
     # print("total files in file system: " + str(len(playlist_normal)))
     if playlist_shuffle:
@@ -79,26 +61,52 @@ def play_loop(playlist_normal, playlist_random):
     # check if data correct in play_info_file, if not - start from first file
     if (file_to_start_index < 0) or (file_to_start_index > len(playlist) - 1):
         file_to_start_index = 0
+    try:
+        while STOP_PLAYER:
+            for index, f in enumerate(playlist):
+                if index >= file_to_start_index:
+                    while pygame.mixer.music.get_busy() == 1:
+                        print("-----STOP_PLAYER!: " + str(STOP_PLAYER))
+                        if STOP_PLAYER == 0:
+                            print("-----EXIT from Play loop 4")
+                            pygame.mixer.music.fadeout(1000)
+                            break             
+                    try:
+                        if STOP_PLAYER == 0:
+                            print("-----EXIT from Play loop 3")
+                            pygame.mixer.music.fadeout(1000)
+                            break
+                        if debug_on: print("file number is: " + str(index + 1))
+                        play_info_write(play_info_file, index)
+                        if debug_on: print("file name: " + f)
+                        pygame.mixer.music.load(f)
+                        pygame.mixer.music.play(loops=0, start=0.0, fade_ms=2000)
+                    except a:
+                        if debug_on: print(a)
+                        print("-----EXIT from Play loop 5")
+                        pygame.mixer.music.fadeout(1000)
+                        
+                else:
+                    if STOP_PLAYER == 0:
+                        print("-----EXIT from Play loop 2")
+                        pygame.mixer.music.fadeout(1000)
+                        break
+                    continue
+            # If shuffled playlist fully played, re-shuffle it, save new shuffled playlist to file
+            if STOP_PLAYER == 0:
+                print("-----EXIT from Play loop 1")
+                pygame.mixer.music.fadeout(1000)
+                break
+            play_info_write(play_info_file, 0)
+            file_to_start_index = 0
+            if playlist_shuffle:
+                random.shuffle(playlist_shuffled)
+                playlist_write(playlist_file_shuffled, playlist_shuffled)
 
-    while True:
-        for index, f in enumerate(playlist):
-            if index >= file_to_start_index:
-                try:
-                    if debug_on: print("file number is: " + str(index + 1))
-                    play_info_write(play_info_file, index)
-                    if debug_on: print("file name: " + f)
-                    os.system('omxplayer -o local "%s"' % f)
-                except a:
-                    if debug_on: print(a)
-            else:
-                continue
-        # If shuffled playlist fully played, re-shuffle it, save new shuffled playlist to file
-        play_info_write(play_info_file, 0)
-        file_to_start_index = 0
-        if playlist_shuffle:
-            random.shuffle(playlist_shuffled)
-            playlist_write(playlist_file_shuffled, playlist_shuffled)
-
+    finally:
+        pygame.mixer.music.fadeout(1000)
+        print("------EXIT from Play loop 0")
+              
 
 # Start file functions
 def playlist_read(file):
@@ -133,11 +141,14 @@ def compare_lists(list1, list2):
     """
     set1 = set(list1)
     set2 = set(list2)
-    result = set1.difference(set2)
-    if not result:
+    result1 = set1.difference(set2)
+    result2 = set2.difference(set1)
+    #The difference method returns a new set having all the elements of set1 which is not present in set2
+    #If we deleting files, it can be case when difference is {}
+    if not result1 and not result2:
         return True
     else:
-        if debug_on: print(str(len(result)) + " added/deleted files in the Music directory")
+        if debug_on: print(str(len(result1)+len(result2)) + " added/deleted files in the Music directory")
         return False
 
 
@@ -170,38 +181,48 @@ def play_info_read(file):
         if debug_on: print(e)
         return 0
 
+def get_playlist():
+    #get_audio_files_list(music_folder)
+    
+    # read Music folder for audio files
+    if not platform.system().startswith("Windows"):
+        files_result = get_audio_files_list(music_folder)
+    else:
+        files_result = get_audio_files_list(music_folder_win)
+    #print(files_result)
+    # Create playlist file if it doesn't exist
+    if not os.path.isfile(playlist_file):
+        playlist_write(playlist_file, files_result)
+    if not os.path.isfile(playlist_file_shuffled):
+        playlist_shuffled = files_result.copy()
+        random.shuffle(playlist_shuffled)
+        playlist_write(playlist_file_shuffled, playlist_shuffled)
 
-# read Music folder for audio files
-if not platform.system().startswith("Windows"):
-    files_result = get_audio_files_list(music_folder)
-else:
-    files_result = get_audio_files_list(music_folder_win)
-
-# Create playlist file if it doesn't exist
-if not os.path.isfile(playlist_file):
-    playlist_write(playlist_file, files_result)
-if not os.path.isfile(playlist_file_shuffled):
-    playlist_shuffled = files_result.copy()
-    random.shuffle(playlist_shuffled)
-    playlist_write(playlist_file_shuffled, playlist_shuffled)
-
-# compare playlist file and newelly readed files list from the Music folder
-# and rewrite playlist file with actual data if needed
-old_playlist = playlist_read(playlist_file)
-if not compare_lists(files_result, old_playlist):
-    playlist_write(playlist_file, files_result)
-    playlist_shuffled = files_result.copy()
-    random.shuffle(playlist_shuffled)
-    playlist_write(playlist_file_shuffled, playlist_shuffled)
-    play_info_write(play_info_file, 0)
-else:
-    playlist_shuffled = playlist_read(playlist_file_shuffled)
+    # compare playlist file and newelly readed files list from the Music folder
+    # and rewrite playlist file with actual data if needed
+    old_playlist = playlist_read(playlist_file)
+    if not compare_lists(files_result, old_playlist):
+        print("test string!!!")
+        playlist_write(playlist_file, files_result)
+        playlist_shuffled = files_result.copy()
+        random.shuffle(playlist_shuffled)
+        playlist_write(playlist_file_shuffled, playlist_shuffled)
+        play_info_write(play_info_file, 0)
+    else:
+        playlist_shuffled = playlist_read(playlist_file_shuffled)
 
 
-# Maybe it is not needed
-if len(playlist_shuffled) == 0:  # for case if shuffled playlist is blank
-    playlist_shuffled = files_result.copy()
-    random.shuffle(playlist_shuffled)
-    playlist_write(playlist_file_shuffled, playlist_shuffled)
+    # Maybe it is not needed
+    if len(playlist_shuffled) == 0:  # for case if shuffled playlist is blank
+        playlist_shuffled = files_result.copy()
+        random.shuffle(playlist_shuffled)
+        playlist_write(playlist_file_shuffled, playlist_shuffled)
+    return [files_result, playlist_shuffled]
 
-play_loop(playlist_normal=files_result, playlist_random=playlist_shuffled)
+def test_loop(i):
+    try:
+        play_loop(playlist_normal=files_result, playlist_random=playlist_shuffled)
+        os.system('killall omxplayer.bin')
+    finally:
+        print("FINALLLY FFFFFFFFFFFFFFFFFFFFFFFFF")
+        kill_omxplayer1()
