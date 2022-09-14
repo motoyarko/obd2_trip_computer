@@ -12,7 +12,7 @@ sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
 insert before last line
 /usr/bin/python3 /home/pi/obd2_trip_computer/main.py
 """
-
+# from mutagen import mp3
 from __future__ import division
 import os
 import threading
@@ -26,11 +26,14 @@ import time
 from gpiozero import Button
 from omxshuffle import get_playlist, play_info_read, play_info_write, playlist_write
 import random
-#import asyncio
+from obd import OBDCommand
+from obd.protocols import ECU
+
+# import asyncio
 c = threading.Condition()
 
 playlist_normal, playlist_shuffled = get_playlist()
-#playlist_normal = get_playlist()[0]
+# playlist_normal = get_playlist()[0]
 debug_on = True
 
 song_title = ""
@@ -66,21 +69,38 @@ volts_alert = 12.6
 temp_alert_high = 100.0
 temp_alert_low = 50.0
 # font_file = 'UbuntuMono-B.ttf'
-font_file = "/home/pi/obd2_trip_computer/Audiowide-Regular.ttf"
+# font_file = "/home/pi/obd2_trip_computer/Audiowide-Regular.ttf"
 font_size_values = 35
-log_file = '/home/pi/obd2_trip_computer/log.csv'
-background_image = pygame.image.load("/home/pi/obd2_trip_computer/background_image.bmp")
-time_old_gurnal = 0
-odometer_add_gurnal = 0.0
-fuel_add_gurnal = 0.0
-time_add_gurnal = 0.0
+
+# Different sources of the background image depending of platform. It is needed for startup on raspberry. TBC
+if platform.system().startswith("Windows"):
+    background_image = pygame.image.load("background_image.bmp")
+    background_image_music_player = pygame.image.load("background_image_music_player.bmp")
+    log_file = 'log.csv'
+    font_file = "Audiowide-Regular.ttf"
+    playlist_file = 'playlist.pls'
+    playlist_file_shuffled = 'playlist_shuffled.pls'
+    play_info_file = 'play_info.pls'
+else:
+    background_image = pygame.image.load("/home/pi/obd2_trip_computer/background_image.bmp")
+    background_image_music_player = pygame.image.load("/home/pi/obd2_trip_computer/background_image_music_player.bmp")
+    log_file = '/home/pi/obd2_trip_computer/log.csv'
+    font_file = "/home/pi/obd2_trip_computer/Audiowide-Regular.ttf"
+    playlist_file = '/home/pi/obd2_trip_computer/playlist.txt'
+    playlist_file_shuffled = '/home/pi/obd2_trip_computer/playlist_shuffled.txt'
+    play_info_file = '/home/pi/obd2_trip_computer/play_info.txt'
+
+time_old_journal = 0
+odometer_add_journal = 0.0
+fuel_add_journal = 0.0
+time_add_journal = 0.0
 time_full = 0.0
 average_speed_full = 0.0
 odometer_eeprom = 0.0
 benz_eeprom = 0.0
 time_eeprom = 0.0
-default_text_color = (102, 102, 102)
-# default_text_color = (230, 230, 230)
+#default_text_color = (102, 102, 102)
+default_text_color = (230, 230, 230)
 # default_text_color = (0, 0, 0)
 alert_text_color = (235, 7, 49)
 cold_text_color = (54, 47, 191)
@@ -103,16 +123,16 @@ ELM_VOLTAGE = 0.0
 CVT_TEMP = 0.0
 
 # variables for stopping application
-STOP_ACCEL = 1
+STOP_ACCELERATION = 1
 STOP_PRINT = 1
 STOP_GET = 1
 STOP_PLAYER = 1
 
 
-
 def stop_play():
     pygame.mixer.music.fadeout(1000)
     if debug_on: print("next song")
+
 
 def button_process():
     global screen_counter
@@ -120,6 +140,7 @@ def button_process():
         screen_counter += 1
     else:
         screen_counter = 0
+
 
 def print_text_topleft(x, y, text, size, fill):
     font = pygame.font.Font(font_file, size)
@@ -138,7 +159,7 @@ def print_text_topright(x, y, text, size, fill):
 
 
 def print_text_midtop(x, y, text, size, fill):
-    #font = pygame.font.Font(font_file, size)
+    # font = pygame.font.Font(font_file, size)
     font = pygame.font.Font(None, size)
     puttext = font.render(text, True, fill)
     text_rect = puttext.get_rect()
@@ -147,117 +168,147 @@ def print_text_midtop(x, y, text, size, fill):
 
 
 def get_values():
-    global GET_FUEL_STATUS, GET_TEMP, GET_RPM, GET_SPEED, GET_LOAD, GET_SHORT_L, GET_LONG_L, GET_MAF, ELM_VOLTAGE
+    from obd import OBDCommand
+    from obd.protocols import ECU
+    global GET_FUEL_STATUS, GET_TEMP, GET_RPM, GET_SPEED, GET_LOAD, GET_SHORT_L, GET_LONG_L, GET_MAF, ELM_VOLTAGE, CVT_TEMP
+
+    def decode(messages):
+        """ decoder for CVT temp messages """
+        d = messages[0].data  # only operate on a single message
+        print("message")
+        print(messages)
+        d = d[15]  # Select single bit N
+        N = d
+        print("N: " + str(N))  # Real value of temp
+        result = (0.000000002344 * (N ** 5)) + (-0.000001387 * (N ** 4)) + (0.0003193 * (N ** 3)) + (
+                -0.03501 * (N ** 2)) + (2.302 * N) + (-36.6)  # Decode temp value
+        return result
+
+    cvt_temp_command = OBDCommand(name="CVT_TEMP",
+                                  desc="CVT_TEMP",
+                                  command=b"2103",
+                                  _bytes=0,
+                                  decoder=decode,
+                                  ecu=ECU.ALL,
+                                  fast=True,
+                                  header=b"7E1"
+                                  )
+
+    connection.supported_commands.add(cvt_temp_command)
+    
     while STOP_GET:
-        cmd = obd.commands.RPM  # select an OBD command (sensor)
-        response = connection.query(cmd)  # send the command, and parse the response
-        if response.value is not None:
-            GET_RPM = response.value.magnitude
-        else:
-            GET_RPM = 0.0
-        
-        if not STOP_GET:
-            break
-        
-        cmd = obd.commands.MAF  # select an OBD command (sensor)
-        response = connection.query(cmd)  # send the command, and parse the response
-        if response.value is not None:
-            GET_MAF = response.value.magnitude
-        else:
-            GET_MAF = 0.0
-        
-        if not STOP_GET:
-            break
-        
-        cmd = obd.commands.SPEED  # select an OBD command (sensor)
-        response = connection.query(cmd)  # send the command, and parse the response
-        if response.value is not None:
-            GET_SPEED = response.value.magnitude
-        else:
-            GET_SPEED = 0.0
+        if connection.status() == "Car Connected":
+            cmd = obd.commands.RPM  # select an OBD command (sensor)
+            response = connection.query(cmd)  # send the command, and parse the response
+            if response.value is not None:
+                GET_RPM = response.value.magnitude
+            else:
+                GET_RPM = 0.0
 
-        
-        if not STOP_GET:
-            break
-        
-        cmd = obd.commands.SHORT_FUEL_TRIM_1  # select an OBD command (sensor)
-        response = connection.query(cmd)  # send the command, and parse the response
-        if response.value is not None:
-            GET_SHORT_L = response.value.magnitude
-        else:
-            GET_SHORT_L = 0.0
+            if not STOP_GET:
+                break
 
-        
-        if not STOP_GET:
-            break
-        
-        cmd = obd.commands.LONG_FUEL_TRIM_1  # select an OBD command (sensor)
-        response = connection.query(cmd)  # send the command, and parse the response
-        if response.value is not None:
-            GET_LONG_L = response.value.magnitude
-        else:
-            GET_LONG_L = 0.0
+            cmd = obd.commands.MAF  # select an OBD command (sensor)
+            response = connection.query(cmd)  # send the command, and parse the response
+            if response.value is not None:
+                GET_MAF = response.value.magnitude
+            else:
+                GET_MAF = 0.0
 
-        
-        if not STOP_GET:
-            break
-        
-        cmd = obd.commands.ENGINE_LOAD  # select an OBD command (sensor)
-        response = connection.query(cmd)  # send the command, and parse the response
-        if response.value is not None:
-            GET_LOAD = response.value.magnitude
-        else:
-            GET_LOAD = 0.0
+            if not STOP_GET:
+                break
 
-        
-        if not STOP_GET:
-            break
-        
-        cmd = obd.commands.COOLANT_TEMP  # select an OBD command (sensor)
-        response = connection.query(cmd)  # send the command, and parse the response
-        if response.value is not None:
-            GET_TEMP = response.value.magnitude
+            cmd = obd.commands.SPEED  # select an OBD command (sensor)
+            response = connection.query(cmd)  # send the command, and parse the response
+            if response.value is not None:
+                GET_SPEED = response.value.magnitude
+            else:
+                GET_SPEED = 0.0
 
-        
-        if not STOP_GET:
-            break
-        
-        cmd = obd.commands.FUEL_STATUS  # select an OBD command (sensor)
-        response = connection.query(cmd)  # send the command, and parse the response
-        if response.value is not None:
-            GET_FUEL_STATUS = response.value[0]
+            if not STOP_GET:
+                break
 
-        
-        if not STOP_GET:
-            break
-        
-        cmd = obd.commands.ELM_VOLTAGE
-        response = connection.query(cmd)
-        if response.value is not None:
-            ELM_VOLTAGE = response.value.magnitude
-            
-            
+            cmd = obd.commands.SHORT_FUEL_TRIM_1  # select an OBD command (sensor)
+            response = connection.query(cmd)  # send the command, and parse the response
+            if response.value is not None:
+                GET_SHORT_L = response.value.magnitude
+            else:
+                GET_SHORT_L = 0.0
+
+            if not STOP_GET:
+                break
+
+            cmd = obd.commands.LONG_FUEL_TRIM_1  # select an OBD command (sensor)
+            response = connection.query(cmd)  # send the command, and parse the response
+            if response.value is not None:
+                GET_LONG_L = response.value.magnitude
+            else:
+                GET_LONG_L = 0.0
+
+            if not STOP_GET:
+                break
+
+            cmd = obd.commands.ENGINE_LOAD  # select an OBD command (sensor)
+            response = connection.query(cmd)  # send the command, and parse the response
+            if response.value is not None:
+                GET_LOAD = response.value.magnitude
+            else:
+                GET_LOAD = 0.0
+
+            if not STOP_GET:
+                break
+
+            cmd = obd.commands.COOLANT_TEMP  # select an OBD command (sensor)
+            response = connection.query(cmd)  # send the command, and parse the response
+            if response.value is not None:
+                GET_TEMP = response.value.magnitude
+
+            if not STOP_GET:
+                break
+
+            cmd = obd.commands.FUEL_STATUS  # select an OBD command (sensor)
+            response = connection.query(cmd)  # send the command, and parse the response
+            if response.value is not None:
+                GET_FUEL_STATUS = response.value[0]
+
+            if not STOP_GET:
+                break
+
+            cmd = obd.commands.ELM_VOLTAGE
+            response = connection.query(cmd)
+            if response.value is not None:
+                ELM_VOLTAGE = response.value.magnitude
+
+            if not STOP_GET:
+                break
+
+            cmd = cvt_temp_command
+            response = connection.query(cmd)
+            print(response)
+            print("cmd cvt")
+            if response.value is not None:
+                CVT_TEMP = float(str(response))
+                print(response)
+
+
 def play_loop(playlist_normal, playlist_random, pygame):
     global song_title, song_number, song_total, playlist_shuffle
-    debug_on = True
-    #playlist_shuffle = True
-    debug_on = True
-    #playlist_shuffle = False
-    playlist_file = '/home/pi/obd2_trip_computer/playlist.txt'
-    playlist_file_shuffled = '/home/pi/obd2_trip_computer/playlist_shuffled.txt'
-    play_info_file = '/home/pi/obd2_trip_computer/play_info.txt'
-    music_folder = "/home/pi/Music"
-    music_folder_win = 'C:/Users/motoy/Music'
+    # debug_on = True
+    # playlist_shuffle = True
+    # debug_on = True
+    # playlist_shuffle = False
+    # playlist_file = '/home/pi/obd2_trip_computer/playlist.txt'
+    # playlist_file_shuffled = '/home/pi/obd2_trip_computer/playlist_shuffled.txt'
+    # play_info_file = '/home/pi/obd2_trip_computer/play_info.txt'
+    # music_folder = "/home/pi/Music"
+    # music_folder_win = 'C:/Users/motoy/Music'
     """
     main loop function.
     playlist_normal, playlist_random - list
     usage each of them depends of playlist_shuffle bool
     :return: None
     """
-    #os.system('killall omxplayer.bin')
-    # files_counter = 0
-    # print("total files in file system: " + str(len(playlist_normal)))
-    
+
     if playlist_shuffle:
         playlist = playlist_random
     else:
@@ -274,11 +325,11 @@ def play_loop(playlist_normal, playlist_random, pygame):
             for index, f in enumerate(playlist):
                 if index >= file_to_start_index:
                     while pygame.mixer.music.get_busy() == 1:
-                        #print("-----STOP_PLAYER!: " + str(STOP_PLAYER))
+                        # print("-----STOP_PLAYER!: " + str(STOP_PLAYER))
                         if STOP_PLAYER == 0:
                             print("-----EXIT from Play loop 4")
                             pygame.mixer.music.fadeout(1000)
-                            break             
+                            break
                     try:
                         if STOP_PLAYER == 0:
                             print("-----EXIT from Play loop 3")
@@ -286,19 +337,27 @@ def play_loop(playlist_normal, playlist_random, pygame):
                             break
                         if debug_on: print("file number is: " + str(index + 1))
                         play_info_write(play_info_file, index)
-                        song_number = index +1
-                        song_title = f
-                        song_title = song_title.rsplit("/")[-1]
+                        song_number = index + 1
+                        temp_song_title = f
+                        # prepare song title. symbols /\ are different in win and linux
+                        if platform.system().startswith("Windows"):
+                            temp_song_title = temp_song_title.rsplit("\\")[-1]
+                            song_title = temp_song_title[:temp_song_title.rfind(".")]  # TBU . it is possible case if filename "file.....mp3"
+                        else:
+                            temp_song_title = temp_song_title.rsplit("/")[-1]
+                            song_title = temp_song_title[:temp_song_title.rfind(".")]
+
                         if debug_on: print("file name: " + f)
                         pygame.mixer.music.load(f)
                         pygame.mixer.music.set_volume(1.0)
                         pygame.mixer.music.play(loops=0, start=0.0, fade_ms=2000)
-                    except a:
+                    except Exception as a:
                         if debug_on: print(a)
                         print("-----EXIT from Play loop 5")
                         pygame.mixer.music.fadeout(1000)
-                        
-                        
+                        continue
+
+
                 else:
                     if STOP_PLAYER == 0:
                         print("-----EXIT from Play loop 2")
@@ -320,6 +379,7 @@ def play_loop(playlist_normal, playlist_random, pygame):
         pygame.mixer.music.fadeout(1000)
         print("------EXIT from Play loop 0")
 
+
 def print_fuel_status_string():
     if GET_FUEL_STATUS is not None:
         print_text_topleft(0, 500, GET_FUEL_STATUS, 30, fill=(255, 255, 55))
@@ -331,13 +391,15 @@ def print_line(name, value, line, position, font_size):
     line_to_y = {0: 0, 1: 30, 2: 75, 3: 115, 4: 155, 5: 195}
     y = line_to_y[line]
 
-    if position is "left":
+    if position == "left":
         print_text_topright(140, 75, "{:.1f}".format(average_speed_trip), font_size_values, fill=default_text_color)
         print_text_topleft(150, 75, "km/h av", font_size_values, fill=default_text_color)
 
 
 def print_screen(screen_number):
-    if screen_number is 0:
+    temp_alert_high = 100
+    temp_alert_low = 70
+    if screen_number == 0:
         # ############################### SCREEN 0 #########################################################
         # Print screen title
         print_text_midtop(150, 0, "trip odometer", 30, fill=title_text_color)
@@ -354,7 +416,6 @@ def print_screen(screen_number):
             # do we need it or it setting to zero in calculating in main loop ???
             print_text_topright(140, 30, "0.0", font_size_values, fill=default_text_color)
             print_text_topleft(150, 30, "L/h", font_size_values, fill=default_text_color)
-
 
         # Print av speed trip
         print_text_topright(140, 75, "{:.1f}".format(average_speed_trip), font_size_values, fill=default_text_color)
@@ -419,17 +480,29 @@ def print_screen(screen_number):
         else:
             if GET_TEMP < temp_alert_low:
                 print_text_topright(140, 345, "{:.0f}".format(GET_TEMP), font_size_values, fill=cold_text_color)
-                print_text_topleft(150, 345, '\u00b0' + "C", font_size_values, fill=cold_text_color)
+                print_text_topleft(150, 345, '\u00b0' + "C Engine", font_size_values, fill=cold_text_color)
             else:
                 print_text_topright(140, 345, "{:.0f}".format(GET_TEMP), font_size_values, fill=default_text_color)
-                print_text_topleft(150, 345, '\u00b0' + "C", font_size_values, fill=default_text_color)
+                print_text_topleft(150, 345, '\u00b0' + "C Engine", font_size_values, fill=default_text_color)
 
         print_text_topright(140, 385, "{:.0f}".format(write_flash_counter), font_size_values, fill=default_text_color)
         print_text_topleft(150, 385, "Write", font_size_values, fill=default_text_color)
 
+        #### CVT TEMP #########
+        #CVT_TEMP = float(CVT_TEMP)
+        if CVT_TEMP >= temp_alert_high:
+            print_text_topright(140, 425, "{:.0f}".format(CVT_TEMP), font_size_values, fill=alert_text_color)
+            print_text_topleft(150, 425, degree_sign + "C CVT ", font_size_values, fill=alert_text_color)
+        else:
+            if CVT_TEMP < temp_alert_low:
+                print_text_topright(140, 425, "{:.0f}".format(CVT_TEMP), font_size_values, fill=cold_text_color)
+                print_text_topleft(150, 425, '\u00b0' + "C CVT", font_size_values, fill=cold_text_color)
+            else:
+                print_text_topright(140, 425, "{:.0f}".format(CVT_TEMP), font_size_values, fill=default_text_color)
+                print_text_topleft(150, 425, '\u00b0' + "C CVT", font_size_values, fill=default_text_color)
 
     # ############################### SCREEN 1 #########################################################
-    if screen_number is 1:
+    if screen_number == 1:
         screen.blit(background_image, (0, 0))  # ?
         # Print screen title
         print_text_midtop(250, 0, "Sensors", 30, fill=title_text_color)
@@ -453,13 +526,18 @@ def print_screen(screen_number):
         # right side second row
         """
         # print motor time   
-        print_text_topright(140, 385, "{:.0f}:{:.0f}".format(time_full // 3600.0, (time_full % 3600) / 60), font_size_values, fill=default_text_color)
+        print_text_topright(140, 385, "{:.0f}:{:.0f}".format(time_full // 3600.0, (time_full % 3600) / 60),
+                            font_size_values, fill=default_text_color)
         # time_full in seconds. First print hours , then print minutes
         print_text_topleft(150, 385, "motor hours", font_size_values, fill=default_text_color)
 
         # Print long term fuel trim
         print_text_topright(140, 30, "{:+.1f}".format(GET_LONG_L), font_size_values, fill=default_text_color)
         print_text_topleft(150, 30, "% LTFT", font_size_values, fill=default_text_color)
+
+        # print STFT
+        print_text_topright(140, 70, "{:+.1f}".format(GET_SHORT_L), font_size_values, fill=default_text_color)
+        print_text_topleft(150, 70, "% STFT", font_size_values, fill=default_text_color)
 
         # Print MAF
         print_text_topright(140, 115, "{:.1f}".format(GET_MAF), font_size_values, fill=default_text_color)
@@ -473,9 +551,7 @@ def print_screen(screen_number):
         print_text_topleft(500, 30, "rpm", font_size_values, fill=default_text_color)
         print_text_topright(490, 30, "{:.0f}".format(GET_RPM), font_size_values, fill=default_text_color)
 
-        # print STFT
-        print_text_topleft(500, 265, "% STFT", font_size_values, fill=default_text_color)
-        print_text_topright(490, 265, "{:+.1f}".format(GET_SHORT_L), font_size_values, fill=default_text_color)
+
 
         # print volts
         if ELM_VOLTAGE < volts_alert:
@@ -488,36 +564,62 @@ def print_screen(screen_number):
         # print coolant temp
         degree_sign = u"\N{DEGREE SIGN}"
         if GET_TEMP > temp_alert_high:
-            print_text_topleft(500, 345, degree_sign + "C", font_size_values, fill=alert_text_color)
+            print_text_topleft(500, 345, degree_sign + "C engine", font_size_values, fill=alert_text_color)
             print_text_topright(490, 345, "{:.0f}".format(GET_TEMP), font_size_values, fill=alert_text_color)
         else:
-            print_text_topleft(500, 345, '\u00b0' + "C", font_size_values, fill=default_text_color)
+            print_text_topleft(500, 345, '\u00b0' + "C engine", font_size_values, fill=default_text_color)
             print_text_topright(490, 345, "{:.0f}".format(GET_TEMP), font_size_values, fill=default_text_color)
 
         print_text_topleft(500, 385, "wr_count", font_size_values, fill=default_text_color)
         print_text_topright(490, 385, "{:.0f}".format(write_flash_counter), font_size_values, fill=default_text_color)
-    
+
     # ############################### SCREEN 2 #########################################################
-    if screen_number is 2:  # Music player
-        #song_title = ""
-        #song_number = 0
-        #song_total = 0
-        #playlist_shuffle
-        print_text_midtop(343, 50, "Music Player", 40, fill=alert_text_color)
-        
-        print_text_topright(349, 90, str(song_number), font_size_values, fill=default_text_color)
-        print_text_topleft(353, 90, "/"+ str(song_total), font_size_values, fill=default_text_color)
-        
-        print_text_midtop(343, 140, song_title, 50, fill=default_text_color)
-        
-        print_text_topright(349, 200, "Shuffle ON:", font_size_values, fill=default_text_color)
-        print_text_topleft(353, 200, str(playlist_shuffle), font_size_values, fill=default_text_color)
-        
+    if screen_number == 2:  # Music player
+        screen.blit(background_image_music_player, (0, 0))
+
+        #print_text_midtop(343, 50, "Music Player", 40, fill=alert_text_color)
+        if playlist_shuffle:
+            print_text_topright(319, 40, "Shuffle is ON:", 30, fill=(20, 20, 200))
+        else:
+            print_text_topright(319, 40, "Shuffle is OFF:", 30, fill=(20, 20, 200))
+
+        print_text_topright(509, 40, str(song_number), 30, fill=(20, 20, 200))
+        print_text_topleft(513, 40, "/" + str(song_total), 30, fill=(20, 20, 200))
+
+        max_characters_displayed_per_line = 45
+        if len(song_title) > max_characters_displayed_per_line:
+            # try to split song title to two lines
+            try:
+
+                tmp_str_list = song_title.split()  # split on  strings
+
+                # print first half of items in list on first line
+                first_line = "".join(str(i) + " " for i in tmp_str_list[: len(tmp_str_list) // 2])
+                if len(first_line) > max_characters_displayed_per_line:
+                    raise Exception(
+                        "first half of song title is too long. print first max_characters_displayed_per_line")
+
+                print_text_midtop(370, 83, first_line, 38, fill=alert_text_color)
+
+                # print second half of items in list on second line
+                second_line = "".join(str(i) + " " for i in tmp_str_list[len(tmp_str_list) // 2:])
+                if len(second_line) > max_characters_displayed_per_line:
+                    second_line = second_line[:max_characters_displayed_per_line]
+                print_text_midtop(370, 112, second_line, 38, fill=alert_text_color)
+
+            except Exception as e:
+                # print(e)
+
+                print_text_midtop(370, 112, song_title[:max_characters_displayed_per_line - 1], 38, fill=alert_text_color)
+        else:
+            print_text_midtop(370, 112, song_title, 38, fill=alert_text_color)
+
+
     # ############################### SCREEN 10 #########################################################
-    if screen_number is 10:
+    if screen_number == 10:
         print_text_midtop(343, 100, "OBDII adapter disconnected", 40, fill=alert_text_color)
     # ############################### SCREEN 11 #########################################################
-    if screen_number is 11:
+    if screen_number == 11:
         print_text_midtop(343, 100, "  CONNECTING...", 50, fill=default_text_color)
         pygame.display.flip()
 
@@ -578,17 +680,14 @@ def create_log_file():
 
 
 def quit_app():
-    global STOP_GET, STOP_PRINT, STOP_ACCEL, STOP_PLAYER
+    global STOP_GET, STOP_PRINT, STOP_ACCELERATION, STOP_PLAYER
     c.acquire()
     STOP_GET = 0
     STOP_PRINT = 0
-    STOP_ACCEL = 0
+    STOP_ACCELERATION = 0
     STOP_PLAYER = 0
     c.notifyAll()
-    #music_player_thread.STOP_PLAYER = 0
     c.release()
-    #time.sleep(10)
-    #await asyncio.sleep(10)
 
 
 def connect():
@@ -599,37 +698,63 @@ def connect():
         # connection_obj = obd.OBD("/dev/ttyUSB0")  # connect to specific port in linux
         connection_obj = obd.OBD()
         return connection_obj  # return connection object in main loop
-               
-pygame.quit()
+
+
+pygame.quit()  # it is needed for prevent visual issues. TBC
 pygame.init()
 clock = pygame.time.Clock()
-#screen = pygame.display.set_mode((690, 463))
-screen = pygame.display.set_mode((940, 624))  # set the resolution of app window or full screen mode
-#screen = pygame.display.set_mode((640, 480))
-pygame.display.toggle_fullscreen()
-#if not platform.system().startswith("Windows"):
-#    pygame.display.toggle_fullscreen()  # start the app in full screen mode on any os except Windows
-    
+screen = pygame.display.set_mode((720, 480))  # set the resolution of app window or full screen mode
+#screen = pygame.display.set_mode((900, 600))
+pygame.display.toggle_fullscreen()  # Uncomment for fullscreen mode
+
 done = False  # set the while exit-value for main loop
-#pygame.mouse.set_visible(False)  # do not display mouse cursor
+pygame.mouse.set_visible(False)  # do not display mouse cursor
 screen.blit(background_image, (0, 0))
 print_screen(11)  # display the connection message
+#print_screen(2)
 connection = connect()  # initialize obd connection
+def decode(messages):
+    """ decoder for CVT temp messages """
+    d = messages[0].data  # only operate on a single message
+    d = d[15]  # Select single bit N
+    N = d
+    print("N: " + str(N))  # Real value of temp
+    result = (0.000000002344 * (N ** 5)) + (-0.000001387 * (N ** 4)) + (0.0003193 * (N ** 3)) + (
+            -0.03501 * (N ** 2)) + (2.302 * N) + (-36.6)  # Decode temp value
+    return result
 
+cvt_temp_command = OBDCommand(name="CVT",
+                              desc="CVT",
+                              command=b"2103",
+                              _bytes=0,
+                              decoder=decode,
+                              ecu=ECU.ALL,
+                              fast=True,
+                              header=b"7E1"
+                              )
+
+connection.supported_commands.add(cvt_temp_command)
+"""
+Adding custom querry for OBD (CVT_TEMP)
+"""
+#connection.supported_commands.add(_cvt_temp_command)
 # initialize thread for reading data from ECU
 Thread_getValues = threading.Thread(target=get_values)
 Thread_getValues.daemon = False
 Thread_getValues.start()
-#Thread_getValues.join()
+# Thread_getValues.join()
+
+
 
 music_player_thread = threading.Thread(target=play_loop, args=(playlist_normal, playlist_shuffled, pygame))
 music_player_thread.daemon = False
 music_player_thread.start()
-#music_player_thread.join()
+# music_player_thread.join()
 
-if not platform.system().startswith("Windows"):
-    button1 = Button(pin=2, pull_up=True, bounce_time=0.05, hold_time=2, hold_repeat=False)
-    button2 = Button(pin=3, pull_up=True, bounce_time=0.05, hold_time=2, hold_repeat=False)
+# Setup buttons. pin# 7, 11
+if not platform.system().startswith("Windows"): 
+    button1 = Button(pin=4, pull_up=True, bounce_time=0.05, hold_time=2, hold_repeat=False)
+    button2 = Button(pin=17, pull_up=True, bounce_time=0.05, hold_time=2, hold_repeat=False)
     button1.when_released = stop_play
     print("Screen counter: " + str(screen_counter))
     button2.when_released = button_process
@@ -652,18 +777,23 @@ if time_full > 0:
 
 # screen.fill(background_color)
 screen.blit(background_image, (0, 0))
-print_screen(0)  # display values on screen 0
+print_screen(2)  # display values on screen 0
 # end
 
 # main loop
 while not done:
+    print("connection status begin")
+    print(connection.status())
     # button_process()
     # don't need to calculate values if no connection with adapter
     if connection.status() != "Car Connected":
         screen.blit(background_image, (0, 0))
-        print_screen(10)  # display values on screen 0
+        print_screen(2)  # display values on screen 0
         connection = connect()  # try to reconnect
     else:
+        # TBU need to remove screen splashing and displaying 
+        if GET_RPM < engine_on_rpm:
+            connection.close()
         # if connection with elm327 adapter is available
         # main loop
         if GET_RPM > engine_on_rpm:
@@ -708,7 +838,8 @@ while not done:
             fuel_used_trip = fuel_used_trip + fuel_add_loop  # fuel consumption for trip
 
             if GET_SPEED > 0:
-                odometer_add_loop = (((GET_SPEED * 1000.0) / 3600.0) * time_loop) / 1000.0  # calculate distance per time_loop
+                odometer_add_loop = (((
+                                                  GET_SPEED * 1000.0) / 3600.0) * time_loop) / 1000.0  # calculate distance per time_loop
                 odometer_trip = odometer_trip + odometer_add_loop  # odometer value per trip
                 if odometer_add_loop > 0:
                     LP100_inst = (fuel_add_loop / odometer_add_loop) * 100.0  # instant fuel consumption
@@ -720,15 +851,15 @@ while not done:
             # every 30 minutes on speeds > 10km/h
             # every 60 seconds on speeds 1...10km/h
             # every 30 seconds on speeds <= 1km/h
-            if ((GET_SPEED > 1) and (GET_SPEED < 10) and ((time_new - time_old_gurnal) > 60)) or \
-                    ((GET_SPEED <= 1) and ((time_new - time_old_gurnal) > 30)) or \
-                    ((time_new - time_old_gurnal) > 1800):
+            if ((GET_SPEED > 1) and (GET_SPEED < 10) and ((time_new - time_old_journal) > 60)) or \
+                    ((GET_SPEED <= 1) and ((time_new - time_old_journal) > 30)) or \
+                    ((time_new - time_old_journal) > 1800):
                 # read data from log file
                 log_data = csv_read()
                 # calculate new values of data in log file
-                odometer_eeprom = float(log_data[0]) + odometer_add_gurnal + odometer_add_loop
-                benz_eeprom = float(log_data[1]) + fuel_add_gurnal + fuel_add_loop
-                time_eeprom = float(log_data[2]) + time_add_gurnal + time_loop
+                odometer_eeprom = float(log_data[0]) + odometer_add_journal + odometer_add_loop
+                benz_eeprom = float(log_data[1]) + fuel_add_journal + fuel_add_loop
+                time_eeprom = float(log_data[2]) + time_add_journal + time_loop
                 # Write new data in log file
                 csv_write(odometer_eeprom, benz_eeprom, time_eeprom)
 
@@ -744,25 +875,27 @@ while not done:
                 if time_full > 0:
                     average_speed_full = odometer_full / (time_full / 3600.0)
 
-                odometer_add_gurnal = 0
-                fuel_add_gurnal = 0
-                time_add_gurnal = 0
-                time_old_gurnal = time_new
+                odometer_add_journal = 0
+                fuel_add_journal = 0
+                time_add_journal = 0
+                time_old_journal = time_new
 
             else:
-                odometer_add_gurnal = odometer_add_gurnal + odometer_add_loop
-                fuel_add_gurnal = fuel_add_gurnal + fuel_add_loop
-                time_add_gurnal += time_loop
+                odometer_add_journal = odometer_add_journal + odometer_add_loop
+                fuel_add_journal = fuel_add_journal + fuel_add_loop
+                time_add_journal += time_loop
 
-                odometer_full = odometer_eeprom + odometer_add_gurnal
-                fuel_used_full = benz_eeprom + fuel_add_gurnal
-                time_full = time_eeprom + time_add_gurnal
+                odometer_full = odometer_eeprom + odometer_add_journal
+                fuel_used_full = benz_eeprom + fuel_add_journal
+                time_full = time_eeprom + time_add_journal
                 if odometer_full > 0:
                     LP100_full = (fuel_used_full / odometer_full) * 100.0
                 if time_full > 0:
                     average_speed_full = odometer_full / (time_full / 3600.0)
 
         else:
+            print("get speed", end = "")
+            print(GET_SPEED)
             if GET_SPEED == 0:
                 time_start = 0
                 time_trip = 0
@@ -780,27 +913,33 @@ while not done:
         print_screen(screen_counter)  # display values on screen 0
 
     # manage events to quit the application. works only with keyboard and mouse
-    #print("MAIN-STOP_PLAYER!: " + str(STOP_PLAYER))
+    # print("MAIN-STOP_PLAYER!: " + str(STOP_PLAYER))
+    # left arrow - next screen
+    # right arrow - next song
     for event in pygame.event.get():
         if event.type == pygame.MOUSEBUTTONUP:
             done = True
             quit_app()
-            
+
         if event.type == pygame.QUIT:
             done = True
             quit_app()
-            
+
         if event.type == pygame.KEYDOWN:  # changing screen
-            if screen_counter < screen_last:
-                screen_counter += 1
-            else:
-                screen_counter = 0
+            if event.key == pygame.K_LEFT:
+                if screen_counter < screen_last:
+                    screen_counter += 1
+                else:
+                    screen_counter = 0
+
+            if event.key == pygame.K_RIGHT:
+                stop_play()
 
     pygame.display.flip()  # Update the full display Surface to the screen
     clock.tick(25)  # set fps for the app
 
 pygame.display.quit()
-#music_player_thread.stop()
+# music_player_thread.stop()
 print("EEEEEEEEEND")
 
 sys.exit(0)
