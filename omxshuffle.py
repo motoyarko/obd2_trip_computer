@@ -17,11 +17,20 @@ screen_last = 1
 
 debug_on = True
 playlist_shuffle = False
-playlist_file = '/home/pi/obd2_trip_computer/playlist.txt'
-playlist_file_shuffled = '/home/pi/obd2_trip_computer/playlist_shuffled.txt'
-play_info_file = '/home/pi/obd2_trip_computer/play_info.txt'
-music_folder = "/home/pi/Music"
-music_folder_win = 'C:/Users/motoy/Music'
+music_folder = os.path.expanduser('~/Music')
+
+if platform.system().startswith("Windows"):
+    playlist_file = 'playlist.pls'
+    playlist_file_shuffled = 'playlist_shuffled.pls'
+    play_info_file = 'play_info.pls'
+    #music_folder = "C:/Users/motoy/Music"
+else:
+    playlist_file = '/home/pi/obd2_trip_computer/playlist.txt'
+    playlist_file_shuffled = '/home/pi/obd2_trip_computer/playlist_shuffled.txt'
+    play_info_file = '/home/pi/obd2_trip_computer/play_info.txt'
+    #music_folder = "/home/pi/Music"
+
+#music_folder_win = 'C:/Users/motoy/Music'
 
 files_result =[]
 playlist_shuffled = []
@@ -124,15 +133,29 @@ def playlist_read(file):
 
 
 def playlist_write(file, track_list):
+    import sys
     try:
         with open(file, 'w') as f:
             for item in track_list:
-                f.writelines(item + '\n')
+                try:
+                    f.writelines(item + '\n')
+                    #print(sys.getfilesystemencoding())
+                    #item_utf8 = item.encode('utf8', 'surrogateescape').decode('utf8')
+                    #print("item_utf_8")
+                    #f.writelines(u'\n')
+                    #print("writelines")
+                except Exception as e:
+                    if debug_on: print("try in file write")
+                    if debug_on: print("ERRROR WRITING IN PLAYLIST FILE")
+                    if debug_on: print(e)
+                    #if debug_on: print(item)
             if debug_on: print("new playlist is writen")
     except Exception as e:
         # If can't write in log file - display message, and print it in terminal
+        if debug_on: print("first try")
         if debug_on: print("ERRROR WRITING IN PLAYLIST FILE")
         if debug_on: print(e)
+        if debug_on: print(item)
 
 
 def compare_lists(list1, list2):
@@ -181,14 +204,12 @@ def play_info_read(file):
         if debug_on: print(e)
         return 0
 
+
 def get_playlist():
     #get_audio_files_list(music_folder)
     
     # read Music folder for audio files
-    if not platform.system().startswith("Windows"):
-        files_result = get_audio_files_list(music_folder)
-    else:
-        files_result = get_audio_files_list(music_folder_win)
+    files_result = get_audio_files_list(music_folder)
     #print(files_result)
     # Create playlist file if it doesn't exist
     if not os.path.isfile(playlist_file):
@@ -211,18 +232,9 @@ def get_playlist():
     else:
         playlist_shuffled = playlist_read(playlist_file_shuffled)
 
-
     # Maybe it is not needed
     if len(playlist_shuffled) == 0:  # for case if shuffled playlist is blank
         playlist_shuffled = files_result.copy()
         random.shuffle(playlist_shuffled)
         playlist_write(playlist_file_shuffled, playlist_shuffled)
     return [files_result, playlist_shuffled]
-
-def test_loop(i):
-    try:
-        play_loop(playlist_normal=files_result, playlist_random=playlist_shuffled)
-        os.system('killall omxplayer.bin')
-    finally:
-        print("FINALLLY FFFFFFFFFFFFFFFFFFFFFFFFF")
-        kill_omxplayer1()

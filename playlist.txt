@@ -1,0 +1,1588 @@
+/home/pi/Music/CD01/Сплин - 9-ти этажный дом.mp3
+/home/pi/Music/CD01/Collective Soul - Precious Declaration.mp3
+/home/pi/Music/CD01/Смысловые Галлюцинации - Бездна.mp3
+/home/pi/Music/CD01/Тараканы! - Мусор.mp3
+/home/pi/Music/CD01/Distemper - Гореть, бороться, мёрзнуть, но любить.mp3
+/home/pi/Music/CD01/Noize MC - Из Окна.mp3
+/home/pi/Music/CD01/5nizza - Луна, Успокой Меня.mp3
+/home/pi/Music/CD01/Захар Май - Знаешь ли ты.mp3
+/home/pi/Music/CD01/Rammstein - Zwitter.mp3
+/home/pi/Music/CD01/Martin Lee Gore - Stripped.mp3
+/home/pi/Music/CD01/Король и Шут - Сапоги мертвеца.mp3
+/home/pi/Music/CD01/Little Big - Kind Inside Hard Outside (feat. Killaheadz).mp3
+/home/pi/Music/CD01/Потомучто - Нудистки.mp3
+/home/pi/Music/CD01/Л.О.М.О. - Океан.mp3
+/home/pi/Music/CD01/Пилот - Рок.mp3
+/home/pi/Music/CD01/Король и Шут - Гробовщик.mp3
+/home/pi/Music/CD01/Ария - Тореро.mp3
+/home/pi/Music/CD01/Кирпичи - Список Дел.mp3
+/home/pi/Music/CD01/Paradise Lost - Mercy.mp3
+/home/pi/Music/CD01/Пикник - Королевство кривых.mp3
+/home/pi/Music/CD01/Spiderbait - Black Betty.mp3
+/home/pi/Music/CD01/Rammstein - Haifisch.mp3
+/home/pi/Music/CD01/Александр Пушной - Solo Noi.mp3
+/home/pi/Music/CD01/Юта - Хмель и солод.mp3
+/home/pi/Music/CD01/Marilyn Manson - Get Your Gunn.mp3
+/home/pi/Music/CD01/Metallica - Whiskey in the Jar.mp3
+/home/pi/Music/CD01/Король и Шут - Фред.mp3
+/home/pi/Music/CD01/Ленинград - Геленджик.mp3
+/home/pi/Music/CD01/Arctic Monkeys - One For The Road.mp3
+/home/pi/Music/CD01/Смысловые Галлюцинации - Демоны.mp3
+/home/pi/Music/CD01/Scorpions - Turn You On.mp3
+/home/pi/Music/CD01/Gorky Park - Stranger.mp3
+/home/pi/Music/CD01/Marilyn Manson - Heart-Shaped Glasses.mp3
+/home/pi/Music/CD01/ДДТ - Просвистела.mp3
+/home/pi/Music/CD01/Сплин - Орбит без сахара.mp3
+/home/pi/Music/CD01/Сплин - Беги, моя жизнь.mp3
+/home/pi/Music/CD01/Little Big - Voice of Hell.mp3
+/home/pi/Music/CD01/Тараканы! - Нормальные ребята.mp3
+/home/pi/Music/CD01/Rammstein - Rammstein.mp3
+/home/pi/Music/CD01/КняZz - Стаканы (Аквариум cover).mp3
+/home/pi/Music/CD01/Rammstein - Amour.mp3
+/home/pi/Music/CD01/Биртман - Все диджеи петушье.mp3
+/home/pi/Music/CD01/Goo Goo Dolls - Slide.mp3
+/home/pi/Music/CD01/Чиж & Co - Вечная молодость.mp3
+/home/pi/Music/CD01/Pretty Maids - When the Angels Cry.mp3
+/home/pi/Music/CD01/Rare Bird - More And More.mp3
+/home/pi/Music/CD01/Пневмослон - В пизду.mp3
+/home/pi/Music/CD01/Fates Warning - A Pleasant Shade of Gray - Part III.mp3
+/home/pi/Music/CD01/Little Big - Follow Me (feat. Tommy Cash).mp3
+/home/pi/Music/CD01/Rammstein - Hallomann.mp3
+/home/pi/Music/CD01/Radio Чача - Курс на забвение.mp3
+/home/pi/Music/CD01/Кирпичи - Inostr.mp3
+/home/pi/Music/CD01/Distemper - Чужие недостатки.mp3
+/home/pi/Music/CD01/Потомучто - Через сто лет.mp3
+/home/pi/Music/CD01/Би-2 - Варвара.mp3
+/home/pi/Music/CD01/Кирпичи - Говори по-русски.mp3
+/home/pi/Music/CD01/Red Hot Chili Peppers - Parallel Universe.mp3
+/home/pi/Music/CD01/Nickelback - When We Stand Together.mp3
+/home/pi/Music/CD01/Radio Чача - Не пассажир (урок географии).mp3
+/home/pi/Music/CD01/Ленинград - Москва почём звонят твои колокола_.mp3
+/home/pi/Music/CD01/Пилот - Кеды со звездами.mp3
+/home/pi/Music/CD01/Rammstein - Sehnsucht.mp3
+/home/pi/Music/CD01/Rammstein - Klavier.mp3
+/home/pi/Music/CD01/Потомучто - Дама с собакой.mp3
+/home/pi/Music/CD01/Ленинград - И Т.Д.mp3
+/home/pi/Music/CD01/Кирпичи - 3-е августа 2007 г.mp3
+/home/pi/Music/CD01/Limp Bizkit - Just Like This.mp3
+/home/pi/Music/CD01/Monster Magnet - Temple of Your Dreams.mp3
+/home/pi/Music/CD01/7раса - Родятся дети.mp3
+/home/pi/Music/CD01/Distemper - Сорняки с поля битвы.mp3
+/home/pi/Music/CD01/Потомучто - День рождения Смерти.mp3
+/home/pi/Music/CD01/5nizza - Нева.mp3
+/home/pi/Music/CD01/Nickelback - Lullaby.mp3
+/home/pi/Music/CD01/Северный Флот - Старый Крысолов.mp3
+/home/pi/Music/CD01/Сплин - Время, назад.mp3
+/home/pi/Music/CD01/Кирпичи - Кому ты веришь.mp3
+/home/pi/Music/CD01/Van Halen - Jump.mp3
+/home/pi/Music/CD01/5nizza - Немаэ Куль.mp3
+/home/pi/Music/CD01/Roxette - Spending my time.mp3
+/home/pi/Music/CD01/Биртман - Котоход.mp3
+/home/pi/Music/CD01/Empyr - Its Gonna Be.mp3
+/home/pi/Music/CD01/Серьга - Страна чудес.mp3
+/home/pi/Music/CD01/Биртман - Tyumen Blowjob.mp3
+/home/pi/Music/CD01/Пневмослон - Невероятное амбре.mp3
+/home/pi/Music/CD01/5nizza - Ты Кидал.mp3
+/home/pi/Music/CD01/Пикник - Железные Мантры.mp3
+/home/pi/Music/CD01/Good Times - Для Неё.mp3
+/home/pi/Music/CD01/Ночные Снайперы - 31-я весна.mp3
+/home/pi/Music/CD01/Radio Чача - Прокурор - медведь (закон - тайга).mp3
+/home/pi/Music/CD01/Soul Asylum - Runaway Train.mp3
+/home/pi/Music/CD01/Сплин - Время назад.mp3
+/home/pi/Music/CD01/Биртман - Сочи (bonus track).mp3
+/home/pi/Music/CD01/System of a Down - Suggestions.mp3
+/home/pi/Music/CD01/Styx-Boat - The River.mp3
+/home/pi/Music/CD01/Uriah Heep - Lady In Black.mp3
+/home/pi/Music/CD01/Бригадный Подряд - Больной.mp3
+/home/pi/Music/CD01/Пневмослон - Многое можно, а похуй на всё.mp3
+/home/pi/Music/CD01/Александр Пушной - Серенада.mp3
+/home/pi/Music/CD01/Алиса - Сны.mp3
+/home/pi/Music/CD01/Пневмослон - Машем хуями в алкогольной яме.mp3
+/home/pi/Music/CD01/Пневмослон - Адовой адок.mp3
+/home/pi/Music/CD01/Little Big - Big Dick.mp3
+/home/pi/Music/CD01/Наив - Сэ-ля-ви.mp3
+/home/pi/Music/CD01/Пикник - Чужестранец.mp3
+/home/pi/Music/CD01/Znaki - Всё напрасно.mp3
+/home/pi/Music/CD01/Биртман - Простой человек.mp3
+/home/pi/Music/CD01/Nickelback - Animals.mp3
+/home/pi/Music/CD01/Сплин - За семью печатями.mp3
+/home/pi/Music/CD01/Кирпичи - Школьнички.mp3
+/home/pi/Music/CD01/Кожаный Олень - пушкарева.mp3
+/home/pi/Music/CD01/Би-2 - Блеф.mp3
+/home/pi/Music/CD01/Кирпичи - Get Down.mp3
+/home/pi/Music/CD01/ДДТ - Где мы летим.mp3
+/home/pi/Music/CD01/Journey - Don't Stop Believin'.mp3
+/home/pi/Music/CD01/Алексей Горшенев - Шальная жизнь.mp3
+/home/pi/Music/CD01/Бригадный Подряд - Друг.mp3
+/home/pi/Music/CD01/Noize MC - Нам Не Понять (feat. Ёлка).mp3
+/home/pi/Music/CD01/Король и Шут - Кузьма и барин.mp3
+/home/pi/Music/CD01/Bon Jovi - You Give Love A Bad Name.mp3
+/home/pi/Music/CD01/Кино - Звезда по имени Солнце.mp3
+/home/pi/Music/CD01/Чёрный Обелиск - Прощай и прости.mp3
+/home/pi/Music/CD01/Rammstein - Heirate mich.mp3
+/home/pi/Music/CD01/Алиса - трасса Е95.mp3
+/home/pi/Music/CD01/Потомучто - Похмелье.mp3
+/home/pi/Music/CD01/5nizza - Ушедшим Слишком Рано.mp3
+/home/pi/Music/CD01/Кожаный Олень - JoPa.mp3
+/home/pi/Music/CD01/Александр Пушной - Валенки, Валенки.mp3
+/home/pi/Music/CD01/Forigner - I Want To Know What Love Is.mp3
+/home/pi/Music/CD01/Rammstein - Laichzeit.mp3
+/home/pi/Music/CD01/Placebo - Pure Morning.mp3
+/home/pi/Music/CD01/Найк Борзов - Видение.mp3
+/home/pi/Music/CD01/Znaki - Феншуй.mp3
+/home/pi/Music/CD01/Чиж & Co - Белая звезда.mp3
+/home/pi/Music/CD01/Провода - 90е.mp3
+/home/pi/Music/CD01/Status Quo - In the Army Now.mp3
+/home/pi/Music/CD01/Пневмослон - Если б я бы баб не еб бы.mp3
+/home/pi/Music/CD01/Noize MC - За Закрытой Дверью (feat. Чиж и Кo).mp3
+/home/pi/Music/CD01/Primal Fear - Save a Prayer.mp3
+/home/pi/Music/CD01/Imagine Dragons - Radioactive.mp3
+/home/pi/Music/CD01/Северный Флот - Вперёд и Вверх.mp3
+/home/pi/Music/CD01/Rammstein - Moskau.mp3
+/home/pi/Music/CD01/Сплин - Вниз головой.mp3
+/home/pi/Music/CD01/Aerosmith - Reefer Head Woman.mp3
+/home/pi/Music/CD01/Потомучто - Долго и счастливо.mp3
+/home/pi/Music/CD01/Биртман - Слово из четырёх букв.mp3
+/home/pi/Music/CD01/Marilyn Manson - Highway To Hell.mp3
+/home/pi/Music/CD01/Кукрыниксы - Нежность.mp3
+/home/pi/Music/CD01/Сплин - Всего хорошего.mp3
+/home/pi/Music/CD01/Агата Кристи - Ковёр-вертолёт.mp3
+/home/pi/Music/CD01/Захар Май - Сalifornia love.mp3
+/home/pi/Music/CD01/Little Big - Hate You.mp3
+/home/pi/Music/CD01/Rammstein - Sex.mp3
+/home/pi/Music/CD01/Александр Пушной - Ла-Ла-Ла.mp3
+/home/pi/Music/CD01/Rammstein - Stein Um Stein.mp3
+/home/pi/Music/CD01/Александр Пушной - Dirty Diana.mp3
+/home/pi/Music/CD01/Тараканы! - 5 слов.mp3
+/home/pi/Music/CD01/Good Times - Мне Не Встать.mp3
+/home/pi/Music/CD01/Good Times - Бей.mp3
+/home/pi/Music/CD01/OK Go - Turn Up the Radio.mp3
+/home/pi/Music/CD01/Биртман - Палёные Найки.mp3
+/home/pi/Music/CD01/Тараканы! - Пять слов.mp3
+/home/pi/Music/CD01/Little Big - Dead Unicorn (feat. Taras Umanskiy).mp3
+/home/pi/Music/CD01/Бригадный Подряд - 20 бравых ребят.mp3
+/home/pi/Music/CD01/Джанго - Папаган.mp3
+/home/pi/Music/CD01/Dire Straits - Money for Nothing.mp3
+/home/pi/Music/CD01/Ария - Штиль.mp3
+/home/pi/Music/CD01/Zdob Si Zdub - Видели Ночь.mp3
+/home/pi/Music/CD01/Тараканы! - Руский рок.mp3
+/home/pi/Music/CD01/Кожаный Олень - Peace do lay.mp3
+/home/pi/Music/CD01/Король и Шут - Внезапная голова.mp3
+/home/pi/Music/CD01/Бригадный Подряд - Насилие и sex.mp3
+/home/pi/Music/CD01/Би-2 - Научи меня быть счастливым.mp3
+/home/pi/Music/CD01/Ляпис Трубецкой - Я верю.mp3
+/home/pi/Music/CD01/Тараканы! - Пойдём на улицу!.mp3
+/home/pi/Music/CD01/Rammstein - Engel.mp3
+/home/pi/Music/CD01/7раса - Русская зима.mp3
+/home/pi/Music/CD01/Музыкальный коллектив Петра Налича - Аленький цветочек.mp3
+/home/pi/Music/CD01/Александр Пушной - Что же делать.mp3
+/home/pi/Music/CD01/Nickelback - Midnight Queen.mp3
+/home/pi/Music/CD01/Ласковые усы - У Соседей Был Ремонт.mp3
+/home/pi/Music/CD01/AC_DC - Girls Got Rhythm.mp3
+/home/pi/Music/CD01/Ленинград - МДМ.mp3
+/home/pi/Music/CD01/Marilyn Manson - New Model No. 15.mp3
+/home/pi/Music/CD01/Noize MC - Это Был Дождь.mp3
+/home/pi/Music/CD01/Eric Clapton - Layla.mp3
+/home/pi/Music/CD01/Сплин - Маяк.mp3
+/home/pi/Music/CD01/Rammstein - Amerika.mp3
+/home/pi/Music/CD01/Крематорий - Маленькая девочка.mp3
+/home/pi/Music/CD01/Marilyn Manson - Coma white.mp3
+/home/pi/Music/CD01/Бригадный Подряд - Джеки Чан.mp3
+/home/pi/Music/CD01/Танцы Минус - Диктофоны.mp3
+/home/pi/Music/CD01/Radio Чача - 2030.mp3
+/home/pi/Music/CD01/OK Go - The Writing's On the Wall.mp3
+/home/pi/Music/CD01/Ленинград - Я - твой ковбой.mp3
+/home/pi/Music/CD01/Кирпичи - И я подумал.mp3
+/home/pi/Music/CD01/Найк Борзов - Упасть пропасть.mp3
+/home/pi/Music/CD01/Stargazery - Headless Cross.mp3
+/home/pi/Music/CD01/Александр Пушной - Facebook.mp3
+/home/pi/Music/CD01/Marilyn Manson - The Death Song.mp3
+/home/pi/Music/CD01/Потомучто - Звездочет.mp3
+/home/pi/Music/CD01/Кукрыниксы - По раскрашенной дороге.mp3
+/home/pi/Music/CD01/Blur - Song 2.mp3
+/home/pi/Music/CD01/Good Times - Spaceman.mp3
+/home/pi/Music/CD01/Ляпис Трубецкой - Шут.mp3
+/home/pi/Music/CD01/Потомучто - Огонек.mp3
+/home/pi/Music/CD01/Биртман - Мы, друзья, перелётные птицы.mp3
+/home/pi/Music/CD01/Сплин - Дыши легко.mp3
+/home/pi/Music/CD01/Тараканы! - Русский Рок.mp3
+/home/pi/Music/CD01/Кожаный Олень - На склонах Мангупа.mp3
+/home/pi/Music/CD01/Znaki - Добро пожаловать в мой Мир (Я падаю).mp3
+/home/pi/Music/CD01/Сплин - Кофейня.mp3
+/home/pi/Music/CD01/Биртман - Галя, загорай!.mp3
+/home/pi/Music/CD01/Рэнт - Битый Пиксель.mp3
+/home/pi/Music/CD01/Би-2 - Моя любовь.mp3
+/home/pi/Music/CD01/Rage Against the Machine - Sleep Now in the Fire.mp3
+/home/pi/Music/CD01/Секрет - Привет.mp3
+/home/pi/Music/CD01/Чиж & Co - То измена, то засада.mp3
+/home/pi/Music/CD01/Def Leppard - Pour Some Sugar On Me.mp3
+/home/pi/Music/CD01/Procol Harum - A Whiter Shade Of Pale.mp3
+/home/pi/Music/CD01/Rammstein - Der Meister.mp3
+/home/pi/Music/CD01/Gary Moore - Still Got The Blues.mp3
+/home/pi/Music/CD01/Good Times - Титьки.mp3
+/home/pi/Music/CD01/Агата Кристи - Легион.mp3
+/home/pi/Music/CD01/Little Big - Antipositive.mp3
+/home/pi/Music/CD01/Биртман - Любовь и лёд.mp3
+/home/pi/Music/CD01/Rammstein - Stirb Nicht Vor Mir (Don't Die Before I Do).mp3
+/home/pi/Music/CD01/Rob Zombie - Demonoid Phenomenon.mp3
+/home/pi/Music/CD01/Marilyn Manson - Ka-Boom Ka-Boom.mp3
+/home/pi/Music/CD01/Биртман - Все диджеи петушьё.mp3
+/home/pi/Music/CD01/5nizza - Ямайка.mp3
+/home/pi/Music/CD01/ЧайФ - Четверо парней.mp3
+/home/pi/Music/CD01/Metallica - The Unforgiven.mp3
+/home/pi/Music/CD01/Потомучто - Чихнул.mp3
+/home/pi/Music/CD01/Rammstein - Was Ich Liebe.mp3
+/home/pi/Music/CD01/Stereophonics - Pick a Part That's New.mp3
+/home/pi/Music/CD01/Секрет - Домой.mp3
+/home/pi/Music/CD01/Rammstein - Mein Herz Brennt.mp3
+/home/pi/Music/CD01/Helloween - Hocus Pocus.mp3
+/home/pi/Music/CD01/Little Big - Hateful Love (feat. Danny Zuckerman).mp3
+/home/pi/Music/CD01/Ю-Питер - Песня Идущего Домой.mp3
+/home/pi/Music/CD01/Ленинград - Ф.З.mp3
+/home/pi/Music/CD01/Imagine Dragons - On Top of The World.mp3
+/home/pi/Music/CD01/Кукрыниксы - Холодно.mp3
+/home/pi/Music/CD01/Iron Maiden - Wasting Love.mp3
+/home/pi/Music/CD01/Scorpions - Rock You Like a Hurricane.mp3
+/home/pi/Music/CD01/Потомучто - Орел или решка.mp3
+/home/pi/Music/CD01/Aerosmith - Hole in My Soul.mp3
+/home/pi/Music/CD01/Наив - Рок.mp3
+/home/pi/Music/CD01/Arctic Monkeys - Fireside.mp3
+/home/pi/Music/CD01/Би-2 - Вечная призрачная встречная.mp3
+/home/pi/Music/CD01/Бригадный Подряд - Иван Факов.mp3
+/home/pi/Music/CD01/Би-2 - Реки любви.mp3
+/home/pi/Music/CD01/Агата Кристи - В интересах революции.mp3
+/home/pi/Music/CD01/Nickelback - Shakin' Hands.mp3
+/home/pi/Music/CD01/Кожаный Олень - точка G.mp3
+/home/pi/Music/CD01/Конец Фильма - Музыка Играла.mp3
+/home/pi/Music/CD01/Foo Fighters - Stacked Actors.mp3
+/home/pi/Music/CD01/7раса - Подъём.mp3
+/home/pi/Music/CD01/Чиж & Co - Полонез.mp3
+/home/pi/Music/CD01/Black 'N Blue - Hell Yeah!.mp3
+/home/pi/Music/CD01/Потомучто - Моя подруга.mp3
+/home/pi/Music/CD01/5nizza - Натяни.mp3
+/home/pi/Music/CD01/Iggy Pop - In The Deathcar.mp3
+/home/pi/Music/CD01/Red Hot Chili Peppers - Scar Tissue.mp3
+/home/pi/Music/CD01/Потомучто - Я сожалею.mp3
+/home/pi/Music/CD01/КняZz - Пепел города грез.mp3
+/home/pi/Music/CD01/Little Big - Public Enemy.mp3
+/home/pi/Music/CD01/Потомучто - Мертвых тоже убивают.mp3
+/home/pi/Music/CD01/LaScala - Мачете.mp3
+/home/pi/Music/CD01/Агата Кристи - Опиум для никого.mp3
+/home/pi/Music/CD01/Eagles - New Kid In Town.mp3
+/home/pi/Music/CD01/Ойра! - Добрый Король.mp3
+/home/pi/Music/CD01/Захар Май - Я посылаю всё нахуй.mp3
+/home/pi/Music/CD01/Бригадный Подряд - Новогодняя.mp3
+/home/pi/Music/CD01/Theatre of Tragedy - Venus.mp3
+/home/pi/Music/CD01/Тараканы! - Собачье Сердце.mp3
+/home/pi/Music/CD01/AC_DC - Back in Black.mp3
+/home/pi/Music/CD01/7раса - В поисках рая.mp3
+/home/pi/Music/CD01/Чиж & Co - Поезд.mp3
+/home/pi/Music/CD01/Король и Шут - Месть Гарри.mp3
+/home/pi/Music/CD01/Roxette - Crash! Boom! Bang!.mp3
+/home/pi/Music/CD01/7раса - Снаружи всех измерений.mp3
+/home/pi/Music/CD01/Primal Fear - Running in the Dust.mp3
+/home/pi/Music/CD01/IceCreamOff - Сопливая.mp3
+/home/pi/Music/CD01/The Offspring - Mota.mp3
+/home/pi/Music/CD01/Rob Zombie - Living Dead Girl.mp3
+/home/pi/Music/CD01/АнимациЯ - Спички.mp3
+/home/pi/Music/CD01/Бригадный Подряд - Уроки панк-рока.mp3
+/home/pi/Music/CD01/Animals - House Of The Rising Sun.mp3
+/home/pi/Music/CD01/Мумий Тролль - Странные игры.mp3
+/home/pi/Music/CD01/Marilyn Manson - Disposable Teens.mp3
+/home/pi/Music/CD01/Radio Чача - Песенка артистов.mp3
+/home/pi/Music/CD01/Little Big - Brighton Beach.mp3
+/home/pi/Music/CD01/Пилот - Дом.mp3
+/home/pi/Music/CD01/Nickelback - This Afternoon.mp3
+/home/pi/Music/CD01/Beatles - Girl.mp3
+/home/pi/Music/CD01/Кукла - Отражение.mp3
+/home/pi/Music/CD01/Radio Чача - Вон из дома.mp3
+/home/pi/Music/CD01/ДДТ - Любовь.mp3
+/home/pi/Music/CD01/Сплин - Встретимся завтра.mp3
+/home/pi/Music/CD01/Marilyn Manson - Lunchbox.mp3
+/home/pi/Music/CD01/Биртман - Грузин московского разлива.mp3
+/home/pi/Music/CD01/Танцы Минус - Цветут цветы.mp3
+/home/pi/Music/CD01/Машина Времени - Крысы.mp3
+/home/pi/Music/CD01/Потомучто - Не повезло.mp3
+/home/pi/Music/CD01/Ария - Небо тебя найдет.mp3
+/home/pi/Music/CD01/Алексей Горшенев - Дорогая.mp3
+/home/pi/Music/CD01/AC_DC - Highway To Hell.mp3
+/home/pi/Music/CD01/Александр Пушной - Britney.mp3
+/home/pi/Music/CD01/Бригадный Подряд - Как-то раз.mp3
+/home/pi/Music/CD01/Александр Пушной - Ночной Дозор fix2.mp3
+/home/pi/Music/CD01/Tito & Tarantula - After Dark.mp3
+/home/pi/Music/CD01/Найк Борзов - Не предел.mp3
+/home/pi/Music/CD01/HammerFall - At the End of the Rainbow.mp3
+/home/pi/Music/CD01/System of a Down - Sugar.mp3
+/home/pi/Music/CD01/Король и Шут - Танец злобного гения.mp3
+/home/pi/Music/CD01/Rammstein - Los.mp3
+/home/pi/Music/CD01/Кирпичи - Скука.mp3
+/home/pi/Music/CD01/AC_DC - Touch Too Much.mp3
+/home/pi/Music/CD01/Сплин - Мобильный.mp3
+/home/pi/Music/CD01/Сплин - Лепесток.mp3
+/home/pi/Music/CD01/Noize MC - Yes Future!.mp3
+/home/pi/Music/CD01/Radio Чача - PUNX NOT DEAD - УРА!!!.mp3
+/home/pi/Music/CD01/Северный Флот - 210.mp3
+/home/pi/Music/CD01/Znaki - Финики.mp3
+/home/pi/Music/CD01/Reef - Higher Vibration.mp3
+/home/pi/Music/CD01/Пилот - Сумасшедшим жить легко.mp3
+/home/pi/Music/CD01/Imagine Dragons - It's Time.mp3
+/home/pi/Music/CD01/Znaki - Причем тут финики.mp3
+/home/pi/Music/CD01/Little Big - What a Fucking Day.mp3
+/home/pi/Music/CD01/Distemper - Веселье, жизнелюбие и правильный настрой.mp3
+/home/pi/Music/CD01/Radio Чача - Влюблённый металлист.mp3
+/home/pi/Music/CD01/Scorpions - Scorpions - Always Somewhere.mp3
+/home/pi/Music/CD01/Найк Борзов - Прозрачная.mp3
+/home/pi/Music/CD01/Пилот - Жить на зло.mp3
+/home/pi/Music/CD01/Агата Кристи - Никогда (OST Брат 2).mp3
+/home/pi/Music/CD01/Marilyn Manson - (S)aint.mp3
+/home/pi/Music/CD01/Кожаный Олень - физрук.mp3
+/home/pi/Music/CD01/Антитела - Смотри в меня.mp3
+/home/pi/Music/CD01/R.E.M. - Losing My Religion.mp3
+/home/pi/Music/CD01/Александр Пушной - Another Day In Paradise.mp3
+/home/pi/Music/CD01/Metallica - Master of Puppets.mp3
+/home/pi/Music/CD01/Rammstein - Du riechst so gut.mp3
+/home/pi/Music/CD01/Биртман - Иволга.mp3
+/home/pi/Music/CD01/Кожаный Олень - аборт.mp3
+/home/pi/Music/CD01/АнимациЯ - Родина.mp3
+/home/pi/Music/CD01/Биртман - Маманя.mp3
+/home/pi/Music/CD01/Ленинград - Кержаков (бонус).mp3
+/home/pi/Music/CD01/Ленинград - Про любовь.mp3
+/home/pi/Music/CD01/Distemper - Чистые души.mp3
+/home/pi/Music/CD01/Чиж & Co - Рождён, чтобы бежать.mp3
+/home/pi/Music/CD01/Rammstein - Ich Tu Dir Weh.mp3
+/home/pi/Music/CD01/Animal ДжаZ - Три полоски.mp3
+/home/pi/Music/CD01/Radio Чача - Более или менее.mp3
+/home/pi/Music/CD01/Кирпичи - Дамам.mp3
+/home/pi/Music/CD01/Найк Борзов - Поцелуй и укус.mp3
+/home/pi/Music/CD01/Танцы минус - Мне б уснуть в твоих руках.mp3
+/home/pi/Music/CD01/Rammstein - Reise, Reise.mp3
+/home/pi/Music/CD01/Сплин - Нечего делать внутри.mp3
+/home/pi/Music/CD01/Good Times - Жми.mp3
+/home/pi/Music/CD01/Noize MC - Давай Приколемся (feat. Чупак, 228).mp3
+/home/pi/Music/CD01/Nickelback - Too Bad.mp3
+/home/pi/Music/CD01/Lumen - Три Пути.mp3
+/home/pi/Music/CD01/Little Big - UNO.mp3
+/home/pi/Music/CD01/Кирпичи - Что-то Постоянно Плывет По Неве.mp3
+/home/pi/Music/CD01/Rammstein - Rein Raus.mp3
+/home/pi/Music/CD01/Северный Флот - Время любить.mp3
+/home/pi/Music/CD01/Чиж & Co - Вот пуля просвистела.mp3
+/home/pi/Music/CD01/Accept - Balls to the Wall.mp3
+/home/pi/Music/CD01/Ойра! - Эй, братуха!.mp3
+/home/pi/Music/CD01/Александр Пушной - День рожденья.mp3
+/home/pi/Music/CD01/Marilyn Manson - Long Hard Road Out of Hell.mp3
+/home/pi/Music/CD01/Bon Jovi - Livin' on a Prayer.mp3
+/home/pi/Music/CD01/Смысловые Галлюцинации - Всё будет волшебно.mp3
+/home/pi/Music/CD01/5nizza - Солдат.mp3
+/home/pi/Music/CD01/Тараканы! - То, что не убивает тебя.mp3
+/home/pi/Music/CD01/Stereophonics - Too Many Sandwiches.mp3
+/home/pi/Music/CD01/Танцы Минус - 10 капель.mp3
+/home/pi/Music/CD01/Little Big - Skibidi.mp3
+/home/pi/Music/CD01/Tiamat - Brighter Than the Sun.mp3
+/home/pi/Music/CD01/Конец Каникул - Нить.mp3
+/home/pi/Music/CD01/Rammstein - Zerstoeren.mp3
+/home/pi/Music/CD01/Бригадный Подряд - Гений.mp3
+/home/pi/Music/CD01/Бригадный Подряд - Выпускной.mp3
+/home/pi/Music/CD01/Сплин - Тебе это снится.mp3
+/home/pi/Music/CD01/Борис Гребенщиков - Соль.mp3
+/home/pi/Music/CD01/Little Big - Liar.mp3
+/home/pi/Music/CD01/Marilyn Manson - The Reflecting God.mp3
+/home/pi/Music/CD01/Little Big - Rave in Peace (In Memory of Keith Flint).mp3
+/home/pi/Music/CD01/Крематорий - Амстердам.mp3
+/home/pi/Music/CD01/Бригадный Подряд - Всерьез.mp3
+/home/pi/Music/CD01/Little Big - Life in aa Trash (Remix by Dimm).mp3
+/home/pi/Music/CD01/Alanis Morissette - Joining You.mp3
+/home/pi/Music/CD01/Король и Шут - Король и Шут.mp3
+/home/pi/Music/CD01/Секрет - Блюз бродячих собак.mp3
+/home/pi/Music/CD01/Jefferson Airplane_Jefferson Airplane - Somebody to Love.mp3
+/home/pi/Music/CD01/Rammstein - Liebe Ist Fur Alle Da.mp3
+/home/pi/Music/CD01/5nizza - Ты Такая.mp3
+/home/pi/Music/CD01/Good Times - Бельмондо.mp3
+/home/pi/Music/CD01/5nizza - Половина Меня.mp3
+/home/pi/Music/CD01/5nizza - Зима.mp3
+/home/pi/Music/CD01/Биртман - Ленинград.mp3
+/home/pi/Music/CD01/Arctic Monkeys - Snap Out of It.mp3
+/home/pi/Music/CD01/Ленинград - Ду ю лав ми (дай любви).mp3
+/home/pi/Music/CD01/Radio Чача - Песенка про группу Pussy Riot.mp3
+/home/pi/Music/CD01/Radio Чача - Крошка.mp3
+/home/pi/Music/CD01/The Offspring - All I Want.mp3
+/home/pi/Music/CD01/Музыкальный коллектив Петра Налича - Сахарный пакет.mp3
+/home/pi/Music/CD01/Захар Май - Наши танки.mp3
+/home/pi/Music/CD01/Ленинград - Наш взвод.mp3
+/home/pi/Music/CD01/Александр Пушной - What.mp3
+/home/pi/Music/CD01/Arctic Monkeys - Do I Wanna Know_.mp3
+/home/pi/Music/CD01/Foo Fighters - Learn to Fly.mp3
+/home/pi/Music/CD01/Северный Флот - Странник.mp3
+/home/pi/Music/CD01/Сплин - Лестница.mp3
+/home/pi/Music/CD01/Metallica - Nothing Else Matters.mp3
+/home/pi/Music/CD01/ЧайФ - Рок-н-Ролл Этой Ночи.mp3
+/home/pi/Music/CD01/Reef - Come Back Brighter.mp3
+/home/pi/Music/CD01/Scorpions - Lonely Nights.mp3
+/home/pi/Music/CD01/Nickelback - Rockstar.mp3
+/home/pi/Music/CD01/Marilyn Manson - Rock & Roll Nigger.mp3
+/home/pi/Music/CD01/Distemper - Я натворил немало.mp3
+/home/pi/Music/CD01/Найк Борзов - Сверхновая.mp3
+/home/pi/Music/CD01/Кирпичи - Бред сивой кобылы (ft. Noize MC).mp3
+/home/pi/Music/CD01/Бригадный Подряд - Попса.mp3
+/home/pi/Music/CD01/Good Times - Intro.mp3
+/home/pi/Music/CD01/Би-2 - Радиовьетнам.mp3
+/home/pi/Music/CD01/Rammstein - Mehr.mp3
+/home/pi/Music/CD01/Good Times - Синие бойцы.mp3
+/home/pi/Music/CD01/Scorpions - Humanity.mp3
+/home/pi/Music/CD01/Сплин - Волна.mp3
+/home/pi/Music/CD01/Нейромонах Феофан - Притоптать.mp3
+/home/pi/Music/CD01/Кожаный Олень - are you.mp3
+/home/pi/Music/CD01/A - For Starters.mp3
+/home/pi/Music/CD01/Aerosmith - Pink.mp3
+/home/pi/Music/CD01/Алиса - Моё поколение.mp3
+/home/pi/Music/CD01/AC_DC - Big Jack.mp3
+/home/pi/Music/CD01/Кирпичи - Я Понял Все. Спасибо, Пока.mp3
+/home/pi/Music/CD01/5nizza - Это Тебе.mp3
+/home/pi/Music/CD01/Ленинград - Турбобой.mp3
+/home/pi/Music/CD01/Кожаный Олень - Мечта о муже.mp3
+/home/pi/Music/CD01/John Lennon - Imagine.mp3
+/home/pi/Music/CD01/Бригадный Подряд - Марш неудачников.mp3
+/home/pi/Music/CD01/Ляпис Трубецкой - Танцуй.mp3
+/home/pi/Music/CD01/Nirvana - About a Girl.mp3
+/home/pi/Music/CD01/Ногу Свело! - Наши юные смешные голоса.mp3
+/home/pi/Music/CD01/Музыкальный коллектив Петра Налича - Дропс.mp3
+/home/pi/Music/CD01/АукцЫон - С днем рождения.mp3
+/home/pi/Music/CD01/Биртман - Недолайканная.mp3
+/home/pi/Music/CD01/Ночные Снайперы - Поговори со мной, Ольга.mp3
+/home/pi/Music/CD01/Slade - In For A Penny.mp3
+/home/pi/Music/CD01/Кожаный Олень - rape me (nirvana cover).mp3
+/home/pi/Music/CD01/Пневмослон - Жухлый.mp3
+/home/pi/Music/CD01/Arctic Monkeys - Knee Socks.mp3
+/home/pi/Music/CD01/Creed - What's This Life For.mp3
+/home/pi/Music/CD01/Король и Шут - Любовь и пропеллер.mp3
+/home/pi/Music/CD01/Океан Ельзы - Я так хочу до тебе.mp3
+/home/pi/Music/CD01/5nizza - Морячок.mp3
+/home/pi/Music/CD01/Godsmack - Bad Religion.mp3
+/home/pi/Music/CD01/Paradise Lost - Ordinary Days.mp3
+/home/pi/Music/CD01/Scorpions - Bad Boys Running Wild.mp3
+/home/pi/Music/CD01/Король и Шут - Северный флот.mp3
+/home/pi/Music/CD01/Наутилус Помпилиус - Дыхание.mp3
+/home/pi/Music/CD01/Пилот - Осень.mp3
+/home/pi/Music/CD01/The Suit - Just Dance (Cover).mp3
+/home/pi/Music/CD01/Noize MC - +-0.mp3
+/home/pi/Music/CD01/Louna - С тобой.mp3
+/home/pi/Music/CD01/Little Big - Funeral Rave.mp3
+/home/pi/Music/CD01/Rammstein - Du hast.mp3
+/home/pi/Music/CD01/Ночные Снайперы - Ты дарила мне розы.mp3
+/home/pi/Music/CD01/Marilyn Manson - Use Your Fist and Not Your Mouth.mp3
+/home/pi/Music/CD01/Кукрыниксы - Жизнь бывает разная.mp3
+/home/pi/Music/CD01/Collective Soul - Forgiveness.mp3
+/home/pi/Music/CD01/Good Times - Дискотека.mp3
+/home/pi/Music/CD01/Nickelback - Flat On The Floor.mp3
+/home/pi/Music/CD01/Rammstein - Tattoo.mp3
+/home/pi/Music/CD01/Good Times - Я Не Танцую.mp3
+/home/pi/Music/CD01/Би-2 - Серебро.mp3
+/home/pi/Music/CD01/Кирпичи - Я люблю ее.mp3
+/home/pi/Music/CD01/7раса - Банка.mp3
+/home/pi/Music/CD01/Пневмослон - Пошло всё в жопу, сяду на коня.mp3
+/home/pi/Music/CD01/Бригадный Подряд - Новый сезон.mp3
+/home/pi/Music/CD01/Кукрыниксы - Звезда.mp3
+/home/pi/Music/CD01/Король и Шут - A.M.T.V.mp3
+/home/pi/Music/CD01/Мумий Тролль - Медведица.mp3
+/home/pi/Music/CD01/Good Times - Мне хватает.mp3
+/home/pi/Music/CD01/Nickelback - Never Again.mp3
+/home/pi/Music/CD01/Сплин - Дочь самурая.mp3
+/home/pi/Music/CD01/Кирпичи - Свинья.mp3
+/home/pi/Music/CD01/Чёрный Лукич - Последняя война.mp3
+/home/pi/Music/CD01/Rammstein - Spiel mit mir.mp3
+/home/pi/Music/CD01/Scorpions - Are You The One.mp3
+/home/pi/Music/CD01/Король и Шут - Ответ - лютая месть.mp3
+/home/pi/Music/CD01/Сплин - Далеко домой.mp3
+/home/pi/Music/CD01/Кожаный Олень - ОРЗ.mp3
+/home/pi/Music/CD01/Radio Чача - Элвис Пресли (наших дней).mp3
+/home/pi/Music/CD01/Александр Пушной - Трави Бобров.mp3
+/home/pi/Music/CD01/Сплин - Романс.mp3
+/home/pi/Music/CD01/Mötley Crüe - Beauty.mp3
+/home/pi/Music/CD01/Король и Шут - Собрание.mp3
+/home/pi/Music/CD01/Пикник - Говорит и показывает.mp3
+/home/pi/Music/CD01/Snoop Dogg featuring The Doors - Riders On the Storm (Fredwreck Remix).mp3
+/home/pi/Music/CD01/OK Go - I Won't Let You Down.mp3
+/home/pi/Music/CD01/Биртман - Этот день без тебя.mp3
+/home/pi/Music/CD01/Мумий Тролль - Утекай.mp3
+/home/pi/Music/CD01/Znaki - Верь мне.mp3
+/home/pi/Music/CD01/Rage - Over and Over.mp3
+/home/pi/Music/CD01/Bon Jovi - In And Out Of Love.mp3
+/home/pi/Music/CD01/Бригадный Подряд - Катиться вниз.mp3
+/home/pi/Music/CD01/Потомучто - Дедушка Мороз.mp3
+/home/pi/Music/CD01/Кожаный Олень - Пиздулэй.mp3
+/home/pi/Music/CD01/Кукрыниксы - Знай.mp3
+/home/pi/Music/CD01/Supertramp - Breakfast In America.mp3
+/home/pi/Music/CD01/Наив - Часики.mp3
+/home/pi/Music/CD01/Label - Нам не все равно (feat. Дмитрий Спирин).mp3
+/home/pi/Music/CD01/7раса - Нет сомнений.mp3
+/home/pi/Music/CD01/Кожаный Олень - Место 37.mp3
+/home/pi/Music/CD01/Потомучто - Я больше не верю.mp3
+/home/pi/Music/CD01/Танцы минус - Лыжи.mp3
+/home/pi/Music/CD01/Король и Шут - Медведь.mp3
+/home/pi/Music/CD01/Aerosmith - The Other Side.mp3
+/home/pi/Music/CD01/Павел Пламенев - Стань птицей.mp3
+/home/pi/Music/CD01/Биртман - Все диджеи петушьё.mp3
+/home/pi/Music/CD01/Алиса - Все это Рок-Н-Ролл.mp3
+/home/pi/Music/CD01/Северный Флот - Стрелы 2.0.mp3
+/home/pi/Music/CD01/OK Go - If I Had a Mountain.mp3
+/home/pi/Music/CD01/А-СИММЕТРИЯ - Дежавю.mp3
+/home/pi/Music/CD01/Би-2 - Полковнику никто не пишет.mp3
+/home/pi/Music/CD01/Би-2 - Невероятная история.mp3
+/home/pi/Music/CD01/Биртман - Зачем уходишь ты_.mp3
+/home/pi/Music/CD01/J_МОРС - Не мой дождь.mp3
+/home/pi/Music/CD01/AC_DC - Thunderstruck.mp3
+/home/pi/Music/CD01/Борис Гребенщиков - Время N.mp3
+/home/pi/Music/CD01/Distemper - Быть и казаться.mp3
+/home/pi/Music/CD01/План Ломоносова - Лирическая.mp3
+/home/pi/Music/CD01/Дороги Меняют Цвет - Да не вопрос!.mp3
+/home/pi/Music/CD01/Биртман - Танцуй.mp3
+/home/pi/Music/CD01/Король и Шут - Ром.mp3
+/home/pi/Music/CD01/Музыкальный коллектив Петра Налича - Галя.mp3
+/home/pi/Music/CD01/Музыкальный коллектив Петра Налича - OneSolodoWhiskey.mp3
+/home/pi/Music/CD01/Slayer - Death's Head.mp3
+/home/pi/Music/CD01/Мумий Тролль - Вдруг Ушли Поезда.mp3
+/home/pi/Music/CD01/Eisbrecher - Zwischen Uns.mp3
+/home/pi/Music/CD01/Алиса - Жги.mp3
+/home/pi/Music/CD01/КняZz - Сидеть и ждать.mp3
+/home/pi/Music/CD01/Найк Борзов - Капля крови создателя.mp3
+/home/pi/Music/CD01/Little Big - Little Boy (Thank You Mom).mp3
+/home/pi/Music/CD01/Пилот - Большой питерский блюз.mp3
+/home/pi/Music/CD01/Потомучто - Снотворное.mp3
+/home/pi/Music/CD01/Биртман - Верните радугу.mp3
+/home/pi/Music/CD01/Slade - My Oh My.mp3
+/home/pi/Music/CD01/Feeder - Insomnia.mp3
+/home/pi/Music/CD01/Beatles - Yesterday.mp3
+/home/pi/Music/CD01/Биртман - Любовь и лед.mp3
+/home/pi/Music/CD01/Little Big - My Way.mp3
+/home/pi/Music/CD01/Red Hot Chili Peppers - Around the World.mp3
+/home/pi/Music/CD01/Ленинград - Дачники.mp3
+/home/pi/Music/CD01/Гребля - Север.mp3
+/home/pi/Music/CD01/Dokken - Bullets To Spare.mp3
+/home/pi/Music/CD01/Ляпис Трубецкой - Огоньки.mp3
+/home/pi/Music/CD01/Биртман - Пьяная.mp3
+/home/pi/Music/CD01/Green Grey - Mf.mp3
+/home/pi/Music/CD01/Кирпичи - Как быстро летит время.mp3
+/home/pi/Music/CD01/Северный Флот - Каждую ночь.mp3
+/home/pi/Music/CD01/Биртман - Циркониевый браслет.mp3
+/home/pi/Music/CD01/5nizza - Желтая.mp3
+/home/pi/Music/CD01/AC_DC - T.N.T.mp3
+/home/pi/Music/CD01/OK Go - The One Moment.mp3
+/home/pi/Music/CD01/Queen - Another One Bites the Dust.mp3
+/home/pi/Music/CD01/Ленинград - Super Good.mp3
+/home/pi/Music/CD01/Король и Шут - Продавец кошмаров.mp3
+/home/pi/Music/CD01/Биртман - Коньяк 'Арарат'.mp3
+/home/pi/Music/CD01/Bon Jovi - Lost Highway.mp3
+/home/pi/Music/CD01/Marilyn Manson - The Beautiful People.mp3
+/home/pi/Music/CD01/Megadeth - Prince of Darkness.mp3
+/home/pi/Music/CD01/Little Big - T.I.T.S.mp3
+/home/pi/Music/CD01/Павел Пламенев - Ночь перед боем.mp3
+/home/pi/Music/CD01/Nickelback - Something In Your Mouth.mp3
+/home/pi/Music/CD01/Биртман - Мы хотим танцевать.mp3
+/home/pi/Music/CD01/Blur - Beetlebum.mp3
+/home/pi/Music/CD01/Nickelback - Believe It Or Not.mp3
+/home/pi/Music/CD01/Найк Борзов - Лошадка.mp3
+/home/pi/Music/CD01/Joe Cocker - Unchain My Heart (90's version).mp3
+/home/pi/Music/CD01/5nizza - Ушедшим.mp3
+/home/pi/Music/CD01/Наутилус Помпилиус - На берегу безымянной реки.mp3
+/home/pi/Music/CD01/Scorpions - Raised On Rock.mp3
+/home/pi/Music/CD01/Пневмослон - Принцесса в трусах с алиэкспресса.mp3
+/home/pi/Music/CD01/OK Go - Obsession.mp3
+/home/pi/Music/CD01/Потомучто - У меня одна беда.mp3
+/home/pi/Music/CD01/INXS - Need You Tonight.mp3
+/home/pi/Music/CD01/Музыкальный коллектив Петра Налича - Крылья.mp3
+/home/pi/Music/CD01/Nickelback - How You Remind Me.mp3
+/home/pi/Music/CD01/Collective Soul - Blame.mp3
+/home/pi/Music/CD01/Nickelback - Never Gonna Be Alone.mp3
+/home/pi/Music/CD01/Marilyn Manson - The Dope Show.mp3
+/home/pi/Music/CD01/Кирпичи - Вперёд, Зенит!.mp3
+/home/pi/Music/CD01/Bruce Dickinson - Gates of Urizen.mp3
+/home/pi/Music/CD01/Ленинград - Надоел.mp3
+/home/pi/Music/CD01/5nizza - Сюрная.mp3
+/home/pi/Music/CD01/Пневмослон - Серёга.mp3
+/home/pi/Music/CD01/Сплин - Пластмассовая жизнь.mp3
+/home/pi/Music/CD01/Потомучто - Машина.mp3
+/home/pi/Music/CD01/Би-2 - Прощай Берлин.mp3
+/home/pi/Music/CD01/Пилот - Сто тысяч номеров.mp3
+/home/pi/Music/CD01/Led Zeppelin - I Can't Quit You Baby.mp3
+/home/pi/Music/CD01/Кирпичи - Без Ботвы.mp3
+/home/pi/Music/CD01/Сплин - Сломано всё.mp3
+/home/pi/Music/CD01/Сплин - Шато марго.mp3
+/home/pi/Music/CD01/Король и Шут - Похороны панка.mp3
+/home/pi/Music/CD01/Бригадный Подряд - Мы идем грабить банк.mp3
+/home/pi/Music/CD01/Stevie Ray Vaughan and Double Trouble - Pride and Joy.mp3
+/home/pi/Music/CD01/Дзен Сити - Стоп.mp3
+/home/pi/Music/CD01/Little Big - Skibidi (Doorly Remix).mp3
+/home/pi/Music/CD01/Приключения Электроников - Позвони Мне, Позвони.mp3
+/home/pi/Music/CD01/HIM - Poison Girl.mp3
+/home/pi/Music/CD01/Radio Чача - Прокурор — Медведь (Закон — Тайга).mp3
+/home/pi/Music/CD01/AC_DC - If You Want Blood (You've Got It).mp3
+/home/pi/Music/CD01/Marilyn Manson - In the Shadow of the Valley of Death.mp3
+/home/pi/Music/CD01/Pixies - Where Is My Mind_.mp3
+/home/pi/Music/CD01/Король и Шут - Он не знает, что такое жизнь!.mp3
+/home/pi/Music/CD01/Разные люди - Жизнь.mp3
+/home/pi/Music/CD01/Noize MC - Песня Для Радио.mp3
+/home/pi/Music/CD01/Потомучто - С Днем Рождения.mp3
+/home/pi/Music/CD01/Lumen - На части.mp3
+/home/pi/Music/CD01/Пикник - Кукла с человеческим лицом.mp3
+/home/pi/Music/CD01/Король и Шут - Счастье_.mp3
+/home/pi/Music/CD01/Музыкальный коллектив Петра Налича - Йети.mp3
+/home/pi/Music/CD01/Король и Шут - Жаль, нет ружья.mp3
+/home/pi/Music/CD01/Биртман - Зигани.mp3
+/home/pi/Music/CD01/Сплин - Петербургская свадьба.mp3
+/home/pi/Music/CD01/Black Sabbath - Changes.mp3
+/home/pi/Music/CD01/Потомучто - В следующей жизни.mp3
+/home/pi/Music/CD01/Radio Чача - Песня орка перед боем.mp3
+/home/pi/Music/CD01/Би-2 - Падает Снег.mp3
+/home/pi/Music/CD01/Rammstein - Mann Gegen Mann.mp3
+/home/pi/Music/CD01/Rammstein - Auslander.mp3
+/home/pi/Music/CD01/Александр Пушной - Невезуха Нету Слуха.mp3
+/home/pi/Music/CD01/Little Big - Fucking Asshole.mp3
+/home/pi/Music/CD01/Александр Пушной - Shape Of My Heart.mp3
+/home/pi/Music/CD01/Пикник - Кем бы ты ни был.mp3
+/home/pi/Music/CD01/Guns'n'Roses - Knockin' On Heaven's Door.mp3
+/home/pi/Music/CD01/Rammstein - Alter Mann.mp3
+/home/pi/Music/CD01/Биртман - Подбухну.mp3
+/home/pi/Music/CD01/Radio Чача - Intro.mp3
+/home/pi/Music/CD01/Little Big - Mon Ami.mp3
+/home/pi/Music/CD01/Александр Пушной - Space Truckin'.mp3
+/home/pi/Music/CD01/Shocking Blue - Daemon Lover.mp3
+/home/pi/Music/CD01/Кожаный Олень - Бородачи.mp3
+/home/pi/Music/CD01/AC_DC - Rock 'N' Roll Damnation.mp3
+/home/pi/Music/CD01/Foo Fighters - Dear Rosemary.mp3
+/home/pi/Music/CD01/Пилот - Шнурок.mp3
+/home/pi/Music/CD01/Little Big - Emotions (Requiem for Freedom).mp3
+/home/pi/Music/CD01/Ария - Искушение.mp3
+/home/pi/Music/CD01/Кино - Попробуй спеть вместе со мной.mp3
+/home/pi/Music/CD01/Танцы Минус - Половинка.mp3
+/home/pi/Music/CD01/Бригадный Подряд - Про это.mp3
+/home/pi/Music/CD01/Louna - Путь к себе.mp3
+/home/pi/Music/CD01/HammerFall - Stone Cold.mp3
+/home/pi/Music/CD01/Gorky Park - Moscow Calling.mp3
+/home/pi/Music/CD01/Бригадный Подряд - Жизнь.mp3
+/home/pi/Music/CD01/Александр Пушной - Переведи меня через майдан.mp3
+/home/pi/Music/CD01/ZZ Top - Sharp Dressed Man.mp3
+/home/pi/Music/CD01/Пневмослон - Ебашу как в последний раз.mp3
+/home/pi/Music/CD01/7раса - Топливо.mp3
+/home/pi/Music/CD01/Кожаный Олень - Не как прежде.mp3
+/home/pi/Music/CD01/OK Go - Upside Down & Inside Out.mp3
+/home/pi/Music/CD01/Александр Пушной - Парикмахер.mp3
+/home/pi/Music/CD01/Александр Пушной - Pushme.mp3
+/home/pi/Music/CD01/Nickelback - Photograph.mp3
+/home/pi/Music/CD01/Крематорий - Мусорный Ветер.mp3
+/home/pi/Music/CD01/Кожаный Олень - Повелители влаги.mp3
+/home/pi/Music/CD01/Little Big - Polyushko Polye (feat. Killaheadz).mp3
+/home/pi/Music/CD01/Marilyn Manson - Mechanical Animals.mp3
+/home/pi/Music/CD01/Бригадный Подряд - Розовая вода.mp3
+/home/pi/Music/CD01/Музыкальный коллектив Петра Налича - Blockhead.mp3
+/home/pi/Music/CD01/Потомучто - Копателям.mp3
+/home/pi/Music/CD01/Би-2 - Bowie.mp3
+/home/pi/Music/CD01/Chris Cornell - When I'm Down.mp3
+/home/pi/Music/CD01/Захар Май - Моя любовь.mp3
+/home/pi/Music/CD01/Константин Никольский - Мой друг художник и поэт.mp3
+/home/pi/Music/CD01/Николай Носков - Я тебя люблю.mp3
+/home/pi/Music/CD01/Feeder - Cement.mp3
+/home/pi/Music/CD01/Кирпичи - С Тобой Я Забываю, Как Думать Головой.mp3
+/home/pi/Music/CD01/Porcupine Tree - Piano Lessons.mp3
+/home/pi/Music/CD01/Валентин Когут - Full HD.mp3
+/home/pi/Music/CD01/Сплин - Конец прекрасной эпохи.mp3
+/home/pi/Music/CD01/ЧайФ - Поплачь о нём.mp3
+/home/pi/Music/CD01/Наив - Думаешь нет – говоришь да.mp3
+/home/pi/Music/CD01/Король и Шут - Камнем по голове.mp3
+/home/pi/Music/CD01/Rammstein - Fuhre Mich.mp3
+/home/pi/Music/CD01/Александр Пушной - Эрнст.mp3
+/home/pi/Music/CD01/Good Times - Твои глаза.mp3
+/home/pi/Music/CD01/Потомучто - Полнолуние.mp3
+/home/pi/Music/CD01/7Б - Нашла коса на камень.mp3
+/home/pi/Music/CD01/Rammstein - Ohne Dich.mp3
+/home/pi/Music/CD01/Найк Борзов - Пустота.mp3
+/home/pi/Music/CD01/Placebo - Every You Every Me.mp3
+/home/pi/Music/CD01/Пневмослон - Урановый леденец с говном.mp3
+/home/pi/Music/CD01/Король и Шут - Помнят с горечью древляне.mp3
+/home/pi/Music/CD01/Павел Пламенев - Падали замертво.mp3
+/home/pi/Music/CD01/Борис Гребенщиков - На ржавом ветру.mp3
+/home/pi/Music/CD01/Биртман - Белла.mp3
+/home/pi/Music/CD01/Rammstein - Keine Lust.mp3
+/home/pi/Music/CD01/Imagine Dragons - Bleeding Out.mp3
+/home/pi/Music/CD01/Сплин - Молоко и мёд.mp3
+/home/pi/Music/CD01/Ленинград - Звезда рок-н-ролла.mp3
+/home/pi/Music/CD01/Наутилус Помпилиус - Goodbye America (Брат 2 OST).mp3
+/home/pi/Music/CD01/Би-2 - Нечетный воин.mp3
+/home/pi/Music/CD01/Мистер Малой - Буду пАгибать молодым.mp3
+/home/pi/Music/CD01/Imagine Dragons - Demons.mp3
+/home/pi/Music/CD01/Сплин - Рыба без трусов.mp3
+/home/pi/Music/CD01/Би-2 - Никто не придет.mp3
+/home/pi/Music/CD01/7раса - Чужими глазами.mp3
+/home/pi/Music/CD01/Radio Чача - Вася 2.mp3
+/home/pi/Music/CD01/Наив - Что нам делать_.mp3
+/home/pi/Music/CD01/Александр Пушной - СПЛИН-ани это.mp3
+/home/pi/Music/CD01/The MATRIXX - Москва-река.mp3
+/home/pi/Music/CD01/Потомучто - По идее такие как ты.mp3
+/home/pi/Music/CD01/Потомучто - Я хочу домой.mp3
+/home/pi/Music/CD01/Сплин - Скажи.mp3
+/home/pi/Music/CD01/Nickelback - S.E.X.mp3
+/home/pi/Music/CD01/Обе-Рек - Кольца.mp3
+/home/pi/Music/CD01/Ас Вентура - Хорошо!.mp3
+/home/pi/Music/CD01/The Stranglers - The Stranglers - Golden Brown.mp3
+/home/pi/Music/CD01/Red Hot Chili Peppers - Otherside.mp3
+/home/pi/Music/CD01/Ария - Вампир.mp3
+/home/pi/Music/CD01/Кукрыниксы - Кайф.mp3
+/home/pi/Music/CD01/Ash - Numbskull.mp3
+/home/pi/Music/CD01/Iron Maiden - Run to the Hills.mp3
+/home/pi/Music/CD01/Helloween - All My Loving.mp3
+/home/pi/Music/CD01/Red Hot Chili Peppers - Californication.mp3
+/home/pi/Music/CD01/Кукрыниксы - Герой.mp3
+/home/pi/Music/CD01/Alice Cooper - Love's A Loaded Gun.mp3
+/home/pi/Music/CD01/Noize MC - Моё Море.mp3
+/home/pi/Music/CD01/Lumen - Не спеши.mp3
+/home/pi/Music/CD01/Сплин - Фаза.mp3
+/home/pi/Music/CD01/Музыкальный коллектив Петра Налича - Море.mp3
+/home/pi/Music/CD01/Потомучто - Нам живых пугать нельзя.mp3
+/home/pi/Music/CD01/The Offspring - Cool to Hate.mp3
+/home/pi/Music/CD01/Король и Шут - Рыбак.mp3
+/home/pi/Music/CD01/7раса - Любовь сбивающая с ног.mp3
+/home/pi/Music/CD01/Кожаный Олень - Посторонний.mp3
+/home/pi/Music/CD01/Кукрыниксы - Солдатская печаль.mp3
+/home/pi/Music/CD01/Смысловые Галлюцинации - Туман.mp3
+/home/pi/Music/CD01/Ноль - Человек и кошка.mp3
+/home/pi/Music/CD01/Little Big - Слэмятся пацаны.mp3
+/home/pi/Music/CD01/Sunburst - Нет Героев.mp3
+/home/pi/Music/CD01/Кино - Пачка сигарет.mp3
+/home/pi/Music/CD01/Cream - Sunshine of Your Love.mp3
+/home/pi/Music/CD01/Green Day - Hitchin' a Ride.mp3
+/home/pi/Music/CD01/Korn - Falling Away From Me.mp3
+/home/pi/Music/CD01/Muse - New Born.mp3
+/home/pi/Music/CD01/Найк Борзов - Пойми и прости.mp3
+/home/pi/Music/CD01/6 Страниц Назад - Блеск Души.mp3
+/home/pi/Music/CD01/Radio Чача - Когда вернётся НАИВ_.mp3
+/home/pi/Music/CD01/Marilyn Manson - The Fight Song.mp3
+/home/pi/Music/CD01/Good Times - Анжела.mp3
+/home/pi/Music/CD01/Aerosmith - Dream On.mp3
+/home/pi/Music/CD01/КняZz - Один, как тень.mp3
+/home/pi/Music/CD01/ЧайФ - Не спеши.mp3
+/home/pi/Music/CD01/ЧайФ - Аргентина-Ямайка 5-0.mp3
+/home/pi/Music/CD01/Rammstein - Links 234.mp3
+/home/pi/Music/CD01/Найк Борзов - Галлюцинация.mp3
+/home/pi/Music/CD01/Александр Пушной - Это не любовь.mp3
+/home/pi/Music/CD01/Сказки Чёрного Города - Дотянуться До Звёзд (feat. Князь).mp3
+/home/pi/Music/CD01/Король и Шут - Матёрый волк.mp3
+/home/pi/Music/CD01/Ногу Свело! - Хару мамбуру.mp3
+/home/pi/Music/CD01/Ария - Воля И Разум.mp3
+/home/pi/Music/CD01/Би-2 - Шар Земной.mp3
+/home/pi/Music/CD01/Кукрыниксы - Хрустальный мир.mp3
+/home/pi/Music/CD01/Ленинград - Сладкий сон.mp3
+/home/pi/Music/CD01/Чичерина - Ту-лу-ла (OST Брат 2).mp3
+/home/pi/Music/CD01/Marilyn Manson - Mutilation Is the Most Sincere Form of Flattery.mp3
+/home/pi/Music/CD01/Good Times - Раз и навсегда.mp3
+/home/pi/Music/CD01/Queens of the Stone Age - In My Head.mp3
+/home/pi/Music/CD01/Znaki - Все напрасно.mp3
+/home/pi/Music/CD01/Океан Ельзи - Коли тебе нема.mp3
+/home/pi/Music/CD01/Смысловые Галлюцинации - Розовые очки.mp3
+/home/pi/Music/CD01/Noize MC - Нету Паспорта (feat. Вахтанг).mp3
+/home/pi/Music/CD01/Guns'n'Roses - Sweet Child o' Mine.mp3
+/home/pi/Music/CD01/Bahroma - Важное неважно.mp3
+/home/pi/Music/CD01/Ундервуд - Слабонервный.mp3
+/home/pi/Music/CD01/Биртман - Селфи.mp3
+/home/pi/Music/CD01/All That Remains - The Last Time.mp3
+/home/pi/Music/CD01/Потомучто - Да ну его (Ы).mp3
+/home/pi/Music/CD01/5nizza - Солнце.mp3
+/home/pi/Music/CD01/BrainStorm - Выходные.mp3
+/home/pi/Music/CD01/AC_DC - You Shook Me All Night Long.mp3
+/home/pi/Music/CD01/Дельфин - Любовь.mp3
+/home/pi/Music/CD01/Крематорий - Безобразная Эльза.mp3
+/home/pi/Music/CD01/Radio Чача - Punx Not Dead - Ура!!!!.mp3
+/home/pi/Music/CD01/Arctic Monkeys - Why'd You Only Call Me When You're High_.mp3
+/home/pi/Music/CD01/Кукрыниксы - Движение.mp3
+/home/pi/Music/CD01/Бригадный Подряд - Пьяный.mp3
+/home/pi/Music/CD01/Мумий Тролль - Дельфины.mp3
+/home/pi/Music/CD01/Ленинград - Мне бы в небо.mp3
+/home/pi/Music/CD01/Биртман - Следы от компота.mp3
+/home/pi/Music/CD01/Наив - 20 лет одиночества.mp3
+/home/pi/Music/CD01/Dругой Ветер - Комбинат.mp3
+/home/pi/Music/CD01/Limp Bizkit - Break Stuff.mp3
+/home/pi/Music/CD01/Павел Пламенев - Отряд не заметил потери бойца.mp3
+/home/pi/Music/CD01/Chris Norman - Stumblin' In (with Suzi Quatro.mp3
+/home/pi/Music/CD01/Алиса - Левша.mp3
+/home/pi/Music/CD01/Бригадный Подряд - Школьное любовище.mp3
+/home/pi/Music/CD01/Little Big - Skibidi (Romantic Edition).mp3
+/home/pi/Music/CD01/Смысловые Галлюцинации - Апрель.mp3
+/home/pi/Music/CD01/Creed - One.mp3
+/home/pi/Music/CD01/Muse - Supermassive Black Hole.mp3
+/home/pi/Music/CD01/Пневмослон - Сделать на отъебись, бабки попилить.mp3
+/home/pi/Music/CD01/Кукрыниксы - Колдовство.mp3
+/home/pi/Music/CD01/Кукрыниксы - Мой бог.mp3
+/home/pi/Music/CD01/Найк Борзов - Фрагмент.mp3
+/home/pi/Music/CD01/Сплин - Призрак.mp3
+/home/pi/Music/CD01/Good Times - Putin Party.mp3
+/home/pi/Music/CD01/Distemper - Пламя из маленькой искры.mp3
+/home/pi/Music/CD01/Aerosmith - Three Mile Smile.mp3
+/home/pi/Music/CD01/The Verve - Bitter Sweet Symphony.mp3
+/home/pi/Music/CD01/Кожаный Олень - Труба (feat. Anacondaz).mp3
+/home/pi/Music/CD01/The Police - Every Breath You Take.mp3
+/home/pi/Music/CD01/Бригадный Подряд - Серая сила.mp3
+/home/pi/Music/CD01/Король и Шут - Двое против всех.mp3
+/home/pi/Music/CD01/Static-X - Bled for Days.mp3
+/home/pi/Music/CD01/Танцы Минус - Колесо.mp3
+/home/pi/Music/CD01/Billy's Band - Счастье есть!.mp3
+/home/pi/Music/CD01/Сплин - Черная Волга.mp3
+/home/pi/Music/CD01/Би-2 - Белый лист.mp3
+/home/pi/Music/CD01/The Animals - The Animals - The House of the.mp3
+/home/pi/Music/CD01/Найк Борзов - Биоматерия.mp3
+/home/pi/Music/CD01/Кожаный Олень - вся правда об эмо.mp3
+/home/pi/Music/CD01/Пневмослон - Питер, шизи на Вираже.mp3
+/home/pi/Music/CD01/Танцы Минус - Я Рад.mp3
+/home/pi/Music/CD01/Ноль - Песня о Настоящем Индейце.mp3
+/home/pi/Music/CD01/Аквариум - Поезд в огне.mp3
+/home/pi/Music/CD01/Король и Шут - Два вора и монета.mp3
+/home/pi/Music/CD01/Marilyn Manson - Rock Is Dead.mp3
+/home/pi/Music/CD01/Bon Jovi - Have A Nice Day.mp3
+/home/pi/Music/CD01/Rammstein - Feuer Frei!.mp3
+/home/pi/Music/CD01/Кожаный Олень - Рыжая бородка.mp3
+/home/pi/Music/CD01/Пневмослон - Надежда страны.mp3
+/home/pi/Music/CD01/AC_DC - Are You Ready.mp3
+/home/pi/Music/CD01/Биртман - Томка.mp3
+/home/pi/Music/CD01/Сплин - Выхода нет.mp3
+/home/pi/Music/CD01/АрктидА - Басист.mp3
+/home/pi/Music/CD01/Rammstein - Mutter.mp3
+/home/pi/Music/CD01/Good Times - Сын Д.mp3
+/home/pi/Music/CD01/Кукрыниксы - Песня наивного человека.mp3
+/home/pi/Music/CD01/Ундервуд - Точка невозврата.mp3
+/home/pi/Music/CD01/Europe - The Final Countdown.mp3
+/home/pi/Music/CD01/Музыкальный коллектив Петра Налича - Золотая рыбка.mp3
+/home/pi/Music/CD01/5nizza - Свобода.mp3
+/home/pi/Music/CD01/Король и Шут - Исповедь вампира.mp3
+/home/pi/Music/CD01/Кирпичи - Давай микрофон.mp3
+/home/pi/Music/CD01/Король и Шут - В доме суета.mp3
+/home/pi/Music/CD01/Король и Шут - Блуждают тени.mp3
+/home/pi/Music/CD01/Серьга - Дорога в ночь.mp3
+/home/pi/Music/CD01/Танцы Минус - Иду (из к-ф Брат 2).mp3
+/home/pi/Music/CD01/Пневмослон - Грибочки.mp3
+/home/pi/Music/CD01/Little Big - Arriba.mp3
+/home/pi/Music/CD01/Metallica - Die, Die My Darling.mp3
+/home/pi/Music/CD01/Led Zeppelin - I'm Gonna Crawl.mp3
+/home/pi/Music/CD01/Сплин - Кошмары.mp3
+/home/pi/Music/CD01/Trashed! - Die Another Day (Madonna cover).mp3
+/home/pi/Music/CD01/Кожаный Олень - la mineto manifesto.mp3
+/home/pi/Music/CD01/Godsmack - Straight Out Of Line.mp3
+/home/pi/Music/CD01/Distemper - Цифровое кладбище.mp3
+/home/pi/Music/CD01/Чёрный Обелиск - Я остаюсь.mp3
+/home/pi/Music/CD01/Король и Шут - Ели мясо мужики.mp3
+/home/pi/Music/CD01/Потомучто - Мойдодырка.mp3
+/home/pi/Music/CD01/Noize MC - Вселенная Бесконечна.mp3
+/home/pi/Music/CD01/Rammstein - Sonne.mp3
+/home/pi/Music/CD01/Найк Борзов - Сейчас и здесь.mp3
+/home/pi/Music/CD01/ПилОт - Так просто на душе.mp3
+/home/pi/Music/CD01/Joan Jett and The Blackhearts - I Love Rock 'n Roll.mp3
+/home/pi/Music/CD01/Би-2 - Медленная звезда.mp3
+/home/pi/Music/CD01/Little Big - Rave On (feat. DenDerty).mp3
+/home/pi/Music/CD01/Король и Шут - Холодное тело.mp3
+/home/pi/Music/CD01/Сплин - Мы сидели и курили.mp3
+/home/pi/Music/CD01/Rammstein - Pussy.mp3
+/home/pi/Music/CD01/Пневмослон - Финита ля комедия.mp3
+/home/pi/Music/CD01/Король и Шут - Звонок.mp3
+/home/pi/Music/CD01/Завтраккусто - Русалки.mp3
+/home/pi/Music/CD01/Потомучто - Время.mp3
+/home/pi/Music/CD01/Король и Шут - Бунт на корабле!.mp3
+/home/pi/Music/CD01/The Offspring - Gone Away.mp3
+/home/pi/Music/CD01/Король и Шут - Хозяин леса.mp3
+/home/pi/Music/CD01/Электропартизаны - Пока не поздно.mp3
+/home/pi/Music/CD01/Кожаный Олень - Замуж.mp3
+/home/pi/Music/CD01/Ленинград - Такая крутая RAW MIX(+Loud).mp3
+/home/pi/Music/CD01/Би-2 - Феллини.mp3
+/home/pi/Music/CD01/Ляпис Трубецкой - Не быть скотом.mp3
+/home/pi/Music/CD01/Queen - We Will Rock You.mp3
+/home/pi/Music/CD01/AC_DC - Hard As A Rock.mp3
+/home/pi/Music/CD01/Найк Борзов - Последствия любви.mp3
+/home/pi/Music/CD01/Пилот - Сибирь.mp3
+/home/pi/Music/CD01/Сплин - Мое сердце.mp3
+/home/pi/Music/CD01/Смысловые Галлюцинации - Вечно молодой.mp3
+/home/pi/Music/CD01/Кожаный Олень - Нахрена нам война.mp3
+/home/pi/Music/CD01/Кожаный Олень - Дохляки.mp3
+/home/pi/Music/CD01/Би-2 - Остров (Feat. Пикник) (Bonus).mp3
+/home/pi/Music/CD01/Lucinda Williams - Car Wheels on a Gravel Road.mp3
+/home/pi/Music/CD01/Биртман - Сочи.mp3
+/home/pi/Music/CD01/Кожаный Олень - трудовик.mp3
+/home/pi/Music/CD01/Захар Май - Пётр живет в тайге.mp3
+/home/pi/Music/CD01/Ленинград - По бабам.mp3
+/home/pi/Music/CD01/Metallica - The Memory Remains.mp3
+/home/pi/Music/CD01/Ленинград - Давай джазу.mp3
+/home/pi/Music/CD01/Биртман - Ты не лезь ко мне, когда я пьяный.mp3
+/home/pi/Music/CD01/Биртман - Галя, загорай!.mp3
+/home/pi/Music/CD01/HammerFall - Let the Hammer Fall.mp3
+/home/pi/Music/CD01/Marilyn Manson - The Love Song - Lest We Forget.mp3
+/home/pi/Music/CD01/Серьга - А что нам надо.mp3
+/home/pi/Music/CD01/AC_DC - Big Gun.mp3
+/home/pi/Music/CD01/Marilyn Manson - Vodevil.mp3
+/home/pi/Music/CD01/Бригадный Подряд - Правда.mp3
+/home/pi/Music/CD01/AC_DC - Dirty Deeds Done Dirt Cheap.mp3
+/home/pi/Music/CD01/Noize MC - Устрой Дестрой (feat. Чача).mp3
+/home/pi/Music/CD01/Танцы минус - За шагом шаг.mp3
+/home/pi/Music/CD01/Rainbow - The Tmple Of The King.mp3
+/home/pi/Music/CD01/Александр Пушной - I Breathe.mp3
+/home/pi/Music/CD01/Rammstein - Seemann.mp3
+/home/pi/Music/CD01/Тараканы! - Кто-то из нас двоих.mp3
+/home/pi/Music/CD01/Биртман - Белый шевроле.mp3
+/home/pi/Music/CD01/Rammstein - Links 2 3 4.mp3
+/home/pi/Music/CD01/Кино - Перемен.mp3
+/home/pi/Music/CD01/Рок-группа - Попса.mp3
+/home/pi/Music/CD01/Ленинград - Меня зовут Шнур.mp3
+/home/pi/Music/CD01/AC_DC - Stiff Upper Lip.mp3
+/home/pi/Music/CD01/Найк Борзов - Поток.mp3
+/home/pi/Music/CD01/Пикник - Серебра.mp3
+/home/pi/Music/CD01/7Б - Полковник.mp3
+/home/pi/Music/CD01/Бригадный Подряд - Кобзон.mp3
+/home/pi/Music/CD01/Александр Пушной - 18 мне уже.mp3
+/home/pi/Music/CD01/Биртман - Этим летом.mp3
+/home/pi/Music/CD01/Good Times - Маракасы.mp3
+/home/pi/Music/CD01/Пилот - Пароль.mp3
+/home/pi/Music/CD01/Кирпичи - Sila Uma.mp3
+/home/pi/Music/CD01/Черный Обелиск - Снизу вверх.mp3
+/home/pi/Music/CD01/Noize MC - Накосячу!.mp3
+/home/pi/Music/CD01/Король и Шут - Фокусник.mp3
+/home/pi/Music/CD01/Louna - Буря.mp3
+/home/pi/Music/CD01/Король и Шут - Пивной череп.mp3
+/home/pi/Music/CD01/Кожаный Олень - Salvation.mp3
+/home/pi/Music/CD01/Музыкальный коллектив Петра Налича - Баба Люба.mp3
+/home/pi/Music/CD01/Little Big - Pop on the Top.mp3
+/home/pi/Music/CD01/Кожаный Олень - Моника.mp3
+/home/pi/Music/CD01/Peter Nalitch and Friends - Accordion Etude.mp3
+/home/pi/Music/CD01/Rammstein - Asche zu Asche.mp3
+/home/pi/Music/CD01/Пикник - Азбука Морзе.mp3
+/home/pi/Music/CD01/Rammstein - Zeig Dich.mp3
+/home/pi/Music/CD01/Нервы - Кофе мой друг.mp3
+/home/pi/Music/CD01/Ноль - Иду. Курю.mp3
+/home/pi/Music/CD01/Нервы - А А А.mp3
+/home/pi/Music/CD01/Музыкальный коллектив Петра Налича - Сердце поэта.mp3
+/home/pi/Music/CD01/Little Big - To Party (feat. DenDerty & Danny Zuckerman).mp3
+/home/pi/Music/CD01/КняZz - Джокер - карта судьбы.mp3
+/home/pi/Music/CD01/Агата Кристи, Би 2, Lumen - А мы не ангелы, парень.mp3
+/home/pi/Music/CD01/Eric Clapton - I Shot the Sheriff.mp3
+/home/pi/Music/CD01/Пилот - Где ты.mp3
+/home/pi/Music/CD01/Noize MC - Рок - Это Кал! (feat. Вася Васин).mp3
+/home/pi/Music/CD01/Louna - Действуй!.mp3
+/home/pi/Music/CD01/Сергей Шнуров - Сто Друзей.mp3
+/home/pi/Music/CD01/Supertramp - The Logical Song.mp3
+/home/pi/Music/CD01/Потомучто - Каждый день плюс одна.mp3
+/home/pi/Music/CD01/Захар Май - Всё напоминает о тебе.mp3
+/home/pi/Music/CD01/Смысловые Галлюцинации feat. Оркестр B-A-C-H - Разум когда-нибудь победит (feat. Оркестр B-A-C-H).mp3
+/home/pi/Music/CD01/Би-2 - Держаться за воздух.mp3
+/home/pi/Music/CD01/Ленинград - WWW.mp3
+/home/pi/Music/CD01/Кирпичи - Джедаи.mp3
+/home/pi/Music/CD01/Кукрыниксы - Мой новый мир.mp3
+/home/pi/Music/CD01/Разные люди - Пусть сегодня никто не умрёт.mp3
+/home/pi/Music/CD01/Наутилус Помпилиус - Летучая мышь.mp3
+/home/pi/Music/CD01/Rammstein - Diamant.mp3
+/home/pi/Music/CD01/Septembre - I Am Weightless.mp3
+/home/pi/Music/CD01/Ленинград - Расп...дяй.mp3
+/home/pi/Music/CD01/Ленинград - Поезд в огне (Аквариум cover).mp3
+/home/pi/Music/CD01/Александр Пушной - Ленин всех послал на Первомай.mp3
+/home/pi/Music/CD01/OK Go - Bright As Your Eyes.mp3
+/home/pi/Music/CD01/Король и Шут - Хозяин таверны.mp3
+/home/pi/Music/CD01/Rammstein - Spieluhr.mp3
+/home/pi/Music/CD01/Godsmack - Whatever.mp3
+/home/pi/Music/CD01/Кукрыниксы - Клетка.mp3
+/home/pi/Music/CD01/Ленинград - Менеджер.mp3
+/home/pi/Music/CD01/Кирпичи - Новый порядок.mp3
+/home/pi/Music/CD01/Nickelback - Burn It To The Ground.mp3
+/home/pi/Music/CD01/Nickelback - Hero.mp3
+/home/pi/Music/CD01/Queen - Дove of my live.mp3
+/home/pi/Music/CD01/Танцы минус - С вольным ветром.mp3
+/home/pi/Music/CD01/Rammstein - Radio.mp3
+/home/pi/Music/CD01/Rammstein - Ich Will.mp3
+/home/pi/Music/CD01/HammerFall - Heeding the Call.mp3
+/home/pi/Music/CD01/5nizza - Сон.mp3
+/home/pi/Music/CD01/Marilyn Manson - Mobscene.mp3
+/home/pi/Music/CD01/Scorpions - Always Somewhere.mp3
+/home/pi/Music/CD01/Северный Флот - Революция на вылет.mp3
+/home/pi/Music/CD01/Кожаный Олень - Реактивный самолет (Куби cover).mp3
+/home/pi/Music/CD01/Сплин - Бонни и Клайд.mp3
+/home/pi/Music/CD01/Tasmin Archer - Tasmin Archer - Sleeping Satel.mp3
+/home/pi/Music/CD01/ЧайФ - Точка.mp3
+/home/pi/Music/CD01/Король и Шут - Наблюдатель.mp3
+/home/pi/Music/CD01/Ария - Там высоко.mp3
+/home/pi/Music/CD01/5nizza - Мы Одно.mp3
+/home/pi/Music/CD01/Arctic Monkeys - Arabella.mp3
+/home/pi/Music/CD01/5nizza - Я С Тобой.mp3
+/home/pi/Music/CD01/Пилот - Счастливый билет.mp3
+/home/pi/Music/CD01/Би-2 - Хипстер.mp3
+/home/pi/Music/CD01/Manowar - Let The Gods Decide.mp3
+/home/pi/Music/CD01/Radiohead - No Surprises.mp3
+/home/pi/Music/CD01/Король и Шут - Паника в селе.mp3
+/home/pi/Music/CD01/Музыкальный коллектив Петра Налича - Sticky lover.mp3
+/home/pi/Music/CD01/Музыкальный коллектив Петра Налича - Chmya.mp3
+/home/pi/Music/CD01/Ленинград - Любит Наш Народ.mp3
+/home/pi/Music/CD01/Muse - Undisclosed Desires.mp3
+/home/pi/Music/CD01/ЧайФ - За полшага.mp3
+/home/pi/Music/CD01/Scorpions - When The Smoke Is Going Down.mp3
+/home/pi/Music/CD01/Би-2 - Революци¤.mp3
+/home/pi/Music/CD01/Good Times - Ч.К.П.mp3
+/home/pi/Music/CD01/Кожаный Олень - хлоргексидин биглюканат.mp3
+/home/pi/Music/CD01/Смысловые Галлюцинации - Первый день осени.mp3
+/home/pi/Music/CD01/Кожаный Олень - Фотокабины.mp3
+/home/pi/Music/CD01/Rammstein - Los - Full Band Version.mp3
+/home/pi/Music/CD01/Кукрыниксы - Падающая звезда.mp3
+/home/pi/Music/CD01/АукцЫон - Птица.mp3
+/home/pi/Music/CD01/Кожаный Олень - Сардели.mp3
+/home/pi/Music/CD01/Кожаный Олень - Стринги.mp3
+/home/pi/Music/CD01/Потомучто - Когда я сплю.mp3
+/home/pi/Music/CD01/HIM - Right Here in My Arms.mp3
+/home/pi/Music/CD01/Кожаный Олень - 8 марта.mp3
+/home/pi/Music/CD01/Muse - Uprising.mp3
+/home/pi/Music/CD01/Good Times - Рука.mp3
+/home/pi/Music/CD01/Nickelback - Someday.mp3
+/home/pi/Music/CD01/Музыкальный коллектив Петра Налича - Gitar.mp3
+/home/pi/Music/CD01/Чёрный Обелиск - Снизу вверх.mp3
+/home/pi/Music/CD01/Танцы минус - Не увидать.mp3
+/home/pi/Music/CD01/Александр Пушной - Идиот.mp3
+/home/pi/Music/CD01/Ария - Улица роз.mp3
+/home/pi/Music/CD01/Александр Пушной - Навернопотомучто.mp3
+/home/pi/Music/CD01/Потомучто - Супергерои.mp3
+/home/pi/Music/CD01/Кукрыниксы - Никто.mp3
+/home/pi/Music/CD01/Сплин - Письмо.mp3
+/home/pi/Music/CD01/Би-2 - Мяу кисс ми.mp3
+/home/pi/Music/CD01/Rainbow - Catch The Rainbow.mp3
+/home/pi/Music/CD01/Imagine Dragons - Amsterdam.mp3
+/home/pi/Music/CD01/Бригадный Подряд - Парарурап.mp3
+/home/pi/Music/CD01/Пилот - Сердце машины.mp3
+/home/pi/Music/CD01/Little Big - Skibidi (Extended Mix).mp3
+/home/pi/Music/CD01/Sunrise Avenue - I Don't Dance.mp3
+/home/pi/Music/CD01/ДДТ - Ветер.mp3
+/home/pi/Music/CD01/Сплин - Оркестр.mp3
+/home/pi/Music/CD01/Scorpions - The Game Of Life.mp3
+/home/pi/Music/CD01/Моральный кодекс - До свидания, мама!.mp3
+/home/pi/Music/CD01/Pink Floyd - Hey You.mp3
+/home/pi/Music/CD01/Король и Шут - Охотник.mp3
+/home/pi/Music/CD01/Смысловые Галлюцинации - Зачем топтать мою любовь.mp3
+/home/pi/Music/CD01/Ozzy Osbourne - Crazy Train.mp3
+/home/pi/Music/CD01/Little Big - Go Bananas.mp3
+/home/pi/Music/CD01/Т-34 - Мудакам нас не сломать!.mp3
+/home/pi/Music/CD01/Distemper - Сделай что-нибудь больше, чем просто хайп.mp3
+/home/pi/Music/CD01/Потомучто - 06 Бально-танцевательный кружок.mp3
+/home/pi/Music/CD01/Megadeth - Trust.mp3
+/home/pi/Music/CD01/HIM - Razorblade Kiss.mp3
+/home/pi/Music/CD01/Scorpions - Wind Of Change.mp3
+/home/pi/Music/CD01/АрктидА - Уходи.mp3
+/home/pi/Music/CD01/Rammstein - Sechsucht.mp3
+/home/pi/Music/CD01/Motörhead - Ace of Spades.mp3
+/home/pi/Music/CD01/Бутусов - Берег.mp3
+/home/pi/Music/CD01/Noize MC - Общага.mp3
+/home/pi/Music/CD01/Биртман - Коньяк ''Арарат''.mp3
+/home/pi/Music/CD01/Good Times - Астероид.mp3
+/home/pi/Music/CD01/Nazareth - Love Hearts.mp3
+/home/pi/Music/CD01/Little Big - The Sign.mp3
+/home/pi/Music/CD01/Черный Обелиск - Оборона.mp3
+/home/pi/Music/CD01/Noize MC - Миша Козырев (feat. Миша Козырев).mp3
+/home/pi/Music/CD01/Creed - Pity for a Dime.mp3
+/home/pi/Music/CD01/Scorpions - Holiday.mp3
+/home/pi/Music/CD01/7раса - Три цвета.mp3
+/home/pi/Music/CD01/АукцЫон - Дорога.mp3
+/home/pi/Music/CD01/Кожаный Олень - Я устал.mp3
+/home/pi/Music/CD01/OK Go - Another Set of Issues.mp3
+/home/pi/Music/CD01/Потомучто - Не очень хорошо.mp3
+/home/pi/Music/CD01/Radio Чача - Я - Враг Системы (А Вы Все Козлы).mp3
+/home/pi/Music/CD01/Кожаный Олень - Зина.mp3
+/home/pi/Music/CD01/Rammstein - Benzin.mp3
+/home/pi/Music/CD01/Александр Пушной - Надо Радоваться.mp3
+/home/pi/Music/CD01/Черный Обелиск - Ты обманула меня.mp3
+/home/pi/Music/CD01/Good Times - Барабан.mp3
+/home/pi/Music/CD01/Чиж & Co - Еду, еду.mp3
+/home/pi/Music/CD01/КОРОТКОЕ ZАМЫКАНИЕ! - Светофоры.mp3
+/home/pi/Music/CD01/Найк Борзов - Ты горишь.mp3
+/home/pi/Music/CD01/Marilyn Manson - he Nobodies.mp3
+/home/pi/Music/CD01/Little Big - Liar (Sibrinin Remix).mp3
+/home/pi/Music/CD01/Бригадный Подряд - Работа.mp3
+/home/pi/Music/CD01/Little Big - Every Day I'm Drinking.mp3
+/home/pi/Music/CD01/Ленинград - П.П.mp3
+/home/pi/Music/CD01/Unheilig - Herzwerk (Demoversion).mp3
+/home/pi/Music/CD01/Би-2 - Дурочка.mp3
+/home/pi/Music/CD01/Биртман - Сторис.mp3
+/home/pi/Music/CD01/Потомучто - Потерянные люди.mp3
+/home/pi/Music/CD01/Ария - Возьми мое сердце.mp3
+/home/pi/Music/CD01/AC_DC - High Voltage.mp3
+/home/pi/Music/CD01/Пневмослон - Я без баб бы ёбу дал (Ранняя версия).mp3
+/home/pi/Music/CD01/Александр Пушной - Splin it!!!.mp3
+/home/pi/Music/CD01/Beatles - Michelle.mp3
+/home/pi/Music/CD01/Сплин - Феллини.mp3
+/home/pi/Music/CD01/Sentenced - The Suicider.mp3
+/home/pi/Music/CD01/Танцы минус - Привет, весна.mp3
+/home/pi/Music/CD01/System of a Down - Spiders.mp3
+/home/pi/Music/CD01/Алиса - Дождь.mp3
+/home/pi/Music/CD01/Мураками - Нулевой километр.mp3
+/home/pi/Music/CD01/Ленинград - Когда нет денег.mp3
+/home/pi/Music/CD01/Вячеслав Бутусов - Гибралтар (OST Брат-2).mp3
+/home/pi/Music/CD01/Король и Шут - Добрые люди.mp3
+/home/pi/Music/CD01/Radio Чача - Вася.mp3
+/home/pi/Music/CD01/Александр Пушной - It's My Life.mp3
+/home/pi/Music/CD01/Потомучто - Алкоголик.mp3
+/home/pi/Music/CD01/Monster Magnet - See You in Hell.mp3
+/home/pi/Music/CD01/Алиса - Цирк.mp3
+/home/pi/Music/CD01/Потомучто - Страшно.mp3
+/home/pi/Music/CD01/Сплин - Фильм ужасов.mp3
+/home/pi/Music/CD01/Marilyn Manson - This Is the New Shit.mp3
+/home/pi/Music/CD01/Ленинград - Нет и еще раз нет.mp3
+/home/pi/Music/CD01/Сплин - Первый снег.mp3
+/home/pi/Music/CD01/Серьга - Берегите лес.mp3
+/home/pi/Music/CD01/Metallica - The Unforgiven II.mp3
+/home/pi/Music/CD01/Смысловые Галлюцинации - Мысленный волк.mp3
+/home/pi/Music/CD01/5nizza - Эй, Где Ты.mp3
+/home/pi/Music/CD01/7раса - Рост.mp3
+/home/pi/Music/CD01/Захар Май - Дети галактики.mp3
+/home/pi/Music/CD01/Смысловые Галлюцинации - Всё в порядке.mp3
+/home/pi/Music/CD01/Серьга - Кусочек неба.mp3
+/home/pi/Music/CD01/Бригадный Подряд - Детская.mp3
+/home/pi/Music/CD01/7раса - Чёрная весна.mp3
+/home/pi/Music/CD01/Сети - SMILE.mp3
+/home/pi/Music/CD01/5nizza - Я Не Той.mp3
+/home/pi/Music/CD01/Найк Борзов - Детка.mp3
+/home/pi/Music/CD01/Ленинград - Гитара.mp3
+/home/pi/Music/CD01/Биртман - Тони Старк.mp3
+/home/pi/Music/CD01/Ундервуд - Гагарин, я вас любила (из к-ф Даун Хауз).mp3
+/home/pi/Music/CD01/Смысловые Галлюцинации - Вечно молодой (саундтрек кф Брат 2).mp3
+/home/pi/Music/CD01/The Offspring - Way Down the Line.mp3
+/home/pi/Music/CD01/Потомучто - Пять минут.mp3
+/home/pi/Music/CD01/Северный Флот - Поднимая знамя.mp3
+/home/pi/Music/CD01/Бригадный Подряд - Берегите мужа.mp3
+/home/pi/Music/CD01/Rammstein - Eifersucht.mp3
+/home/pi/Music/CD01/Биртман - Прохожий.mp3
+/home/pi/Music/CD01/Король и Шут - Дагон.mp3
+/home/pi/Music/CD01/Наутилус Помпилиус - Крылья.mp3
+/home/pi/Music/CD01/ДДТ - Песня о свободе.mp3
+/home/pi/Music/CD01/Shinedown - Enemies - Shinedown.mp3
+/home/pi/Music/CD01/5nizza - Новый День.mp3
+/home/pi/Music/CD01/Кожаный Олень - Бутылочный рай.mp3
+/home/pi/Music/CD01/Little Big - Freedom.mp3
+/home/pi/Music/CD01/Наив - Моё сердце (Не остановилось).mp3
+/home/pi/Music/CD01/Король и Шут - Мотоцикл.mp3
+/home/pi/Music/CD01/Little Big - Give Me Your Money (feat. Tommy Cash).mp3
+/home/pi/Music/CD01/Marilyn Manson - Sweet Dreams (Are Made of This).mp3
+/home/pi/Music/CD01/Rammstein - Adios.mp3
+/home/pi/Music/CD01/Танцы Минус - Цветы.mp3
+/home/pi/Music/CD01/Бригадный Подряд - Страна возможностей.mp3
+/home/pi/Music/CD01/Король и Шут - Тайна хозяйки старинных часов.mp3
+/home/pi/Music/CD01/Lumen - В поисках счастья.mp3
+/home/pi/Music/CD01/Cavo - Hold Your Ground.mp3
+/home/pi/Music/CD01/Nickelback - If Everyone Cared.mp3
+/home/pi/Music/CD01/Korn - Got the Life.mp3
+/home/pi/Music/CD01/Крематорий - Всадник.mp3
+/home/pi/Music/CD01/Биртман - Олень.mp3
+/home/pi/Music/CD01/Alice Cooper - Poison.mp3
+/home/pi/Music/CD01/AC_DC - Hells Bells.mp3
+/home/pi/Music/CD01/Пневмослон - Жопа схавала трусы (курортная).mp3
+/home/pi/Music/CD01/Бригадный Подряд - Welcome aboard.mp3
+/home/pi/Music/CD01/Найк Борзов - Паническая атака.mp3
+/home/pi/Music/CD01/The Offspring - The Future Is Now.mp3
+/home/pi/Music/CD01/Кирпичи - На страже хардкора.mp3
+/home/pi/Music/CD01/Scorpions - Send Me An Angel.mp3
+/home/pi/Music/CD01/ЧайФ - Время не ждёт.mp3
+/home/pi/Music/CD01/Машина Времени - Однажды мир прогнется под нас.mp3
+/home/pi/Music/CD01/Александр Пушной - Любовь.mp3
+/home/pi/Music/CD01/Reef - Lately Stomping.mp3
+/home/pi/Music/CD01/Little Big - For Haters (feat. Danny Zuckerman).mp3
+/home/pi/Music/CD01/Танцы минус - Скриншот.mp3
+/home/pi/Music/CD01/Little Big - We Will Push a Button.mp3
+/home/pi/Music/CD01/Би-2 - Шамбала.mp3
+/home/pi/Music/CD01/Танцы минус - Девочка.mp3
+/home/pi/Music/CD01/Rolling Stones - Angie.mp3
+/home/pi/Music/CD01/Ленинград - Дороги.mp3
+/home/pi/Music/CD01/The MATRIXX - Романтика.mp3
+/home/pi/Music/CD01/7раса - Ты или Я.mp3
+/home/pi/Music/CD01/Marilyn Manson - Tourniquet.mp3
+/home/pi/Music/CD01/Король и Шут - Дурак и молния.mp3
+/home/pi/Music/CD01/Little Big - Pump It.mp3
+/home/pi/Music/CD01/Кирпичи - Плюю я.mp3
+/home/pi/Music/CD01/Бригадный Подряд - Врач.mp3
+/home/pi/Music/CD01/Ленинград - Дикий мужчина.mp3
+/home/pi/Music/CD01/Radio Чача - Ой, Мороз, Мороз (русская народная песня).mp3
+/home/pi/Music/CD01/Король и Шут - Валет и Дама.mp3
+/home/pi/Music/CD01/Смысловые Галлюцинации - Охотники.mp3
+/home/pi/Music/CD01/Rob Zombie - Dragula.mp3
+/home/pi/Music/CD01/Ленинград - П и Х.mp3
+/home/pi/Music/CD01/Marilyn Manson - Antichrist Superstar.mp3
+/home/pi/Music/CD01/Melon Soul - Костры.mp3
+/home/pi/Music/CD01/Сплин - Берилий.mp3
+/home/pi/Music/CD01/Scorpions - Still Loving You.mp3
+/home/pi/Music/CD01/5nizza - Стрела.mp3
+/home/pi/Music/CD01/Потомучто - Луна.mp3
+/home/pi/Music/CD01/Beatles - Let It Be.mp3
+/home/pi/Music/CD01/Смысловые Галлюцинации - Больше чем жизнь.mp3
+/home/pi/Music/CD01/Музыкальный коллектив Петра Налича - Никогда.mp3
+/home/pi/Music/CD01/Браво - Дорога в облака.mp3
+/home/pi/Music/CD01/Good Times - Пи_сы.mp3
+/home/pi/Music/CD01/Tatarka feat. Little Big - U Can Take.mp3
+/home/pi/Music/CD01/Колдстрим - Без фильтра.mp3
+/home/pi/Music/CD01/Пневмослон - Если б мог, то спиздил.mp3
+/home/pi/Music/CD01/Агата Кристи - Сердцебиение.mp3
+/home/pi/Music/CD01/Наив - Суперзвезда.mp3
+/home/pi/Music/CD01/Король и Шут - Злодей и шапка.mp3
+/home/pi/Music/CD01/Cold In May - Remember Me.mp3
+/home/pi/Music/CD01/Биртман - Пабло Эскобар.mp3
+/home/pi/Music/CD01/Бригадный Подряд - Пей.mp3
+/home/pi/Music/CD01/Lumen - Не надо снов.mp3
+/home/pi/Music/CD01/Rammstein - Rosenrot.mp3
+/home/pi/Music/CD01/Сплин - Звезда рок н ролла.mp3
+/home/pi/Music/CD01/Северо-Zапад - Борода-Трава.mp3
+/home/pi/Music/CD01/Потомучто - Финский залив.mp3
+/home/pi/Music/CD01/Slade - How Does It Feel.mp3
+/home/pi/Music/CD01/Кирпичи - Против коррупции и нанотехнологий.mp3
+/home/pi/Music/CD01/Би-2 - Скользкие улицы.mp3
+/home/pi/Music/CD01/Александр Пушной - Twist And Shout.mp3
+/home/pi/Music/CD01/Кукрыниксы - Обнимай.mp3
+/home/pi/Music/CD01/7раса - Е.А.mp3
+/home/pi/Music/CD01/Little Big - Suck My Dick 2020.mp3
+/home/pi/Music/CD01/Noize MC - Бассейн.mp3
+/home/pi/Music/CD01/Pitchshifter - Subject to Status.mp3
+/home/pi/Music/CD01/Моральный кодекс - Первый снег.mp3
+/home/pi/Music/CD01/Тараканы! - Самый счастливый человек на Земле.mp3
+/home/pi/Music/CD01/Бригадный Подряд - Кировский завод.mp3
+/home/pi/Music/CD01/Little Big - With Russia from Love.mp3
+/home/pi/Music/CD01/Кукрыниксы - Дорогая.mp3
+/home/pi/Music/CD01/Северный Флот - Рождённый убивать.mp3
+/home/pi/Music/CD01/Танцы минус - Уехал автобус.mp3
+/home/pi/Music/CD01/Eagles - Hotel California.mp3
+/home/pi/Music/CD01/Захар Май - Другое небо.mp3
+/home/pi/Music/CD01/Борис Гребенщиков - Тёмный как ночь.mp3
+/home/pi/Music/CD01/Запрещенные Барабанщики - Убили негра.mp3
+/home/pi/Music/CD01/Король и Шут - Кукла колдуна.mp3
+/home/pi/Music/CD01/Pop Evil - Trenches.mp3
+/home/pi/Music/CD01/Scorpions - No One Like You.mp3
+/home/pi/Music/CD01/Би-2 - Достучатьс¤ до небес.mp3
+/home/pi/Music/CD01/Король и Шут - Садовник.mp3
+/home/pi/Music/CD01/Ленинград - Группа крови.mp3
+/home/pi/Music/CD01/Nickelback - Far Away.mp3
+/home/pi/Music/CD01/Good Times - Корпоратив.mp3
+/home/pi/Music/CD01/Король и Шут - Священник больше ничего не скажет.mp3
+/home/pi/Music/CD01/5nizza - Я Тебя Вы.mp3
+/home/pi/Music/CD01/Ленинград - И больше никого.mp3
+/home/pi/Music/CD01/Little Big - Russian Huligans.mp3
+/home/pi/Music/CD01/Король и Шут - Джокер.mp3
+/home/pi/Music/CD01/HIM - Wicked Game.mp3
+/home/pi/Music/CD01/Пикник - Немного огня.mp3
+/home/pi/Music/CD01/Arctic Monkeys - Fluorescent Adolescent.mp3
+/home/pi/Music/CD01/Сплин - Кесарь.mp3
+/home/pi/Music/CD01/Океан Ельзы - Там, де нас нема.mp3
+/home/pi/Music/CD01/Александр Пушной - Черный Boramm.mp3
+/home/pi/Music/CD01/Би-2 - Из-за меня.mp3
+/home/pi/Music/CD01/Король и Шут - Мертвый анархист.mp3
+/home/pi/Music/CD01/Limp Bizkit - Re-Arranged.mp3
+/home/pi/Music/CD01/Би-2 - Мой рок-н-ролл.mp3
+/home/pi/Music/CD01/Наив - Я не шучу.mp3
+/home/pi/Music/CD01/Little Big - I'm OK.mp3
+/home/pi/Music/CD01/Rammstein - Kokain.mp3
+/home/pi/Music/CD01/Animal ДжаZ - Звук и тишина.mp3
+/home/pi/Music/CD01/Вячеслав Бутусов - Девушка по городу.mp3
+/home/pi/Music/CD01/Сплин - Пил и курил.mp3
+/home/pi/Music/CD01/Смысловые Галлюцинации - Зверь 2.mp3
+/home/pi/Music/CD01/Захар Май - Бог не фраер.mp3
+/home/pi/Music/CD01/Кино - Последний герой.mp3
+/home/pi/Music/CD01/Би-2 - Песок.mp3
+/home/pi/Music/CD01/Feeder - Day in Day Out.mp3
+/home/pi/Music/CD01/План Ломоносова - Бегом.mp3
+/home/pi/Music/CD01/Killradio - Scavenger.mp3
+/home/pi/Music/CD01/5nizza - Я солдат.mp3
+/home/pi/Music/CD01/Потомучто - Около пяти промиле.mp3
+/home/pi/Music/CD01/Оркестр Че - Икар.mp3
+/home/pi/Music/CD01/5nizza - Нету Дома, Нету Флага.mp3
+/home/pi/Music/CD01/Смысловые Галлюцинации - Без стюардесс.mp3
+/home/pi/Music/CD01/Сплин - Прочь Из Моей Головы.mp3
+/home/pi/Music/CD01/Пилот - Братишка.mp3
+/home/pi/Music/CD01/Сплин - Новые люди.mp3
+/home/pi/Music/CD01/Reef - Yer Old.mp3
+/home/pi/Music/CD01/Наутилус Помпилиус - Прогулки по воде.mp3
+/home/pi/Music/CD01/Ундервуд - Дураки и дороги.mp3
+/home/pi/Music/CD01/7раса - Тоска.mp3
+/home/pi/Music/CD01/Twisted Sister - We're Not Gonna Take It.mp3
+/home/pi/Music/CD01/Кукрыниксы - Куда ты смотришь.mp3
+/home/pi/Music/CD01/Good Times - Саксофон.mp3
+/home/pi/Music/CD01/Deep Purple - Perfect Strangers.mp3
+/home/pi/Music/CD01/Александр Пушной - Du Hast.mp3
+/home/pi/Music/CD01/Потомучто - Колдун.mp3
+/home/pi/Music/CD01/AC_DC - Rock'n'Roll Train.mp3
+/home/pi/Music/CD01/Ленинград - Пид....сы.mp3
+/home/pi/Music/CD01/Ленинград - Алкоголик.mp3
+/home/pi/Music/CD01/Сплин - Гандбол.mp3
+/home/pi/Music/CD01/Захар Май - Сантиметры дыхания.mp3
+/home/pi/Music/CD01/Кино - Хочу перемен.mp3
+/home/pi/Music/CD01/Би-2 - Зажигать.mp3
+/home/pi/Music/CD01/The Clash - Should I Stay or Should I Go_.mp3
+/home/pi/Music/CD01/Король и Шут - Счастье.mp3
+/home/pi/Music/CD01/Пневмослон - Катастрофический пиздец.mp3
+/home/pi/Music/CD01/Ленинград - Никого не жалко.mp3
+/home/pi/Music/CD01/AC_DC - Moneytalks.mp3
+/home/pi/Music/CD01/Пилот - Двор.mp3
+/home/pi/Music/CD01/Биртман - Магнитик.mp3
+/home/pi/Music/CD01/Marilyn Manson - You and Me and the Devil Makes 3.mp3
+/home/pi/Music/CD01/Little Big - Life in da Trash.mp3
+/home/pi/Music/CD01/Scorpions - Scorpions - Still Loving You.mp3
+/home/pi/Music/CD01/AC_DC - Live Wire.mp3
+/home/pi/Music/CD01/AC_DC - Whole Lotta Rosie.mp3
+/home/pi/Music/CD01/Потомучто - Ничего не останется.mp3
+/home/pi/Music/CD01/Табула Раса - Машина.mp3
+/home/pi/Music/CD01/Кирпичи - Замучали гады.mp3
+/home/pi/Music/CD01/Сплин - Остаёмся зимовать.mp3
+/home/pi/Music/CD01/Marilyn Manson - Doll-Dagga Buzz-Buzz Ziggety-Zag.mp3
+/home/pi/Music/CD01/Animal ДжаZ - Не твоя смерть.mp3
+/home/pi/Music/CD01/Кукрыниксы - Черный ворон.mp3
+/home/pi/Music/CD01/Rise Against - Give It All.mp3
+/home/pi/Music/CD01/Кукрыниксы - ЗЛО.mp3
+/home/pi/Music/CD01/Потомучто - Давай с нами.mp3
+/home/pi/Music/CD01/Музыкальный коллектив Петра Налича - Патиритилап.mp3
+/home/pi/Music/CD01/Marilyn Manson - Putting Holes in Happiness.mp3
+/home/pi/Music/CD01/Чиж & Co - Прогулка по Одессе.mp3
+/home/pi/Music/CD01/Пневмослон - Ленивое ебло.mp3
+/home/pi/Music/CD01/Little Big - Skibidi (ЛАУД Remix).mp3
+/home/pi/Music/CD01/Good Times - Пистолет.mp3
+/home/pi/Music/CD01/Александр Пушной - Слава Богу ты пришел.mp3
+/home/pi/Music/CD01/Биртман - Человек говно.mp3
+/home/pi/Music/CD01/Coal Chamber - Sway.mp3
+/home/pi/Music/CD01/Dёргать! - Наше Лето (Прошло).mp3
+/home/pi/Music/CD01/Смысловые Галлюцинации - Последнее признание.mp3
+/home/pi/Music/CD01/Петр Налич - Золотая рыбка.mp3
+/home/pi/Music/CD01/Кожаный Олень - Вечерина.mp3
+/home/pi/Music/CD01/Би-2 - Flamenco.mp3
+/home/pi/Music/CD01/Korn - Freak on a Leash.mp3
+/home/pi/Music/CD01/Смысловые Галлюцинации - Не могу оторвать глаз от тебя.mp3
+/home/pi/Music/CD01/Северный Флот - Стрелы.mp3
+/home/pi/Music/CD01/Nazareth - Dream On.mp3
+/home/pi/Music/CD01/7раса - 3 цвета.mp3
+/home/pi/Music/CD01/Потомучто - Я здесь.mp3
+/home/pi/Music/CD01/Король и Шут - Воспоминания о былой любви.mp3
+/home/pi/Music/CD01/Rammstein - Bueck dich.mp3
+/home/pi/Music/CD01/Наив - Зима.mp3
+/home/pi/Music/CD01/Кипелов - Вавилон.mp3
+/home/pi/Music/CD01/Little Big - Real People.mp3
+/home/pi/Music/CD01/Lumen - Кроме любви.mp3
+/home/pi/Music/CD01/Judas Priest - Breaking the Law.mp3
+/home/pi/Music/CD01/Rammstein - Weisses Fleisch.mp3
+/home/pi/Music/CD01/Simple Plan - When I'm Gone.mp3
+/home/pi/Music/CD01/Браво - Стильный оранжевый галстук.mp3
+/home/pi/Music/CD01/Marilyn Manson - If I Was Your Vampire.mp3
+/home/pi/Music/CD01/Кожаный Олень - Рожа.mp3
+/home/pi/Music/CD01/Thousand Foot Krutch - Welcome To The Masquerade.mp3
+/home/pi/Music/CD01/Потомучто - 06 В день когда меня не стало.mp3
+/home/pi/Music/CD01/Metallica - So What.mp3
+/home/pi/Music/CD01/Good Times - Жук.mp3
+/home/pi/Music/CD01/Александр Пушной - Песенка одной гЕрлы.mp3
+/home/pi/Music/CD01/Slade - Everyday.mp3
+/home/pi/Music/CD01/Little Big - Tacos.mp3
+/home/pi/Music/CD01/System of a Down - Suite-Pee.mp3
+/home/pi/Music/CD01/Мумий Тролль - Невеста.mp3
+/home/pi/Music/CD01/Good Times - Жизнь хороша.mp3
+/home/pi/Music/CD01/Nickelback - Follow You Home.mp3
+/home/pi/Music/CD01/Ундервуд - Гагарин, я вас любила.mp3
+/home/pi/Music/CD01/Король и Шут - Марионетки.mp3
+/home/pi/Music/CD01/Radio Чача - Arrested development.mp3
+/home/pi/Music/CD01/Rammstein - Deutschland.mp3
+/home/pi/Music/CD01/Пневмослон - В говне, с говном, в говно.mp3
+/home/pi/Music/CD01/Пилот - Желтый дом.mp3
+/home/pi/Music/CD01/5nizza - Ты На Ту.mp3
+/home/pi/Music/CD01/Radio Чача - Смотрю В Окно.mp3
+/home/pi/Music/CD01/Биртман - Илососка.mp3
+/home/pi/Music/CD01/Radio Чача - Люди из пластика.mp3
+/home/pi/Music/CD01/Static-X - I Am.mp3
+/home/pi/Music/CD01/Rage - Days of December.mp3
+/home/pi/Music/CD01/Наив - Утро.mp3
+/home/pi/Music/CD01/7раса - Вечное лето.mp3
+/home/pi/Music/CD01/Muse - Resistance.mp3
+/home/pi/Music/CD01/Rammstein - Stripped.mp3
+/home/pi/Music/CD01/Биртман - Рэп-культура.mp3
+/home/pi/Music/CD01/Radio Чача - Песня Орка Перед Боем (оркская народная песня).mp3
+/home/pi/Music/CD01/Браво - Этот город.mp3
+/home/pi/Music/CD01/5nizza - Оно.mp3
+/home/pi/Music/CD01/AC_DC - Shoot To Thrill.mp3
+/home/pi/Music/CD01/Static-X - I'm With Stupid.mp3
+/home/pi/Music/CD01/Кожаный Олень - Зразы и содом.mp3
+/home/pi/Music/CD01/Rammstein - Kuess mich (Fellfrosch).mp3
+/home/pi/Music/CD01/OK Go - I'm Not Through.mp3
+/home/pi/Music/CD01/Annodomini - Не надо слов.mp3
+/home/pi/Music/CD01/Братья Карамазовы - Маленькая стая.mp3
+/home/pi/Music/CD01/Нервы - Ярче и теплее.mp3
+/home/pi/Music/CD01/Король и Шут - Отражение.mp3
+/home/pi/Music/CD01/Александр Пушной - Улыбаемся и машем.mp3
+/home/pi/Music/CD01/Мумий Тролль - здравствуйдосвидания.mp3
+/home/pi/Music/CD01/Кирпичи - Vasin рэп.mp3
+/home/pi/Music/CD01/Aerosmith - Cryin'.mp3
+/home/pi/Music/CD01/Lumen - С Небес На Землю.mp3
+/home/pi/Music/CD01/Good Times - Джиу-джитсу.mp3
+/home/pi/Music/CD01/Бригадный Подряд - Набело.mp3
+/home/pi/Music/CD01/Limp Bizkit - Stuck.mp3
+/home/pi/Music/CD01/Smokie - What Can I Do.mp3
+/home/pi/Music/CD01/Потомучто - И чо.mp3
+/home/pi/Music/CD01/Кожаный Олень - Снегири и суперклей.mp3
+/home/pi/Music/CD01/Найк Борзов - Слышу тьму.mp3
+/home/pi/Music/CD01/Good Times - Сам себе босс.mp3
+/home/pi/Music/CD01/Бригадный Подряд - Гитары.mp3
+/home/pi/Music/CD01/Биртман - Чак Норрис.mp3
+/home/pi/Music/CD01/Queen - The Show Muts Go On.mp3
+/home/pi/Music/CD01/Little Big - Rock-Paper-Scissors.mp3
+/home/pi/Music/CD01/Guns'n'Roses - Don't Cry.mp3
+/home/pi/Music/CD01/Потомучто - Мой любимый цветок.mp3
+/home/pi/Music/CD01/Radio Чача - Я враг системы (а вы все козлы).mp3
+/home/pi/Music/CD01/Ленинград - Бананы.mp3
+/home/pi/Music/CD01/Lumen - Гореть.mp3
+/home/pi/Music/CD01/Little Big - Love Is Dead.mp3
+/home/pi/Music/CD01/Кукрыниксы - Чучело (привет КиШ).mp3
+/home/pi/Music/CD01/Сплин - Моё сердце.mp3
+/home/pi/Music/CD01/Little Big - AK-47.mp3
+/home/pi/Music/CD01/The Smashing Pumpkins - Perfect.mp3
+/home/pi/Music/CD01/Агата Кристи - Как на войне.mp3
+/home/pi/Music/CD01/ЧайФ - Не со мной.mp3
+/home/pi/Music/CD01/The Cranberries - Animal Instict.mp3
+/home/pi/Music/CD01/Bon Jovi - Bad Medicine.mp3
+/home/pi/Music/CD01/Ленинград - К.Ф.П.Р.mp3
+/home/pi/Music/CD01/Muse - Time Is Running Out.mp3
+/home/pi/Music/CD01/Наив - Что нам делать.mp3
+/home/pi/Music/CD01/The Michael Schenker Group - Armed and Ready.mp3
+/home/pi/Music/CD01/Сплин - Англо-русский словарь.mp3
+/home/pi/Music/CD01/Slipknot - Wait and Bleed.mp3
+/home/pi/Music/CD01/Наутилус Помпилиус - Прощальное письмо.mp3
+/home/pi/Music/CD01/Ленинград - Х..ямба.mp3
+/home/pi/Music/CD01/Биртман - R&B мёртв.mp3
+/home/pi/Music/CD01/Биртман - Deer.mp3
+/home/pi/Music/CD01/Dredg - Sun Goes Down.mp3
+/home/pi/Music/CD01/Борис Гребенщиков - Песни нелюбимых.mp3
+/home/pi/Music/CD01/Пневмослон - Топчик.mp3
+/home/pi/Music/CD01/Кожаный Олень - Порево.mp3
+/home/pi/Music/CD01/Король и Шут - Рогатый.mp3
+/home/pi/Music/CD01/Amorphis - Divinity.mp3
+/home/pi/Music/CD01/Sky Whisky - Sky Whisky.mp3
+/home/pi/Music/CD01/Найк Борзов - Волны прошлого.mp3
+/home/pi/Music/CD01/Кожаный Олень - Яйца.mp3
+/home/pi/Music/CD01/Peter Nalitch and Friends - Kiki.mp3
+/home/pi/Music/CD01/Louna - Штурмуя небеса.mp3
+/home/pi/Music/CD01/Lumen - Один ответ.mp3
+/home/pi/Music/CD01/Кожаный Олень - Люби себя, люби!.mp3
+/home/pi/Music/CD01/Znaki - Долго и счастливо.mp3
+/home/pi/Music/CD01/Guns'n'Roses - November rain.mp3
+/home/pi/Music/CD01/Найк Борзов - Реакция на солнце (Extended Version).mp3
+/home/pi/Music/CD01/Александр Пушной - Всё идёт по плану.mp3
+/home/pi/Music/CD01/Bon Jovi - It's My Life.mp3
+/home/pi/Music/CD01/Rammstein - Wollt ihr das Bett in Flammen sehen.mp3
+/home/pi/Music/CD01/Смысловые Галлюцинации - Утром.mp3
+/home/pi/Music/CD01/The Connels - The Connels - 74 75.mp3
+/home/pi/Music/CD01/Король и Шут - Два друга и разбойники.mp3
+/home/pi/Music/CD01/Сплин - Альтависта (другая точка зрения).mp3
+/home/pi/Music/CD01/Сплин - Рэп (нервное сердце).mp3
+/home/pi/Music/CD01/Good Times - Никита.mp3
+/home/pi/Music/CD01/ЧайФ - Завяжи мне глаза.mp3
+/home/pi/Music/CD01/Потомучто - Феромон.mp3
+/home/pi/Music/CD01/Биртман - Ты не лезь ко мне, когда я пьяный.mp3
+/home/pi/Music/CD01/Черный Обелиск - Новый день.mp3
+/home/pi/Music/CD01/Потомучто - Качок.mp3
+/home/pi/Music/CD01/Биртман - Пригласите негра танцевать.mp3
+/home/pi/Music/CD01/Nickelback - Should've Listened.mp3
+/home/pi/Music/CD01/Peter Nalitch and Friends - Your Music.mp3
+/home/pi/Music/CD01/Ленинград - Бл..ди.mp3
+/home/pi/Music/CD01/Король и Шут - Театральный демон.mp3
+/home/pi/Music/CD01/Би-2 - 1000 миль.mp3
+/home/pi/Music/CD01/Кофе - Что естественно, то не безобразно.mp3
+/home/pi/Music/CD01/Биртман - Негр.mp3
+/home/pi/Music/CD01/Scorpions - You And I.mp3
+/home/pi/Music/CD01/Rammstein - Mein Teil _ You Are What You Eat Edit _ - Remix By Pet Shop Boys.mp3
+/home/pi/Music/CD01/Кожаный Олень - Импотент.mp3
+/home/pi/Music/CD01/Foo Fighters - Monkey Wrench.mp3
+/home/pi/Music/CD01/Distemper - Держи меня покрепче за руку.mp3
+/home/pi/Music/CD01/Urge Overkill - Girl, You'll Be A Woman Soon.mp3
+/home/pi/Music/CD01/AC_DC - Fire Your Guns.mp3
+/home/pi/Music/CD01/Король и Шут - Возвращение колдуна.mp3
+/home/pi/Music/CD01/Павел Пламенев - Солдатами не рождаются.mp3
+/home/pi/Music/CD01/Сплин - Урок географии.mp3
+/home/pi/Music/CD01/Nirvana - The Man Who Sold The World.mp3
+/home/pi/Music/CD01/Little Big - Stoned Monkey.mp3
+/home/pi/Music/CD01/Ляпис Трубецкой - Матрёшка.mp3
+/home/pi/Music/CD01/Black Sabbath - Heaven and Hell.mp3
+/home/pi/Music/CD01/Little Big - Punks Not Dead.mp3
+/home/pi/Music/CD01/Чичерина - Ту-Лу-Ла.mp3
+/home/pi/Music/CD01/Bahroma - Не Дави.mp3
+/home/pi/Music/CD01/Потомучто - Неудачный день.mp3
+/home/pi/Music/CD01/Бригадный Подряд - Красота сожрет этот мир.mp3
+/home/pi/Music/CD01/Павел Пламенев - Я повержен. Ты довольна_ - Нет.mp3
+/home/pi/Music/CD01/Сплин - Больше никакого рок-н-ролла.mp3
+/home/pi/Music/CD01/Scorpions - Rhythm Of Love.mp3
+/home/pi/Music/CD01/Rammstein - Weit Weg.mp3
+/home/pi/Music/CD01/Little Big - Lolly Bomb.mp3
+/home/pi/Music/CD01/Marilyn Manson - I Don`t Like The Drugs (But The Drugs Like Me).mp3
+/home/pi/Music/CD01/Смысловые Галлюцинации - Все будет волшебно.mp3
+/home/pi/Music/CD01/Александр Пушной - Сиськи.mp3
+/home/pi/Music/CD01/Потомучто - Силикон.mp3
+/home/pi/Music/CD01/Потомучто - Путешествие.mp3
+/home/pi/Music/CD01/Aerosmith - Crazy.mp3
+/home/pi/Music/CD01/Roxette - It Must Have Been Love.mp3
+/home/pi/Music/CD01/Imagine Dragons - Hear me.mp3
+/home/pi/Music/CD01/Александр Пушной - Ноктюрн.mp3
+/home/pi/Music/CD01/Rob Zombie - Superbeast.mp3
+/home/pi/Music/CD01/Scorpions - White Dove.mp3
+/home/pi/Music/CD01/Кожаный Олень - сороконожки.mp3
+/home/pi/Music/CD01/Radio Чача - Плакаты.mp3
+/home/pi/Music/CD01/Би-2 - Он плохо кончил.mp3
+/home/pi/Music/CD01/Машина Времени - Поворот.mp3
+/home/pi/Music/CD01/Потомучто - Смотри внимательно.mp3
+/home/pi/Music/CD01/Мумий Тролль - Владивосток 2000.mp3
+/home/pi/Music/CD01/Сплин - Передайте это Гарри Поттеру, если вдруг его встретите.mp3
+/home/pi/Music/CD01/Музыкальный коллектив Петра Налича - Дача.mp3
+/home/pi/Music/CD01/Бригадный Подряд - Питер рок-н-ролл.mp3
+/home/pi/Music/CD01/Nickelback - Savin' Me.mp3
+/home/pi/Music/CD01/Good Times - Профессионалы.mp3
+/home/pi/Music/CD01/Кукрыниксы - Не беда.mp3
+/home/pi/Music/CD01/Tiamat - For Her Pleasure.mp3
+/home/pi/Music/CD01/Обе-Рек - Колодец.mp3
+/home/pi/Music/CD01/Deep Purple - Any Fule Kno That.mp3
+/home/pi/Music/CD01/Король и Шут - Лесник.mp3
+/home/pi/Music/CD01/Бригадный Подряд - РивГош.mp3
+/home/pi/Music/CD01/Lucinda Williams - Drunken Angel.mp3
+/home/pi/Music/CD01/Ленинград - СКА.mp3
+/home/pi/Music/CD01/Сплин - Любовь идет по проводам.mp3
+/home/pi/Music/CD01/Slade - Wild Nites.mp3
+/home/pi/Music/CD01/Би-2 - Муза.mp3
+/home/pi/Music/CD01/Потомучто - Меня никто не видит.mp3
+/home/pi/Music/CD01/Сплин - Линия Жизни.mp3
+/home/pi/Music/CD01/Кожаный Олень - джексон м.mp3
+/home/pi/Music/CD01/Queen - Bohemian rhapsody.mp3
+/home/pi/Music/CD01/Foreigner - Blinded By Science.mp3
+/home/pi/Music/CD01/Rammstein - Das Modell.mp3
+/home/pi/Music/CD01/Кожаный Олень - ПРЗ.mp3
+/home/pi/Music/CD01/Аквариум - Город.mp3
+/home/pi/Music/CD01/Radio Чача - В Системе Дней.mp3
+/home/pi/Music/CD01/Little Big - Faradenza.mp3
+/home/pi/Music/CD01/Yes - Owner of a Lonely Heart.mp3
+/home/pi/Music/CD01/Metallica - Fuel.mp3
+/home/pi/Music/CD01/Кирпичи - Rap калл.mp3
+/home/pi/Music/CD01/Foo Fighters - Generator.mp3
+/home/pi/Music/CD01/Кожаный Олень - Томагавки.mp3
+/home/pi/Music/CD01/Rammstein - Tier.mp3
+/home/pi/Music/CD01/Radio Чача - Голосуй - Не Голосуй.mp3
+/home/pi/Music/CD01/Сплин - Дежавю.mp3
+/home/pi/Music/CD01/Кино - В наших глазах.mp3
+/home/pi/Music/CD01/5nizza - Пятница.mp3
+/home/pi/Music/CD01/Marilyn Manson - Astonishing Panorama Of The Endtimes.mp3
+/home/pi/Music/CD01/Король и Шут - Леший обиделся.mp3
+/home/pi/Music/CD01/АукцЫон - Ещё не поздно.mp3
+/home/pi/Music/CD01/The Verve - Lucky Man.mp3
+/home/pi/Music/CD01/Би-2 - Волки.mp3
+/home/pi/Music/CD01/ДДТ - Дождь.mp3
+/home/pi/Music/CD01/The Cranberries - Zombie.mp3
+/home/pi/Music/CD01/КняZz - Норманны.mp3
+/home/pi/Music/CD01/Океан Ельзы - Без Боя.mp3
+/home/pi/Music/CD01/Мёртвые Дельфины - На моей луне.mp3
+/home/pi/Music/CD01/Marilyn Manson - Great Big White World.mp3
+/home/pi/Music/CD01/Сплин - Джин.mp3
+/home/pi/Music/CD01/5nizza - Огонь и Я.mp3
+/home/pi/Music/CD01/Александр Пушной - Кто Вы_.mp3
+/home/pi/Music/CD01/Good Times - Серьезная песня.mp3
+/home/pi/Music/CD01/Наив - Иллюзия свободы.mp3
+/home/pi/Music/CD01/Rammstein - Bestrafe mich.mp3
+/home/pi/Music/CD01/Земфира - Чайка.mp3
+/home/pi/Music/CD01/Eisbrecher - Böse Mädchen.mp3
+/home/pi/Music/CD01/Сплин - Весь этот бред.mp3
+/home/pi/Music/CD01/Кино - Мама анархия.mp3
+/home/pi/Music/CD01/Сплин - Приходи.mp3
+/home/pi/Music/CD01/Биртман - Анапа.mp3
+/home/pi/Music/CD01/Marilyn Manson - Personal Jesus.mp3
+/home/pi/Music/CD01/Бригадный Подряд - Сомнамбула.mp3
+/home/pi/Music/CD01/Би-2 - Все, как он сказал.mp3
+/home/pi/Music/CD01/Boston - More Than a Feeling.mp3
+/home/pi/Music/CD01/Marilyn Manson - Tainted Love.mp3
+/home/pi/Music/CD01/Смысловые Галлюцинации feat. Оркестр B-A-C-H - Вечность встанет с нами рядом (feat. Оркестр B-A-C-H).mp3
+/home/pi/Music/CD01/Океан Ельзы - Всё буде добре.mp3
+/home/pi/Music/CD01/5nizza - Тянуться.mp3
+/home/pi/Music/CD01/Биртман - Лайки.mp3
+/home/pi/Music/CD01/Good Times - Согласия не надо.mp3
+/home/pi/Music/CD01/Биртман - Бушлатик Stone Island.mp3
+/home/pi/Music/CD01/Найк Борзов - Три слова.mp3
